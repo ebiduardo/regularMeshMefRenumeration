@@ -1,0 +1,8 @@
+awk '{print "nel=",$1, "LM(1:ndof*nen,nel) = (/", $2,",", $3,",", $4, ",", $5, "/)"}' conectividadesC.txt
+
+head -21 nosVizinhosDeNosC.txt |sed 's/:...//'  |sed 's/,/ /g' | sed 's/node =//' |awk '{print "n=",9,";eq=", $1, "; LMs^CncilEq(eq, 1:n)=(/", $2,",", $3,",", $4,",", $5,",", $6,", ", $7,",", $8,",", $9, ",", $10, " /)" }'
+
+
+head -21 nosVizinhosDeNosC.txt |sed 's/:...//'  |sed 's/,/ /g' | sed 's/node =//' |awk '{print "n=",9,";eq=", $1, "; LMstencilEq(eq, 1:n)=(/", $2,",", $3,",", $4,",", $5,",", $6,", ", $7,",", $8,",", $9, ",", $10, " /)" }'
+
+git add bfs.F90 criarFontesDados.sh compilarErodar.sh conectiv0006x0002A.txt conectiv0006x0002C.txt conectiv0060x0020.txt conectiv0600x0020.txt linkedList.F90 tela0006x0002A.txt tela0060x0020.txt tela0600x0020.txt bfsTEMPLATE.F90 comandos.txt

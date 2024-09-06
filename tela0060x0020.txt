@@ -1,0 +1,179 @@
+1, 2, 3, 4, 5, 
+1276, 1277, 1278, 1279, 1280, 1281, 
+elemento 1, LM=1  2  63  62
+elemento 2, LM=2  3  64  63
+elemento 3, LM=3  4  65  64
+elemento 4, LM=4  5  66  65
+elemento 5, LM=5  6  67  66
+elemento 1195, LM=1214  1215  1276  1275
+elemento 1196, LM=1215  1216  1277  1276
+elemento 1197, LM=1216  1217  1278  1277
+elemento 1198, LM=1217  1218  1279  1278
+elemento 1199, LM=1218  1219  1280  1279
+elemento 1200, LM=1219  1220  1281  1280
+
+
+ em  mostrarConteudoG, total de vertices:         1281
+ adjacencias nodais, entre os vertices  =            1  a            5
+adjs a 1, : 62, 63, 2, 1,  ...
+bandaLocal= 63, 
+adjs a 2, : 64, 3, 62, 63, 2, 1,  ...
+bandaLocal= 64, 
+adjs a 3, : 65, 4, 63, 64, 3, 2,  ...
+bandaLocal= 64, 
+adjs a 4, : 66, 5, 64, 65, 4, 3,  ...
+bandaLocal= 64, 
+adjs a 5, : 67, 6, 65, 66, 5, 4,  ...
+bandaLocal= 64, 
+
+:::..., banda maxima=  125 em eq    63
+ vizinhanca da banda maxima
+adjs a 61, : 121, 122, 61, 60,  ...
+bandaLocal= 63, 
+adjs a 62, : 123, 124, 62, 63, 2, 1,  ...
+bandaLocal= 124, 
+ equacao da banda maxima
+adjs a 63, : 125, 123, 124, 64, 3, 62, 63, 2, 1,  ...
+bandaLocal= 125, 
+
+adjs a 64, : 126, 124, 125, 65, 4, 63, 64, 3, 2,  ...
+bandaLocal= 125, 
+adjs a 65, : 127, 125, 126, 66, 5, 64, 65, 4, 3,  ...
+bandaLocal= 125, 
+
+
+ em  mostrarConteudoG, total de vertices:         1281
+ adjacencias nodais, entre os vertices  =         1276  a         1281
+adjs a 1276, : 1277, 1216, 1275, 1276, 1215, 1214,  ...
+bandaLocal= 64, 
+adjs a 1277, : 1278, 1217, 1276, 1277, 1216, 1215,  ...
+bandaLocal= 64, 
+adjs a 1278, : 1279, 1218, 1277, 1278, 1217, 1216,  ...
+bandaLocal= 64, 
+adjs a 1279, : 1280, 1219, 1278, 1279, 1218, 1217,  ...
+bandaLocal= 64, 
+adjs a 1280, : 1281, 1220, 1279, 1280, 1219, 1218,  ...
+bandaLocal= 64, 
+adjs a 1281, : 1280, 1281, 1220, 1219,  ...
+bandaLocal= 63, 
+
+:::..., banda maxima=  125 em eq    63
+ vizinhanca da banda maxima
+adjs a 61, : 121, 122, 61, 60,  ...
+bandaLocal= 63, 
+adjs a 62, : 123, 124, 62, 63, 2, 1,  ...
+bandaLocal= 124, 
+ equacao da banda maxima
+adjs a 63, : 125, 123, 124, 64, 3, 62, 63, 2, 1,  ...
+bandaLocal= 125, 
+
+adjs a 64, : 126, 124, 125, 65, 4, 63, 64, 3, 2,  ...
+bandaLocal= 125, 
+adjs a 65, : 127, 125, 126, 66, 5, 64, 65, 4, 3,  ...
+bandaLocal= 125, 
+ banda_ original =          125
+  em bfs, origem_,           1 , destino_            1
+incluindo :,    1
+0, toVisit, : 1,  ...
+
+  QUASE vazia, 
+A, excluindo:1, 
+  QUASE vazia, 
+A, excluindo:61, 
+ numeracoes 
+ original -> modificada
+        1 -> 1
+        2 -> 4
+        3 -> 9
+        4 -> 16
+        5 -> 25
+        6 -> 36
+        7 -> 49
+        8 -> 64
+        9 -> 81
+        10 -> 100
+
+1271 -> 1051
+1272 -> 1072
+1273 -> 1093
+1274 -> 1114
+1275 -> 1135
+1276 -> 1156
+1277 -> 1177
+1278 -> 1198
+1279 -> 1219
+1280 -> 1240
+1281 -> 1261
+
+ banda_ modificada =           83
+elemento 1, LM=1  4  3  2
+elemento 2, LM=4  9  8  3
+elemento 3, LM=9  16  15  8
+elemento 4, LM=16  25  24  15
+elemento 5, LM=25  36  35  24
+elemento 1195, LM=1136  1157  1156  1135
+elemento 1196, LM=1157  1178  1177  1156
+elemento 1197, LM=1178  1199  1198  1177
+elemento 1198, LM=1199  1220  1219  1198
+elemento 1199, LM=1220  1241  1240  1219
+elemento 1200, LM=1241  1262  1261  1240
+
+
+ em  mostrarConteudoG, total de vertices:         1281
+ adjacencias nodais, entre os vertices  =            1  a            5
+adjs a 1, : 2, 3, 4, 1,  ...
+bandaLocal= 4, 
+adjs a 2, : 8, 9, 2, 3, 4, 1,  ...
+bandaLocal= 9, 
+adjs a 3, : 15, 16, 3, 8, 9, 4,  ...
+bandaLocal= 14, 
+adjs a 4, : 24, 25, 8, 15, 16, 9,  ...
+bandaLocal= 18, 
+adjs a 5, : 35, 36, 15, 24, 25, 16,  ...
+bandaLocal= 22, 
+
+:::..., banda maxima=   83 em eq    81
+ vizinhanca da banda maxima
+adjs a 79, : 359, 287, 322, 360, 361, 288, 323, 324, 289,  ...
+bandaLocal= 75, 
+adjs a 80, : 398, 322, 359, 399, 400, 323, 360, 361, 324,  ...
+bandaLocal= 79, 
+ equacao da banda maxima
+adjs a 81, : 439, 359, 398, 440, 441, 360, 399, 400, 361,  ...
+bandaLocal= 83, 
+
+adjs a 82, : 460, 398, 439, 461, 462, 399, 440, 441, 400,  ...
+bandaLocal= 65, 
+adjs a 83, : 481, 439, 460, 482, 483, 440, 461, 462, 441,  ...
+bandaLocal= 45, 
+
+
+ em  mostrarConteudoG, total de vertices:         1281
+ adjacencias nodais, entre os vertices  =         1276  a         1281
+adjs a 1276, : 1177, 1178, 1135, 1156, 1157, 1136,  ...
+bandaLocal= 44, 
+adjs a 1277, : 1198, 1199, 1156, 1177, 1178, 1157,  ...
+bandaLocal= 44, 
+adjs a 1278, : 1219, 1220, 1177, 1198, 1199, 1178,  ...
+bandaLocal= 44, 
+adjs a 1279, : 1240, 1241, 1198, 1219, 1220, 1199,  ...
+bandaLocal= 44, 
+adjs a 1280, : 1261, 1262, 1219, 1240, 1241, 1220,  ...
+bandaLocal= 44, 
+adjs a 1281, : 1240, 1261, 1262, 1241,  ...
+bandaLocal= 23, 
+
+:::..., banda maxima=   83 em eq    81
+ vizinhanca da banda maxima
+adjs a 79, : 359, 287, 322, 360, 361, 288, 323, 324, 289,  ...
+bandaLocal= 75, 
+adjs a 80, : 398, 322, 359, 399, 400, 323, 360, 361, 324,  ...
+bandaLocal= 79, 
+ equacao da banda maxima
+adjs a 81, : 439, 359, 398, 440, 441, 360, 399, 400, 361,  ...
+bandaLocal= 83, 
+
+adjs a 82, : 460, 398, 439, 461, 462, 399, 440, 441, 400,  ...
+bandaLocal= 65, 
+adjs a 83, : 481, 439, 460, 482, 483, 440, 461, 462, 441,  ...
+bandaLocal= 45, 
