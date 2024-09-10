@@ -1,3 +1,5 @@
+cp bfs.F90 bfsTEMPLATE.F90
+
 cp conectiv0060x0020.txt conectividades.txt
 ./criarFontesDados.sh  > /dev/null 
 head conectividades.F90
