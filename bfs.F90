@@ -78,7 +78,7 @@ subroutine mostrarConteudoG(adjArray_, inicio_, fim_)
        maiorValor(adjArray_(eqBandaMax)%next)-menorValor(adjArray_(eqBandaMax)%next)+1, " em eq ", eqBandaMax
  !if ( eqBandaMax < inicio_ .or. eqBandaMax > fim_)  return
  print*, "vizinhanca da banda maxima"
- do eq = eqBandaMax-2 ,  eqBandaMax+2
+ do eq = eqBandaMax-0 ,  eqBandaMax+0
   if (eq == eqBandaMax) print*, "equacao da banda maxima"
   write(*,'(a, i0, ", ")', advance='no') 'adjs a ', eq; call mostrarConteudoL(adjArray_(eq)%next )
   write(*,'(a, i0, ", ")', advance='yes') 'bandaLocal= ', maiorValor(adjArray_(eq)%next)-menorValor(adjArray_(eq)%next)+1
@@ -332,11 +332,13 @@ subroutine renumerarCM()
  !type(verticeL), pointer :: adjArray(:)
 
  type(verticeL), pointer :: caminho, aux
+  integer :: inicio, final
 
- NUMNPX=21; NUMELX=12
- NUMNPX=12621; NUMELX=12000
- NUMNPX=1281; NUMELX=1200
+ NUMNPX=(600+1)*(20+1); NUMELX=600*20
+ NUMNPX=(60+1)*(20+1); NUMELX=60*20
+ NUMNPX=(6+1)*(2+1); NUMELX=6*2
  numnp=NUMNPX; numel=NUMELX; neq = numnp; 
+ print*, "numnp=", numnp,", numel=", numel, ", neq =",  neq; 
 
  allocate(LM(nen*ndof,numel))
  allocate(id(ndof,numnp))
@@ -372,10 +374,19 @@ subroutine renumerarCM()
  eqBandaMax=bandaMax(adjArray)
  print*, "banda_ modificada = ", maiorValor(adjArray(eqBandaMax)%next)-menorValor(adjArray(eqBandaMax)%next)+1
 
- call mostrarLM(LM, nen, numel, 1, 5)
- call mostrarLM(LM, nen, numel, numel-5, numel)
- call mostrarConteudoG(adjArray,       1,    5)
- call mostrarConteudoG(adjArray,numnp-5, numnp)
+ inicio=1; final=5
+ if(numel<=12) final=numel
+ call mostrarLM(LM, nen, numel, inicio, final)
+
+ inicio=numel-5; final=numel
+ if(numel>12) call mostrarLM(LM, nen, numel, inicio, final)
+
+ inicio=1; final=numnp
+ if(numnp<21) final = numnp 
+ call mostrarConteudoG(adjArray, inicio, final)
+
+ inicio=numnp-5; final=numnp
+ if(numnp>21) call mostrarConteudoG(adjArray, inicio, final)
  return
 contains 
 
