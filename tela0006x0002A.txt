@@ -18,94 +18,112 @@ elemento 9, LM=10  11  18  17
 elemento 10, LM=11  12  19  18
 elemento 11, LM=12  13  20  19
 elemento 12, LM=13  14  21  20
+ em montarAdjArrayLM( subroutine  
   adjacencias nodais original  
 
 
- em  mostrarConteudoG, total de vertices:           21
+ em  mostrarConteudoGp, total de vertices:           21
  adjacencias nodais, entre os vertices  =            1  a           21
-adjs a 1, : 8, 9, 2, 1,  ...
-bandaLocal= 9, 
-adjs a 2, : 10, 3, 8, 9, 2, 1,  ...
-bandaLocal= 10, 
-adjs a 3, : 11, 4, 9, 10, 3, 2,  ...
-bandaLocal= 10, 
-adjs a 4, : 12, 5, 10, 11, 4, 3,  ...
-bandaLocal= 10, 
-adjs a 5, : 13, 6, 11, 12, 5, 4,  ...
-bandaLocal= 10, 
-adjs a 6, : 14, 7, 12, 13, 6, 5,  ...
-bandaLocal= 10, 
-adjs a 7, : 13, 14, 7, 6,  ...
-bandaLocal= 9, 
-adjs a 8, : 15, 16, 8, 9, 2, 1,  ...
-bandaLocal= 16, 
-adjs a 9, : 17, 15, 16, 10, 3, 8, 9, 2, 1,  ...
-bandaLocal= 17, 
-adjs a 10, : 18, 16, 17, 11, 4, 9, 10, 3, 2,  ...
-bandaLocal= 17, 
-adjs a 11, : 19, 17, 18, 12, 5, 10, 11, 4, 3,  ...
-bandaLocal= 17, 
-adjs a 12, : 20, 18, 19, 13, 6, 11, 12, 5, 4,  ...
-bandaLocal= 17, 
-adjs a 13, : 21, 19, 20, 14, 7, 12, 13, 6, 5,  ...
-bandaLocal= 17, 
-adjs a 14, : 20, 21, 13, 14, 7, 6,  ...
-bandaLocal= 16, 
-adjs a 15, : 15, 16, 9, 8,  ...
-bandaLocal= 9, 
-adjs a 16, : 17, 10, 15, 16, 9, 8,  ...
-bandaLocal= 10, 
-adjs a 17, : 18, 11, 16, 17, 10, 9,  ...
-bandaLocal= 10, 
-adjs a 18, : 19, 12, 17, 18, 11, 10,  ...
-bandaLocal= 10, 
-adjs a 19, : 20, 13, 18, 19, 12, 11,  ...
-bandaLocal= 10, 
-adjs a 20, : 21, 14, 19, 20, 13, 12,  ...
-bandaLocal= 10, 
-adjs a 21, : 20, 21, 14, 13,  ...
-bandaLocal= 9, 
-
-:::..., banda maxima=   17 em eq     9
- vizinhanca da banda maxima
- equacao da banda maxima
-adjs a 9, : 17, 15, 16, 10, 3, 8, 9, 2, 1,  ...
-bandaLocal= 17, 
-
+adjs a 1, : 8, T, 9, T, 2, T, 1, F,  ...
+,    4 elementos
+maior-menor+1= 9, 
+adjs a 2, : 10, T, 3, T, 8, T, 9, T, 2, T, 1, F,  ...
+,    6 elementos
+maior-menor+1= 10, 
+adjs a 3, : 11, T, 4, T, 9, T, 10, T, 3, T, 2, F,  ...
+,    6 elementos
+maior-menor+1= 10, 
+adjs a 4, : 12, T, 5, T, 10, T, 11, T, 4, T, 3, F,  ...
+,    6 elementos
+maior-menor+1= 10, 
+adjs a 5, : 13, T, 6, T, 11, T, 12, T, 5, T, 4, F,  ...
+,    6 elementos
+maior-menor+1= 10, 
+adjs a 6, : 14, T, 7, T, 12, T, 13, T, 6, T, 5, F,  ...
+,    6 elementos
+maior-menor+1= 10, 
+adjs a 7, : 13, T, 14, T, 7, T, 6, F,  ...
+,    4 elementos
+maior-menor+1= 9, 
+adjs a 8, : 15, T, 16, T, 8, T, 9, T, 2, T, 1, F,  ...
+,    6 elementos
+maior-menor+1= 16, 
+adjs a 9, : 17, T, 15, T, 16, T, 10, T, 3, T, 8, T, 9, T, 2, T, 1, F,  ...
+,    9 elementos
+maior-menor+1= 17, 
+adjs a 10, : 18, T, 16, T, 17, T, 11, T, 4, T, 9, T, 10, T, 3, T, 2, F,  ...
+,    9 elementos
+maior-menor+1= 17, 
+adjs a 11, : 19, T, 17, T, 18, T, 12, T, 5, T, 10, T, 11, T, 4, T, 3, F,  ...
+,    9 elementos
+maior-menor+1= 17, 
+adjs a 12, : 20, T, 18, T, 19, T, 13, T, 6, T, 11, T, 12, T, 5, T, 4, F,  ...
+,    9 elementos
+maior-menor+1= 17, 
+adjs a 13, : 21, T, 19, T, 20, T, 14, T, 7, T, 12, T, 13, T, 6, T, 5, F,  ...
+,    9 elementos
+maior-menor+1= 17, 
+adjs a 14, : 20, T, 21, T, 13, T, 14, T, 7, T, 6, F,  ...
+,    6 elementos
+maior-menor+1= 16, 
+adjs a 15, : 15, T, 16, T, 9, T, 8, F,  ...
+,    4 elementos
+maior-menor+1= 9, 
+adjs a 16, : 17, T, 10, T, 15, T, 16, T, 9, T, 8, F,  ...
+,    6 elementos
+maior-menor+1= 10, 
+adjs a 17, : 18, T, 11, T, 16, T, 17, T, 10, T, 9, F,  ...
+,    6 elementos
+maior-menor+1= 10, 
+adjs a 18, : 19, T, 12, T, 17, T, 18, T, 11, T, 10, F,  ...
+,    6 elementos
+maior-menor+1= 10, 
+adjs a 19, : 20, T, 13, T, 18, T, 19, T, 12, T, 11, F,  ...
+,    6 elementos
+maior-menor+1= 10, 
+adjs a 20, : 21, T, 14, T, 19, T, 20, T, 13, T, 12, F,  ...
+,    6 elementos
+maior-menor+1= 10, 
+adjs a 21, : 20, T, 21, T, 14, T, 13, F,  ...
+,    4 elementos
+maior-menor+1= 9, 
  banda_ original =           17
-  em bfs, origem_,           1 , destino_            1
-incluindo :,    1
-0, toVisit, : 1,  ...
+   ------------- BFS  --------------------------------------BFS 
+  em bfs, origem_,           1 , destino_            4
+  ... lista vazia! 
 
-  QUASE vazia, 
-A, excluindo:1, 
-  QUASE vazia, 
-A, excluindo:7, 
- numeracoes 
- original -> modificada
-        1 -> 1
-        2 -> 4
-        3 -> 9
-        4 -> 12
-        5 -> 15
-        6 -> 18
-        7 -> 21
-        8 -> 2
-        9 -> 3
-        10 -> 8
-
-11 -> 11
-12 -> 14
-13 -> 17
-14 -> 20
-15 -> 5
-16 -> 6
-17 -> 7
-18 -> 10
-19 -> 13
-20 -> 16
-21 -> 19
-
+nohs visited, : 7, T, 14, T, 21, T, 6, T, 13, T, 20, T, 5, T, 12, T, 19, T, 4, T, 11, T, 18, T, 3, T, 10, T, 17, T, 16, T, 15, T, 2, T, 9, T, 8, T, 1, F,  ...
+,   21 elementos
+ banda_ original =           17
+          caminho minimo
+: 7, T, 14, T, 21, T, 6, T, 13, T, 20, T, 5, T, 12, T, 19, T, 4, T, 11, T, 18, T, 3, T, 10, T, 17, T, 16, T, 15, T, 2, T, 9, T, 8, T, 1, F,  ...
+,   21 elementos
+ copia do caminho minimo
+: 1, T, 8, T, 9, T, 2, T, 15, T, 16, T, 17, T, 10, T, 3, T, 18, T, 11, T, 4, T, 19, T, 12, T, 5, T, 20, T, 13, T, 6, T, 21, T, 14, T, 7, F,  ...
+,   21 elementos
+ nova numeracao
+           1 ->           1
+           2 ->           4
+           3 ->           9
+           4 ->          12
+           5 ->          15
+           6 ->          18
+           7 ->          21
+           8 ->           2
+           9 ->           3
+          10 ->           8
+          11 ->          11
+          12 ->          14
+          13 ->          17
+          14 ->          20
+          15 ->           5
+          16 ->           6
+          17 ->           7
+          18 ->          10
+          19 ->          13
+          20 ->          16
+          21 ->          19
+ em montarAdjArrayLM( subroutine  
  banda_ modificada =           10
   conectividades dos elementos da numeração modificada
  em  mostrarLM, total de elementos:           12
@@ -125,54 +143,69 @@ elemento 12, LM=17  20  19  16
   adjacencias nodais modificada  
 
 
- em  mostrarConteudoG, total de vertices:           21
+ em  mostrarConteudoGp, total de vertices:           21
  adjacencias nodais, entre os vertices  =            1  a           21
-adjs a 1, : 2, 3, 4, 1,  ...
-bandaLocal= 4, 
-adjs a 2, : 8, 9, 2, 3, 4, 1,  ...
-bandaLocal= 9, 
-adjs a 3, : 11, 12, 3, 8, 9, 4,  ...
-bandaLocal= 10, 
-adjs a 4, : 14, 15, 8, 11, 12, 9,  ...
-bandaLocal= 8, 
-adjs a 5, : 17, 18, 11, 14, 15, 12,  ...
-bandaLocal= 8, 
-adjs a 6, : 20, 21, 14, 17, 18, 15,  ...
-bandaLocal= 8, 
-adjs a 7, : 17, 20, 21, 18,  ...
-bandaLocal= 5, 
-adjs a 8, : 5, 6, 2, 3, 4, 1,  ...
-bandaLocal= 6, 
-adjs a 9, : 7, 5, 6, 8, 9, 2, 3, 4, 1,  ...
-bandaLocal= 9, 
-adjs a 10, : 10, 6, 7, 11, 12, 3, 8, 9, 4,  ...
-bandaLocal= 10, 
-adjs a 11, : 13, 7, 10, 14, 15, 8, 11, 12, 9,  ...
-bandaLocal= 9, 
-adjs a 12, : 16, 10, 13, 17, 18, 11, 14, 15, 12,  ...
-bandaLocal= 9, 
-adjs a 13, : 19, 13, 16, 20, 21, 14, 17, 18, 15,  ...
-bandaLocal= 9, 
-adjs a 14, : 16, 19, 17, 20, 21, 18,  ...
-bandaLocal= 6, 
-adjs a 15, : 5, 6, 3, 2,  ...
-bandaLocal= 5, 
-adjs a 16, : 7, 8, 5, 6, 3, 2,  ...
-bandaLocal= 7, 
-adjs a 17, : 10, 11, 6, 7, 8, 3,  ...
-bandaLocal= 9, 
-adjs a 18, : 13, 14, 7, 10, 11, 8,  ...
-bandaLocal= 8, 
-adjs a 19, : 16, 17, 10, 13, 14, 11,  ...
-bandaLocal= 8, 
-adjs a 20, : 19, 20, 13, 16, 17, 14,  ...
-bandaLocal= 8, 
-adjs a 21, : 16, 19, 20, 17,  ...
-bandaLocal= 5, 
-
-:::..., banda maxima=   10 em eq     3
- vizinhanca da banda maxima
- equacao da banda maxima
-adjs a 3, : 11, 12, 3, 8, 9, 4,  ...
-bandaLocal= 10, 
-
+adjs a 1, : 2, T, 3, T, 4, T, 1, F,  ...
+,    4 elementos
+maior-menor+1= 4, 
+adjs a 2, : 5, T, 6, T, 2, T, 3, T, 4, T, 1, F,  ...
+,    6 elementos
+maior-menor+1= 6, 
+adjs a 3, : 7, T, 5, T, 6, T, 8, T, 9, T, 2, T, 3, T, 4, T, 1, F,  ...
+,    9 elementos
+maior-menor+1= 9, 
+adjs a 4, : 8, T, 9, T, 2, T, 3, T, 4, T, 1, F,  ...
+,    6 elementos
+maior-menor+1= 9, 
+adjs a 5, : 5, T, 6, T, 3, T, 2, F,  ...
+,    4 elementos
+maior-menor+1= 5, 
+adjs a 6, : 7, T, 8, T, 5, T, 6, T, 3, T, 2, F,  ...
+,    6 elementos
+maior-menor+1= 7, 
+adjs a 7, : 10, T, 11, T, 6, T, 7, T, 8, T, 3, F,  ...
+,    6 elementos
+maior-menor+1= 9, 
+adjs a 8, : 10, T, 6, T, 7, T, 11, T, 12, T, 3, T, 8, T, 9, T, 4, F,  ...
+,    9 elementos
+maior-menor+1= 10, 
+adjs a 9, : 11, T, 12, T, 3, T, 8, T, 9, T, 4, F,  ...
+,    6 elementos
+maior-menor+1= 10, 
+adjs a 10, : 13, T, 14, T, 7, T, 10, T, 11, T, 8, F,  ...
+,    6 elementos
+maior-menor+1= 8, 
+adjs a 11, : 13, T, 7, T, 10, T, 14, T, 15, T, 8, T, 11, T, 12, T, 9, F,  ...
+,    9 elementos
+maior-menor+1= 9, 
+adjs a 12, : 14, T, 15, T, 8, T, 11, T, 12, T, 9, F,  ...
+,    6 elementos
+maior-menor+1= 8, 
+adjs a 13, : 16, T, 17, T, 10, T, 13, T, 14, T, 11, F,  ...
+,    6 elementos
+maior-menor+1= 8, 
+adjs a 14, : 16, T, 10, T, 13, T, 17, T, 18, T, 11, T, 14, T, 15, T, 12, F,  ...
+,    9 elementos
+maior-menor+1= 9, 
+adjs a 15, : 17, T, 18, T, 11, T, 14, T, 15, T, 12, F,  ...
+,    6 elementos
+maior-menor+1= 8, 
+adjs a 16, : 19, T, 20, T, 13, T, 16, T, 17, T, 14, F,  ...
+,    6 elementos
+maior-menor+1= 8, 
+adjs a 17, : 19, T, 13, T, 16, T, 20, T, 21, T, 14, T, 17, T, 18, T, 15, F,  ...
+,    9 elementos
+maior-menor+1= 9, 
+adjs a 18, : 20, T, 21, T, 14, T, 17, T, 18, T, 15, F,  ...
+,    6 elementos
+maior-menor+1= 8, 
+adjs a 19, : 16, T, 19, T, 20, T, 17, F,  ...
+,    4 elementos
+maior-menor+1= 5, 
+adjs a 20, : 16, T, 19, T, 17, T, 20, T, 21, T, 18, F,  ...
+,    6 elementos
+maior-menor+1= 6, 
+adjs a 21, : 17, T, 20, T, 21, T, 18, F,  ...
+,    4 elementos
+maior-menor+1= 5, 
+ banda_ modificada =           10

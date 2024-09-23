@@ -2,7 +2,14 @@ awk '{print "nel=",$1, "LM(1:ndof*nen,nel) = (/", $2,",", $3,",", $4, ",", $5, "
 
 head -21 nosVizinhosDeNosC.txt |sed 's/:...//'  |sed 's/,/ /g' | sed 's/node =//' |awk '{print "n=",9,";eq=", $1, "; LMs^CncilEq(eq, 1:n)=(/", $2,",", $3,",", $4,",", $5,",", $6,", ", $7,",", $8,",", $9, ",", $10, " /)" }'
 
-
 head -21 nosVizinhosDeNosC.txt |sed 's/:...//'  |sed 's/,/ /g' | sed 's/node =//' |awk '{print "n=",9,";eq=", $1, "; LMstencilEq(eq, 1:n)=(/", $2,",", $3,",", $4,",", $5,",", $6,", ", $7,",", $8,",", $9, ",", $10, " /)" }'
 
 git add bfs.F90 criarFontesDados.sh compilarErodar.sh conectiv0006x0002A.txt conectiv0006x0002C.txt conectiv0060x0020.txt conectiv0600x0020.txt linkedList.F90 tela0006x0002A.txt tela0060x0020.txt tela0600x0020.txt bfsTEMPLATE.F90 comandos.txt
+
+
+vi bfs.F90 ; rm a.out; gfortran bfs.F90 ; cp conectiv0006x0002A.txt conectividades.txt; ./criarFontesDados.sh  > /dev/null ; ./a.out |tee tela.txt ; grep "banda_\|numnp=" tela.txt
+
+sed 's/:/;/' conectividades.txt | sed 's/nel =//' | sed 's/\.\.\.//'  | sed 's/,//g' | awk '{print "nel=",$1, "LM(1:ndof*nen,nel) = (/", $3,",", $4,",", $5, ",", $6, "/)"}' |tee conectividades.F90
+
+cp conectiv0006x0002A_R.txt conectividades.txt ; ./criarFontesDados.sh  > /dev/null;head conectividades.F90; sed  -e 's/=NUMNPX/=61*21/' -e 's/=NUMELX/=60*20/' bfsTEMPLATE.F90 > bfsM.F90; rm a.out; time gfortran bfsM.F90; time ./a.out |tee tela0060x0020A_R.txt; grep banda_ tela0060x0020.txt
+
