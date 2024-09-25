@@ -170,10 +170,24 @@ vector<vector<double> > matrix;
 	matrix[i++] = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 0, 0 };
 	matrix[i++] = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 0 };
 	matrix[i++] = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1 };
-	matrix[i++] = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 1 };
+	matrix[i] = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 1 };
+	matrix[i][0] =  0;
+
+        i = 0;
+	cout << "B = np.matrix('";
+	do{ 
+	    cout << matrix[i++] ;
+	    if(i<20) cout << ";" ;//<< endl;
+	  } while (i< 21); 
+	cout << "')" << endl;
+
 
 	cout << "\n Rudimental order of objects: " << endl;
-        for (int i=0; i<num_rows; i++ ){ cout << "\t" << i+1 << ","  ; if ((i)%7==6) cout  << endl;  }
+        for (int i=0; i<num_rows; i++ ){ 
+		cout << "\t" << i+1 << ","  ;
+	       	if ((i)%7==6) cout  << endl;
+	       	//if ((i)%3==2) cout  << endl;
+      	}
         //for (i=0; i<num_rows; i++ ){ matrix[i][i]=0;}
 
  } // void entrada21A{
@@ -188,11 +202,20 @@ int main() {
 
 
 	cout << "\n Permutation order of objects: " << r  << endl;
-        for (int i=0; i<num_rows; i++ ){ cout << "\t" << r[i]+1 << ","  ; if ((i)%7==6) cout  << endl;  }
+        for (int i=0; i<num_rows; i++ ){ 
+		cout << "\t" << r[i]+1 << ","  ;
+	       	//if ((i)%7==6) cout  << endl;
+	       	if ((i)%3==2) cout  << endl;
+      	}
 
 	r = m.CuthillMckee();
 	cout << "\n Permutation order of objects: " << r  << endl;
-        for (int i=0; i<num_rows; i++ ){ cout << "\t" << r[i]+1 << ","  ; if ((i)%7==6) cout  << endl;  }
+        for (int i=0; i<num_rows; i++ ){ 
+		cout << "\t" << r[i]+1 << ","  ;
+	       	//if ((i)%7==6) cout  << endl;
+	       	if ((i)%3==2) cout  << endl;
+      	}
+       // for (int i=0; i<num_rows; i++ ){ cout << "\t" << r[i]+1 << ","  ; if ((i)%7==6) cout  << endl;  }
 
 	return 0;
 }

@@ -476,6 +476,8 @@ subroutine renumerar()
  end do;
 
  if(neq<=21) print*, "nova numeracao"
+ if(neq<=21) then; do i=1,neq; write(*,'(i3)', advance='no')  acessarNum(listaVertices(i)); end do; endif
+         print*
  if(neq<=21) then; do i=1,neq; print*,i, "->", acessarNum(listaVertices(i)); end do; endif
 
  do nel = 1, numel
