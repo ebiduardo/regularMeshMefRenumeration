@@ -13,3 +13,5 @@ sed 's/:/;/' conectividades.txt | sed 's/nel =//' | sed 's/\.\.\.//'  | sed 's/,
 
 cp conectiv0006x0002A_R.txt conectividades.txt ; ./criarFontesDados.sh  > /dev/null;head conectividades.F90; sed  -e 's/=NUMNPX/=61*21/' -e 's/=NUMELX/=60*20/' bfsTEMPLATE.F90 > bfsM.F90; rm a.out; time gfortran bfsM.F90; time ./a.out |tee tela0060x0020A_R.txt; grep banda_ tela0060x0020.txt
 
+gfortran -O0 bfs.F90 &> telaC.txt; head telaC.txt; ./a.out  |tail -2
+g++ rcma.cpp ; ./a.out |tail -2

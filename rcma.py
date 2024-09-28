@@ -10,8 +10,6 @@ B = np.matrix('1 0 0 0 1 0 0 0;\
         0 1 0 0 0 1 0 1;\
         0 0 0 1 0 0 1 0;\
         0 1 0 0 0 1 0 1')
-print(B.A)
-B[0,:]
 
 #Finite elemnt mesh numeration example
 B = np.matrix('1 1 0 0 0 0 0 1 1 0 0 0 0 0 0 0 0 0 0 0 0 ;\
@@ -35,6 +33,20 @@ B = np.matrix('1 1 0 0 0 0 0 1 1 0 0 0 0 0 0 0 0 0 0 0 0 ;\
         0 0 0 0 0 0 0 0 0 0 1 1 1 0 0 0 0 1 1 1 0 ;\
         0 0 0 0 0 0 0 0 0 0 0 1 1 1 0 0 0 0 1 1 1 ;\
         0 0 0 0 0 0 0 0 0 0 0 0 1 1 0 0 0 0 0 1 1 ')
+print(B.A)
+
+i = 0; j = 0;
+print( "adjacents(") 
+while i < 21:
+    print( i+1 ,  end=": " )
+    while j < 21:
+      #  print( "i=", i,", j=", j,  B[i,j],  B[i,j] > 0) 
+        if B[i,j] > 0:
+            print( j+1 ,  end=", " )
+        j+=1
+    j=0
+    i+=1
+    print()
 
 B = ss.csr_matrix(B)
 
@@ -58,4 +70,18 @@ ApL=A[permA,:]
 ApLC=ApL[:,permA]
 print(" matriz A permutada : linhas + colunas =\n", ApLC.A)
 print("vetor de permutação =\n", permA)
+
+i = 0; j = 0;
+print( "adjacents(") 
+while i < 21:
+    print( i+1 ,  end=": " )
+    while j < 21:
+      #  print( "i=", i,", j=", j,  B[i,j],  B[i,j] > 0) 
+        if ApLC[i,j] > 0:
+            print( j+1 ,  end=", " )
+        j+=1
+    j=0
+    i+=1
+    print()
+
 

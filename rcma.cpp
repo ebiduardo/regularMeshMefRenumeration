@@ -53,6 +53,19 @@ public:
 		return degrees;
 	}
 
+	void printPair(pair<int, double> p_){
+           cout <<  p_.first << " ;  " ;
+	   return;
+           cout <<  p_.first << ": " << p_.second <<" ;  " ;
+	}
+	void printQueue(std::queue<int> q_) {
+	  while (!q_.empty()) {
+  		  std::cout << q_.front() << " ";
+   		 q_.pop();
+ 	 }
+  	std::cout << std::endl;
+}
+
 	// Implementation of Cuthill-Mckee algorithm
 	vector<int> CuthillMckee() {
 		vector<double> degrees = degreeGenerator();
@@ -60,16 +73,23 @@ public:
                  queue<int> Q;
 		vector<int> R;
 		vector<pair<int, double> > notVisited;
+
 		for (int i = 0; i < degrees.size(); i++) notVisited.push_back(make_pair(i, degrees[i]));
+		for (int i = 0; i < notVisited.size(); i++) printPair(notVisited[i]); cout << endl;
+
 		// Vector notVisited helps in running BFS
 		// even when there are dijoind graphs
 		while (notVisited.size()) {
 	  	   int minNodeIndex = 0;
-		   for (int i = 0; i < notVisited.size(); i++)
-		   {if (notVisited[i].second < notVisited[minNodeIndex].second) minNodeIndex = i;}
-		//	cout << "notVisited =" << notVisited[minNodeIndex].first << endl;
-		//	cout << "notVisited =" << notVisited[minNodeIndex].second << endl;
+		   for (int i = 0; i < notVisited.size(); i++) {
+			   if (notVisited[i].second < notVisited[minNodeIndex].second)
+				   minNodeIndex = i;
+		   }
+			cout << " visiting = " <<  notVisited[minNodeIndex].first << endl;
 			Q.push(notVisited[minNodeIndex].first);
+
+			cout << " Q.push(notVisited[minNodeIndex].first); Q ="; printQueue(Q); cout  << endl;
+
 			notVisited.erase(notVisited.begin()+findIndex(notVisited, notVisited[Q.front()].first));
 			// Simple BFS
 			while (!Q.empty()) {
@@ -77,16 +97,24 @@ public:
 			   for (int i = 0; i < _matrix[0].size(); i++) {
 			       if (i != Q.front() && _matrix[Q.front()][i]==1 && findIndex(notVisited, i) != -1) {
 				      toSort.push_back(i);
+				      cout << "including "<< i << " adj from ... "<<Q.front()<<" ... in toSort = " << toSort << endl;
 				      notVisited.erase(notVisited.begin()+findIndex(notVisited, i));
-				     }
-				}
+				     } //  if (i != Q.front() && _matrix[Q...
+			    } // for (int i = 0; i < _matrix[0].size(); i++) {
 			        sort(toSort.begin(), toSort.end(), compareDegree);
-				//cout << "toSort =" << toSort << endl;
+			cout << " toSort = " << toSort << endl ;
 				for (int i = 0; i < toSort.size(); i++) Q.push(toSort[i]);
+			cout << " toSort -> Q = " ; printQueue(Q);
 				R.push_back(Q.front());
 				Q.pop();
+			cout << " R.push_back(Q.front())(), R = " << R << endl; //printQueue(R);
+			cout << " Q.pop(),  Q = " ; printQueue(Q);
+			cout << " notVisited = " ;
+		        for (int i = 0; i < notVisited.size(); i++) printPair(notVisited[i]); cout << endl;
 			}
 		}
+		cout << "final de .. vector<int> CuthillMckee() { " << endl;
+		cout << " R = " << R << endl;
 		return R;
 	}
 
@@ -94,12 +122,12 @@ public:
 	vector<int> ReverseCuthillMckee() {
 		vector<int> cuthill = CuthillMckee();
 		int n = cuthill.size();
-		if (n % 2 == 0) n -= 1; 
-		n = n / 2; 
-		for (int i = 0; i <= n; i++) {
-			int j = cuthill[cuthill.size() - 1 - i];
-			cuthill[cuthill.size() - 1 - i] = cuthill[i];
-			cuthill[i] = j;
+		//if (n % 2 == 0) n -= 1; n = n / 2; 
+		for (int i = 0; i <= n/2; i++) {
+			int j;
+		               j = cuthill[n-1-i];
+                  cuthill[n-1-i] = cuthill[i];
+   		      cuthill[i] = j;
 		} 
 		return cuthill;
 	}
@@ -181,6 +209,20 @@ vector<vector<double> > matrix;
 	  } while (i< 21); 
 	cout << "')" << endl;
 
+        i = 0;
+	int j = 0;
+	cout << "adjacents(" << endl;
+	do{ 
+	do{ 
+	    if (matrix[i][j++] != 0) cout << j <<  ", " ;
+	  } while (j< 21); 
+	  i++; j=0;
+	     cout<< endl;
+	  } while (i< 21); 
+	cout << "')" << endl;
+	//exit(0);
+
+
 
 	cout << "\n Rudimental order of objects: " << endl;
         for (int i=0; i<num_rows; i++ ){ 
@@ -198,23 +240,27 @@ int main() {
 
 	ReorderingSSM m(matrix);
 
-	vector<int> r = m.ReverseCuthillMckee();
+	vector<int> r;
 
-
-	cout << "\n Permutation order of objects: " << r  << endl;
-        for (int i=0; i<num_rows; i++ ){ 
-		cout << "\t" << r[i]+1 << ","  ;
-	       	//if ((i)%7==6) cout  << endl;
-	       	if ((i)%3==2) cout  << endl;
-      	}
 
 	r = m.CuthillMckee();
 	cout << "\n Permutation order of objects: " << r  << endl;
         for (int i=0; i<num_rows; i++ ){ 
 		cout << "\t" << r[i]+1 << ","  ;
 	       	//if ((i)%7==6) cout  << endl;
-	       	if ((i)%3==2) cout  << endl;
+	       	//if ((i)%3==2) cout  << endl;
       	}
+	cout << endl;
+
+	r = m.ReverseCuthillMckee();
+	cout << "\n Permutation order of objects: " << r  << endl;
+        for (int i=0; i<num_rows; i++ ){ 
+		cout << "\t" << r[i]+1 << ","  ;
+	       	//if ((i)%7==6) cout  << endl;
+	       	//if ((i)%3==2) cout  << endl;
+      	}
+	cout << endl;
+
        // for (int i=0; i<num_rows; i++ ){ cout << "\t" << r[i]+1 << ","  ; if ((i)%7==6) cout  << endl;  }
 
 	return 0;
