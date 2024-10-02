@@ -15,3 +15,12 @@ cp conectiv0006x0002A_R.txt conectividades.txt ; ./criarFontesDados.sh  > /dev/n
 
 gfortran -O0 bfs.F90 &> telaC.txt; head telaC.txt; ./a.out  |tail -2
 g++ rcma.cpp ; ./a.out |tail -2
+grep "maior-menor+1" tela06x06A.txt -B 2 |head -147 |grep "maior-menor+1"  |awk '{s=s+$2; {print s/49.}}'
+
+vi bfs.F90; (cp bfs.F90 bfsTEMPLATE.F90; cp  conectiv0006x0006A.txt conectividades.txt; ./criarFontesDados.sh  > /dev/null; head conectividades.F90; sed  -e 's/=NUMNPX/=49/' -e 's/=NUMELX/=36/' bfsTEMPLATE.F90 > bfsM.F90; rm a.out; gfortran bfsM.F90; ./a.out) > tela06x06A.txt
+
+ vi bfs.F90; (cp bfs.F90 bfsTEMPLATE.F90; cp  conectiv0006x0002A.txt conectividades.txt; ./criarFontesDados.sh  > /dev/null; head conectividades.F90; sed  -e 's/=NUMNPX/=21/' -e 's/=NUMELX/=12/' bfsTEMPLATE.F90 > bfsM.F90; rm a.out; gfortran bfsM.F90; ./a.out)  |grep  "nova nu" -A 23
+
+./a.out |grep "adjacencias nodais modificada" -A 151 |awk '/maior-/{s=s+$2; print $2, s/((NR-8)/3+1)}'
+/a.out |grep "1, F, 2" -B 1 |tail -1 |sed 's/ T,//g'| sed 's/, F//g'
+

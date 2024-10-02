@@ -1,0 +1,2170 @@
+  estudos de renumeracao usando Cuthill–McKee algorithm 
+           em malha de elmentos finitos
+ numnp=          49 , numel=          36 , neq =          49
+1, 2, 3, 4, 5, 
+44, 45, 46, 47, 48, 49, 
+  conectividades dos elementos da malha original
+ em  mostrarLM, total de elementos:           36
+ conectividades nodais, entre os elementos =            1  a            5
+elemento 1, LM=1  2  9  8
+elemento 2, LM=2  3  10  9
+elemento 3, LM=3  4  11  10
+elemento 4, LM=4  5  12  11
+elemento 5, LM=5  6  13  12
+ em  mostrarLM, total de elementos:           36
+ conectividades nodais, entre os elementos =           31  a           36
+elemento 31, LM=36  37  44  43
+elemento 32, LM=37  38  45  44
+elemento 33, LM=38  39  46  45
+elemento 34, LM=39  40  47  46
+elemento 35, LM=40  41  48  47
+elemento 36, LM=41  42  49  48
+ em montarAdjArrayLM( subroutine  
+em function incluirVerticeLOrdenado, 1, 
+ lista estava vazia ....
+em function incluirVerticeLOrdenado, 2, 
+em function incluirVerticeLOrdenado, 1, 
+ lista estava vazia ....
+em function incluirVerticeLOrdenado, 9, 
+em function incluirVerticeLOrdenado, 1, 
+ lista estava vazia ....
+em function incluirVerticeLOrdenado, 8, 
+em function incluirVerticeLOrdenado, 1, 
+ lista estava vazia ....
+em function incluirVerticeLOrdenado, 2, 
+em function incluirVerticeLOrdenado, 9, 
+em function incluirVerticeLOrdenado, 2, 
+em function incluirVerticeLOrdenado, 8, 
+em function incluirVerticeLOrdenado, 2, 
+em function incluirVerticeLOrdenado, 9, 
+em function incluirVerticeLOrdenado, 8, 
+em function incluirVerticeLOrdenado, 9, 
+em function incluirVerticeLOrdenado, 8, 
+em function incluirVerticeLOrdenado, 3, 
+em function incluirVerticeLOrdenado, 2, 
+ lista estava vazia ....
+em function incluirVerticeLOrdenado, 10, 
+em function incluirVerticeLOrdenado, 2, 
+ lista estava vazia ....
+em function incluirVerticeLOrdenado, 3, 
+em function incluirVerticeLOrdenado, 10, 
+em function incluirVerticeLOrdenado, 3, 
+em function incluirVerticeLOrdenado, 9, 
+em function incluirVerticeLOrdenado, 3, 
+em function incluirVerticeLOrdenado, 10, 
+em function incluirVerticeLOrdenado, 9, 
+em function incluirVerticeLOrdenado, 10, 
+em function incluirVerticeLOrdenado, 4, 
+em function incluirVerticeLOrdenado, 3, 
+ lista estava vazia ....
+em function incluirVerticeLOrdenado, 11, 
+em function incluirVerticeLOrdenado, 3, 
+ lista estava vazia ....
+em function incluirVerticeLOrdenado, 4, 
+em function incluirVerticeLOrdenado, 11, 
+em function incluirVerticeLOrdenado, 4, 
+em function incluirVerticeLOrdenado, 10, 
+em function incluirVerticeLOrdenado, 4, 
+em function incluirVerticeLOrdenado, 11, 
+em function incluirVerticeLOrdenado, 10, 
+em function incluirVerticeLOrdenado, 11, 
+em function incluirVerticeLOrdenado, 5, 
+em function incluirVerticeLOrdenado, 4, 
+ lista estava vazia ....
+em function incluirVerticeLOrdenado, 12, 
+em function incluirVerticeLOrdenado, 4, 
+ lista estava vazia ....
+em function incluirVerticeLOrdenado, 5, 
+em function incluirVerticeLOrdenado, 12, 
+em function incluirVerticeLOrdenado, 5, 
+em function incluirVerticeLOrdenado, 11, 
+em function incluirVerticeLOrdenado, 5, 
+em function incluirVerticeLOrdenado, 12, 
+em function incluirVerticeLOrdenado, 11, 
+em function incluirVerticeLOrdenado, 12, 
+em function incluirVerticeLOrdenado, 6, 
+em function incluirVerticeLOrdenado, 5, 
+ lista estava vazia ....
+em function incluirVerticeLOrdenado, 13, 
+em function incluirVerticeLOrdenado, 5, 
+ lista estava vazia ....
+em function incluirVerticeLOrdenado, 6, 
+em function incluirVerticeLOrdenado, 13, 
+em function incluirVerticeLOrdenado, 6, 
+em function incluirVerticeLOrdenado, 12, 
+em function incluirVerticeLOrdenado, 6, 
+em function incluirVerticeLOrdenado, 13, 
+em function incluirVerticeLOrdenado, 12, 
+em function incluirVerticeLOrdenado, 13, 
+em function incluirVerticeLOrdenado, 7, 
+em function incluirVerticeLOrdenado, 6, 
+ lista estava vazia ....
+em function incluirVerticeLOrdenado, 14, 
+em function incluirVerticeLOrdenado, 6, 
+ lista estava vazia ....
+em function incluirVerticeLOrdenado, 7, 
+em function incluirVerticeLOrdenado, 14, 
+em function incluirVerticeLOrdenado, 7, 
+em function incluirVerticeLOrdenado, 13, 
+em function incluirVerticeLOrdenado, 7, 
+em function incluirVerticeLOrdenado, 14, 
+em function incluirVerticeLOrdenado, 13, 
+em function incluirVerticeLOrdenado, 14, 
+em function incluirVerticeLOrdenado, 16, 
+em function incluirVerticeLOrdenado, 8, 
+ lista estava vazia ....
+em function incluirVerticeLOrdenado, 15, 
+em function incluirVerticeLOrdenado, 8, 
+ lista estava vazia ....
+em function incluirVerticeLOrdenado, 16, 
+em function incluirVerticeLOrdenado, 9, 
+em function incluirVerticeLOrdenado, 15, 
+em function incluirVerticeLOrdenado, 9, 
+em function incluirVerticeLOrdenado, 16, 
+em function incluirVerticeLOrdenado, 15, 
+em function incluirVerticeLOrdenado, 16, 
+em function incluirVerticeLOrdenado, 15, 
+em function incluirVerticeLOrdenado, 17, 
+em function incluirVerticeLOrdenado, 9, 
+ lista estava vazia ....
+em function incluirVerticeLOrdenado, 17, 
+em function incluirVerticeLOrdenado, 10, 
+em function incluirVerticeLOrdenado, 16, 
+em function incluirVerticeLOrdenado, 10, 
+em function incluirVerticeLOrdenado, 17, 
+em function incluirVerticeLOrdenado, 16, 
+em function incluirVerticeLOrdenado, 17, 
+em function incluirVerticeLOrdenado, 18, 
+em function incluirVerticeLOrdenado, 10, 
+ lista estava vazia ....
+em function incluirVerticeLOrdenado, 18, 
+em function incluirVerticeLOrdenado, 11, 
+em function incluirVerticeLOrdenado, 17, 
+em function incluirVerticeLOrdenado, 11, 
+em function incluirVerticeLOrdenado, 18, 
+em function incluirVerticeLOrdenado, 17, 
+em function incluirVerticeLOrdenado, 18, 
+em function incluirVerticeLOrdenado, 19, 
+em function incluirVerticeLOrdenado, 11, 
+ lista estava vazia ....
+em function incluirVerticeLOrdenado, 19, 
+em function incluirVerticeLOrdenado, 12, 
+em function incluirVerticeLOrdenado, 18, 
+em function incluirVerticeLOrdenado, 12, 
+em function incluirVerticeLOrdenado, 19, 
+em function incluirVerticeLOrdenado, 18, 
+em function incluirVerticeLOrdenado, 19, 
+em function incluirVerticeLOrdenado, 20, 
+em function incluirVerticeLOrdenado, 12, 
+ lista estava vazia ....
+em function incluirVerticeLOrdenado, 20, 
+em function incluirVerticeLOrdenado, 13, 
+em function incluirVerticeLOrdenado, 19, 
+em function incluirVerticeLOrdenado, 13, 
+em function incluirVerticeLOrdenado, 20, 
+em function incluirVerticeLOrdenado, 19, 
+em function incluirVerticeLOrdenado, 20, 
+em function incluirVerticeLOrdenado, 21, 
+em function incluirVerticeLOrdenado, 13, 
+ lista estava vazia ....
+em function incluirVerticeLOrdenado, 21, 
+em function incluirVerticeLOrdenado, 14, 
+em function incluirVerticeLOrdenado, 20, 
+em function incluirVerticeLOrdenado, 14, 
+em function incluirVerticeLOrdenado, 21, 
+em function incluirVerticeLOrdenado, 20, 
+em function incluirVerticeLOrdenado, 21, 
+em function incluirVerticeLOrdenado, 23, 
+em function incluirVerticeLOrdenado, 15, 
+ lista estava vazia ....
+em function incluirVerticeLOrdenado, 22, 
+em function incluirVerticeLOrdenado, 15, 
+ lista estava vazia ....
+em function incluirVerticeLOrdenado, 23, 
+em function incluirVerticeLOrdenado, 16, 
+em function incluirVerticeLOrdenado, 22, 
+em function incluirVerticeLOrdenado, 16, 
+em function incluirVerticeLOrdenado, 23, 
+em function incluirVerticeLOrdenado, 22, 
+em function incluirVerticeLOrdenado, 23, 
+em function incluirVerticeLOrdenado, 22, 
+em function incluirVerticeLOrdenado, 24, 
+em function incluirVerticeLOrdenado, 16, 
+ lista estava vazia ....
+em function incluirVerticeLOrdenado, 24, 
+em function incluirVerticeLOrdenado, 17, 
+em function incluirVerticeLOrdenado, 23, 
+em function incluirVerticeLOrdenado, 17, 
+em function incluirVerticeLOrdenado, 24, 
+em function incluirVerticeLOrdenado, 23, 
+em function incluirVerticeLOrdenado, 24, 
+em function incluirVerticeLOrdenado, 25, 
+em function incluirVerticeLOrdenado, 17, 
+ lista estava vazia ....
+em function incluirVerticeLOrdenado, 25, 
+em function incluirVerticeLOrdenado, 18, 
+em function incluirVerticeLOrdenado, 24, 
+em function incluirVerticeLOrdenado, 18, 
+em function incluirVerticeLOrdenado, 25, 
+em function incluirVerticeLOrdenado, 24, 
+em function incluirVerticeLOrdenado, 25, 
+em function incluirVerticeLOrdenado, 26, 
+em function incluirVerticeLOrdenado, 18, 
+ lista estava vazia ....
+em function incluirVerticeLOrdenado, 26, 
+em function incluirVerticeLOrdenado, 19, 
+em function incluirVerticeLOrdenado, 25, 
+em function incluirVerticeLOrdenado, 19, 
+em function incluirVerticeLOrdenado, 26, 
+em function incluirVerticeLOrdenado, 25, 
+em function incluirVerticeLOrdenado, 26, 
+em function incluirVerticeLOrdenado, 27, 
+em function incluirVerticeLOrdenado, 19, 
+ lista estava vazia ....
+em function incluirVerticeLOrdenado, 27, 
+em function incluirVerticeLOrdenado, 20, 
+em function incluirVerticeLOrdenado, 26, 
+em function incluirVerticeLOrdenado, 20, 
+em function incluirVerticeLOrdenado, 27, 
+em function incluirVerticeLOrdenado, 26, 
+em function incluirVerticeLOrdenado, 27, 
+em function incluirVerticeLOrdenado, 28, 
+em function incluirVerticeLOrdenado, 20, 
+ lista estava vazia ....
+em function incluirVerticeLOrdenado, 28, 
+em function incluirVerticeLOrdenado, 21, 
+em function incluirVerticeLOrdenado, 27, 
+em function incluirVerticeLOrdenado, 21, 
+em function incluirVerticeLOrdenado, 28, 
+em function incluirVerticeLOrdenado, 27, 
+em function incluirVerticeLOrdenado, 28, 
+em function incluirVerticeLOrdenado, 30, 
+em function incluirVerticeLOrdenado, 22, 
+ lista estava vazia ....
+em function incluirVerticeLOrdenado, 29, 
+em function incluirVerticeLOrdenado, 22, 
+ lista estava vazia ....
+em function incluirVerticeLOrdenado, 30, 
+em function incluirVerticeLOrdenado, 23, 
+em function incluirVerticeLOrdenado, 29, 
+em function incluirVerticeLOrdenado, 23, 
+em function incluirVerticeLOrdenado, 30, 
+em function incluirVerticeLOrdenado, 29, 
+em function incluirVerticeLOrdenado, 30, 
+em function incluirVerticeLOrdenado, 29, 
+em function incluirVerticeLOrdenado, 31, 
+em function incluirVerticeLOrdenado, 23, 
+ lista estava vazia ....
+em function incluirVerticeLOrdenado, 31, 
+em function incluirVerticeLOrdenado, 24, 
+em function incluirVerticeLOrdenado, 30, 
+em function incluirVerticeLOrdenado, 24, 
+em function incluirVerticeLOrdenado, 31, 
+em function incluirVerticeLOrdenado, 30, 
+em function incluirVerticeLOrdenado, 31, 
+em function incluirVerticeLOrdenado, 32, 
+em function incluirVerticeLOrdenado, 24, 
+ lista estava vazia ....
+em function incluirVerticeLOrdenado, 32, 
+em function incluirVerticeLOrdenado, 25, 
+em function incluirVerticeLOrdenado, 31, 
+em function incluirVerticeLOrdenado, 25, 
+em function incluirVerticeLOrdenado, 32, 
+em function incluirVerticeLOrdenado, 31, 
+em function incluirVerticeLOrdenado, 32, 
+em function incluirVerticeLOrdenado, 33, 
+em function incluirVerticeLOrdenado, 25, 
+ lista estava vazia ....
+em function incluirVerticeLOrdenado, 33, 
+em function incluirVerticeLOrdenado, 26, 
+em function incluirVerticeLOrdenado, 32, 
+em function incluirVerticeLOrdenado, 26, 
+em function incluirVerticeLOrdenado, 33, 
+em function incluirVerticeLOrdenado, 32, 
+em function incluirVerticeLOrdenado, 33, 
+em function incluirVerticeLOrdenado, 34, 
+em function incluirVerticeLOrdenado, 26, 
+ lista estava vazia ....
+em function incluirVerticeLOrdenado, 34, 
+em function incluirVerticeLOrdenado, 27, 
+em function incluirVerticeLOrdenado, 33, 
+em function incluirVerticeLOrdenado, 27, 
+em function incluirVerticeLOrdenado, 34, 
+em function incluirVerticeLOrdenado, 33, 
+em function incluirVerticeLOrdenado, 34, 
+em function incluirVerticeLOrdenado, 35, 
+em function incluirVerticeLOrdenado, 27, 
+ lista estava vazia ....
+em function incluirVerticeLOrdenado, 35, 
+em function incluirVerticeLOrdenado, 28, 
+em function incluirVerticeLOrdenado, 34, 
+em function incluirVerticeLOrdenado, 28, 
+em function incluirVerticeLOrdenado, 35, 
+em function incluirVerticeLOrdenado, 34, 
+em function incluirVerticeLOrdenado, 35, 
+em function incluirVerticeLOrdenado, 37, 
+em function incluirVerticeLOrdenado, 29, 
+ lista estava vazia ....
+em function incluirVerticeLOrdenado, 36, 
+em function incluirVerticeLOrdenado, 29, 
+ lista estava vazia ....
+em function incluirVerticeLOrdenado, 37, 
+em function incluirVerticeLOrdenado, 30, 
+em function incluirVerticeLOrdenado, 36, 
+em function incluirVerticeLOrdenado, 30, 
+em function incluirVerticeLOrdenado, 37, 
+em function incluirVerticeLOrdenado, 36, 
+em function incluirVerticeLOrdenado, 37, 
+em function incluirVerticeLOrdenado, 36, 
+em function incluirVerticeLOrdenado, 38, 
+em function incluirVerticeLOrdenado, 30, 
+ lista estava vazia ....
+em function incluirVerticeLOrdenado, 38, 
+em function incluirVerticeLOrdenado, 31, 
+em function incluirVerticeLOrdenado, 37, 
+em function incluirVerticeLOrdenado, 31, 
+em function incluirVerticeLOrdenado, 38, 
+em function incluirVerticeLOrdenado, 37, 
+em function incluirVerticeLOrdenado, 38, 
+em function incluirVerticeLOrdenado, 39, 
+em function incluirVerticeLOrdenado, 31, 
+ lista estava vazia ....
+em function incluirVerticeLOrdenado, 39, 
+em function incluirVerticeLOrdenado, 32, 
+em function incluirVerticeLOrdenado, 38, 
+em function incluirVerticeLOrdenado, 32, 
+em function incluirVerticeLOrdenado, 39, 
+em function incluirVerticeLOrdenado, 38, 
+em function incluirVerticeLOrdenado, 39, 
+em function incluirVerticeLOrdenado, 40, 
+em function incluirVerticeLOrdenado, 32, 
+ lista estava vazia ....
+em function incluirVerticeLOrdenado, 40, 
+em function incluirVerticeLOrdenado, 33, 
+em function incluirVerticeLOrdenado, 39, 
+em function incluirVerticeLOrdenado, 33, 
+em function incluirVerticeLOrdenado, 40, 
+em function incluirVerticeLOrdenado, 39, 
+em function incluirVerticeLOrdenado, 40, 
+em function incluirVerticeLOrdenado, 41, 
+em function incluirVerticeLOrdenado, 33, 
+ lista estava vazia ....
+em function incluirVerticeLOrdenado, 41, 
+em function incluirVerticeLOrdenado, 34, 
+em function incluirVerticeLOrdenado, 40, 
+em function incluirVerticeLOrdenado, 34, 
+em function incluirVerticeLOrdenado, 41, 
+em function incluirVerticeLOrdenado, 40, 
+em function incluirVerticeLOrdenado, 41, 
+em function incluirVerticeLOrdenado, 42, 
+em function incluirVerticeLOrdenado, 34, 
+ lista estava vazia ....
+em function incluirVerticeLOrdenado, 42, 
+em function incluirVerticeLOrdenado, 35, 
+em function incluirVerticeLOrdenado, 41, 
+em function incluirVerticeLOrdenado, 35, 
+em function incluirVerticeLOrdenado, 42, 
+em function incluirVerticeLOrdenado, 41, 
+em function incluirVerticeLOrdenado, 42, 
+em function incluirVerticeLOrdenado, 44, 
+em function incluirVerticeLOrdenado, 36, 
+ lista estava vazia ....
+em function incluirVerticeLOrdenado, 43, 
+em function incluirVerticeLOrdenado, 36, 
+ lista estava vazia ....
+em function incluirVerticeLOrdenado, 44, 
+em function incluirVerticeLOrdenado, 37, 
+em function incluirVerticeLOrdenado, 43, 
+em function incluirVerticeLOrdenado, 37, 
+em function incluirVerticeLOrdenado, 44, 
+em function incluirVerticeLOrdenado, 43, 
+em function incluirVerticeLOrdenado, 44, 
+em function incluirVerticeLOrdenado, 43, 
+em function incluirVerticeLOrdenado, 45, 
+em function incluirVerticeLOrdenado, 37, 
+ lista estava vazia ....
+em function incluirVerticeLOrdenado, 45, 
+em function incluirVerticeLOrdenado, 38, 
+em function incluirVerticeLOrdenado, 44, 
+em function incluirVerticeLOrdenado, 38, 
+em function incluirVerticeLOrdenado, 45, 
+em function incluirVerticeLOrdenado, 44, 
+em function incluirVerticeLOrdenado, 45, 
+em function incluirVerticeLOrdenado, 46, 
+em function incluirVerticeLOrdenado, 38, 
+ lista estava vazia ....
+em function incluirVerticeLOrdenado, 46, 
+em function incluirVerticeLOrdenado, 39, 
+em function incluirVerticeLOrdenado, 45, 
+em function incluirVerticeLOrdenado, 39, 
+em function incluirVerticeLOrdenado, 46, 
+em function incluirVerticeLOrdenado, 45, 
+em function incluirVerticeLOrdenado, 46, 
+em function incluirVerticeLOrdenado, 47, 
+em function incluirVerticeLOrdenado, 39, 
+ lista estava vazia ....
+em function incluirVerticeLOrdenado, 47, 
+em function incluirVerticeLOrdenado, 40, 
+em function incluirVerticeLOrdenado, 46, 
+em function incluirVerticeLOrdenado, 40, 
+em function incluirVerticeLOrdenado, 47, 
+em function incluirVerticeLOrdenado, 46, 
+em function incluirVerticeLOrdenado, 47, 
+em function incluirVerticeLOrdenado, 48, 
+em function incluirVerticeLOrdenado, 40, 
+ lista estava vazia ....
+em function incluirVerticeLOrdenado, 48, 
+em function incluirVerticeLOrdenado, 41, 
+em function incluirVerticeLOrdenado, 47, 
+em function incluirVerticeLOrdenado, 41, 
+em function incluirVerticeLOrdenado, 48, 
+em function incluirVerticeLOrdenado, 47, 
+em function incluirVerticeLOrdenado, 48, 
+em function incluirVerticeLOrdenado, 49, 
+em function incluirVerticeLOrdenado, 41, 
+ lista estava vazia ....
+em function incluirVerticeLOrdenado, 49, 
+em function incluirVerticeLOrdenado, 42, 
+em function incluirVerticeLOrdenado, 48, 
+em function incluirVerticeLOrdenado, 42, 
+em function incluirVerticeLOrdenado, 49, 
+em function incluirVerticeLOrdenado, 48, 
+em function incluirVerticeLOrdenado, 49, 
+  adjacencias nodais original  
+
+
+ em  mostrarConteudoGp, total de vertices:           49
+ adjacencias nodais, entre os vertices  =            1  a            5
+adjs a 1, , em mostrarConteudoL: 1, T, 2, T, 8, T, 9, F,  ...
+,    4 elementos
+maior-menor+1= 9
+adjs a 2, , em mostrarConteudoL: 1, T, 2, T, 3, T, 8, T, 9, T, 10, F,  ...
+,    6 elementos
+maior-menor+1= 10
+adjs a 3, , em mostrarConteudoL: 2, T, 3, T, 4, T, 9, T, 10, T, 11, F,  ...
+,    6 elementos
+maior-menor+1= 10
+adjs a 4, , em mostrarConteudoL: 3, T, 4, T, 5, T, 10, T, 11, T, 12, F,  ...
+,    6 elementos
+maior-menor+1= 10
+adjs a 5, , em mostrarConteudoL: 4, T, 5, T, 6, T, 11, T, 12, T, 13, F,  ...
+,    6 elementos
+maior-menor+1= 10
+
+
+ em  mostrarConteudoGp, total de vertices:           49
+ adjacencias nodais, entre os vertices  =           44  a           49
+adjs a 44, , em mostrarConteudoL: 36, T, 37, T, 38, T, 43, T, 44, T, 45, F,  ...
+,    6 elementos
+maior-menor+1= 10
+adjs a 45, , em mostrarConteudoL: 37, T, 38, T, 39, T, 44, T, 45, T, 46, F,  ...
+,    6 elementos
+maior-menor+1= 10
+adjs a 46, , em mostrarConteudoL: 38, T, 39, T, 40, T, 45, T, 46, T, 47, F,  ...
+,    6 elementos
+maior-menor+1= 10
+adjs a 47, , em mostrarConteudoL: 39, T, 40, T, 41, T, 46, T, 47, T, 48, F,  ...
+,    6 elementos
+maior-menor+1= 10
+adjs a 48, , em mostrarConteudoL: 40, T, 41, T, 42, T, 47, T, 48, T, 49, F,  ...
+,    6 elementos
+maior-menor+1= 10
+adjs a 49, , em mostrarConteudoL: 41, T, 42, T, 48, T, 49, F,  ...
+,    4 elementos
+maior-menor+1= 9
+ banda_ original =           17
+   ------------- BFS  --------------------------------------BFS 
+  em bfs, origem_,           1 , destino_            4
+em function incluirVerticeLTopoSemRepeticao, 1, 
+nohs toVisit, , em mostrarConteudoL: 1, F,  ...
+,    1 elementos
+
+em function excluirVerticeMaisAntigo, 
+ avaliar vizinhos de   1, em mostrarConteudoL: 1, T, 2, T, 8, T, 9, F,  ...
+,    4 elementos
+ avaliar noh: 1, T,   NAO incluir em toVisit     1
+ avaliar noh: 2, T, 
+em function incluirVerticeLTopoSemRepeticao, 2, 
+ avaliar noh: 8, T, 
+em function incluirVerticeLTopoSemRepeticao, 8, 
+ avaliar noh: 9, F, 
+em function incluirVerticeLTopoSemRepeticao, 9, 
+  incluir     1 em visitedL +++ 
+em function incluirVerticeLTopoSemRepeticao, 1, 
+nohs visited, , em mostrarConteudoL: 1, F,  ...
+,    1 elementos
+ toVisit +++ , em mostrarConteudoL: 9, T, 8, T, 2, F,  ...
+,    3 elementos
+
+     excluirMaisAnt from toVisit +++ ,
+em function excluirVerticeMaisAntigo, 2,  excluido from  toVisit +++ 
+ avaliar vizinhos de   2, em mostrarConteudoL: 1, T, 2, T, 3, T, 8, T, 9, T, 10, F,  ...
+,    6 elementos
+ avaliar noh: 1, T,   NAO incluir em toVisit     1
+ avaliar noh: 2, T,   NAO incluir em toVisit     2
+ avaliar noh: 3, T, 
+em function incluirVerticeLTopoSemRepeticao, 3, 
+ avaliar noh: 8, T, 
+em function incluirVerticeLTopoSemRepeticao, 8, 
+ avaliar noh: 9, T, 
+em function incluirVerticeLTopoSemRepeticao, 9, 
+ avaliar noh: 10, F, 
+em function incluirVerticeLTopoSemRepeticao, 10, 
+  incluir     2 em visitedL +++ 
+em function incluirVerticeLTopoSemRepeticao, 2, 
+nohs visited, , em mostrarConteudoL: 2, T, 1, F,  ...
+,    2 elementos
+ toVisit +++ , em mostrarConteudoL: 10, T, 3, T, 9, T, 8, F,  ...
+,    4 elementos
+
+     excluirMaisAnt from toVisit +++ ,
+em function excluirVerticeMaisAntigo, 8,  excluido from  toVisit +++ 
+ avaliar vizinhos de   8, em mostrarConteudoL: 1, T, 2, T, 8, T, 9, T, 15, T, 16, F,  ...
+,    6 elementos
+ avaliar noh: 1, T,   NAO incluir em toVisit     1
+ avaliar noh: 2, T,   NAO incluir em toVisit     2
+ avaliar noh: 8, T,   NAO incluir em toVisit     8
+ avaliar noh: 9, T, 
+em function incluirVerticeLTopoSemRepeticao, 9, 
+ avaliar noh: 15, T, 
+em function incluirVerticeLTopoSemRepeticao, 15, 
+ avaliar noh: 16, F, 
+em function incluirVerticeLTopoSemRepeticao, 16, 
+  incluir     8 em visitedL +++ 
+em function incluirVerticeLTopoSemRepeticao, 8, 
+nohs visited, , em mostrarConteudoL: 8, T, 2, T, 1, F,  ...
+,    3 elementos
+ toVisit +++ , em mostrarConteudoL: 16, T, 15, T, 10, T, 3, T, 9, F,  ...
+,    5 elementos
+
+     excluirMaisAnt from toVisit +++ ,
+em function excluirVerticeMaisAntigo, 9,  excluido from  toVisit +++ 
+ avaliar vizinhos de   9, em mostrarConteudoL: 1, T, 2, T, 3, T, 8, T, 9, T, 10, T, 15, T, 16, T, 17, F,  ...
+,    9 elementos
+ avaliar noh: 1, T,   NAO incluir em toVisit     1
+ avaliar noh: 2, T,   NAO incluir em toVisit     2
+ avaliar noh: 3, T, 
+em function incluirVerticeLTopoSemRepeticao, 3, 
+ avaliar noh: 8, T,   NAO incluir em toVisit     8
+ avaliar noh: 9, T,   NAO incluir em toVisit     9
+ avaliar noh: 10, T, 
+em function incluirVerticeLTopoSemRepeticao, 10, 
+ avaliar noh: 15, T, 
+em function incluirVerticeLTopoSemRepeticao, 15, 
+ avaliar noh: 16, T, 
+em function incluirVerticeLTopoSemRepeticao, 16, 
+ avaliar noh: 17, F, 
+em function incluirVerticeLTopoSemRepeticao, 17, 
+  incluir     9 em visitedL +++ 
+em function incluirVerticeLTopoSemRepeticao, 9, 
+nohs visited, , em mostrarConteudoL: 9, T, 8, T, 2, T, 1, F,  ...
+,    4 elementos
+ toVisit +++ , em mostrarConteudoL: 17, T, 16, T, 15, T, 10, T, 3, F,  ...
+,    5 elementos
+
+     excluirMaisAnt from toVisit +++ ,
+em function excluirVerticeMaisAntigo, 3,  excluido from  toVisit +++ 
+ avaliar vizinhos de   3, em mostrarConteudoL: 2, T, 3, T, 4, T, 9, T, 10, T, 11, F,  ...
+,    6 elementos
+ avaliar noh: 2, T,   NAO incluir em toVisit     2
+ avaliar noh: 3, T,   NAO incluir em toVisit     3
+ avaliar noh: 4, T, 
+em function incluirVerticeLTopoSemRepeticao, 4, 
+ avaliar noh: 9, T,   NAO incluir em toVisit     9
+ avaliar noh: 10, T, 
+em function incluirVerticeLTopoSemRepeticao, 10, 
+ avaliar noh: 11, F, 
+em function incluirVerticeLTopoSemRepeticao, 11, 
+  incluir     3 em visitedL +++ 
+em function incluirVerticeLTopoSemRepeticao, 3, 
+nohs visited, , em mostrarConteudoL: 3, T, 9, T, 8, T, 2, T, 1, F,  ...
+,    5 elementos
+ toVisit +++ , em mostrarConteudoL: 11, T, 4, T, 17, T, 16, T, 15, T, 10, F,  ...
+,    6 elementos
+
+     excluirMaisAnt from toVisit +++ ,
+em function excluirVerticeMaisAntigo, 10,  excluido from  toVisit +++ 
+ avaliar vizinhos de  10, em mostrarConteudoL: 2, T, 3, T, 4, T, 9, T, 10, T, 11, T, 16, T, 17, T, 18, F,  ...
+,    9 elementos
+ avaliar noh: 2, T,   NAO incluir em toVisit     2
+ avaliar noh: 3, T,   NAO incluir em toVisit     3
+ avaliar noh: 4, T, 
+em function incluirVerticeLTopoSemRepeticao, 4, 
+ avaliar noh: 9, T,   NAO incluir em toVisit     9
+ avaliar noh: 10, T,   NAO incluir em toVisit    10
+ avaliar noh: 11, T, 
+em function incluirVerticeLTopoSemRepeticao, 11, 
+ avaliar noh: 16, T, 
+em function incluirVerticeLTopoSemRepeticao, 16, 
+ avaliar noh: 17, T, 
+em function incluirVerticeLTopoSemRepeticao, 17, 
+ avaliar noh: 18, F, 
+em function incluirVerticeLTopoSemRepeticao, 18, 
+  incluir    10 em visitedL +++ 
+em function incluirVerticeLTopoSemRepeticao, 10, 
+nohs visited, , em mostrarConteudoL: 10, T, 3, T, 9, T, 8, T, 2, T, 1, F,  ...
+,    6 elementos
+ toVisit +++ , em mostrarConteudoL: 18, T, 11, T, 4, T, 17, T, 16, T, 15, F,  ...
+,    6 elementos
+
+     excluirMaisAnt from toVisit +++ ,
+em function excluirVerticeMaisAntigo, 15,  excluido from  toVisit +++ 
+ avaliar vizinhos de  15, em mostrarConteudoL: 8, T, 9, T, 15, T, 16, T, 22, T, 23, F,  ...
+,    6 elementos
+ avaliar noh: 8, T,   NAO incluir em toVisit     8
+ avaliar noh: 9, T,   NAO incluir em toVisit     9
+ avaliar noh: 15, T,   NAO incluir em toVisit    15
+ avaliar noh: 16, T, 
+em function incluirVerticeLTopoSemRepeticao, 16, 
+ avaliar noh: 22, T, 
+em function incluirVerticeLTopoSemRepeticao, 22, 
+ avaliar noh: 23, F, 
+em function incluirVerticeLTopoSemRepeticao, 23, 
+  incluir    15 em visitedL +++ 
+em function incluirVerticeLTopoSemRepeticao, 15, 
+nohs visited, , em mostrarConteudoL: 15, T, 10, T, 3, T, 9, T, 8, T, 2, T, 1, F,  ...
+,    7 elementos
+ toVisit +++ , em mostrarConteudoL: 23, T, 22, T, 18, T, 11, T, 4, T, 17, T, 16, F,  ...
+,    7 elementos
+
+     excluirMaisAnt from toVisit +++ ,
+em function excluirVerticeMaisAntigo, 16,  excluido from  toVisit +++ 
+ avaliar vizinhos de  16, em mostrarConteudoL: 8, T, 9, T, 10, T, 15, T, 16, T, 17, T, 22, T, 23, T, 24, F,  ...
+,    9 elementos
+ avaliar noh: 8, T,   NAO incluir em toVisit     8
+ avaliar noh: 9, T,   NAO incluir em toVisit     9
+ avaliar noh: 10, T,   NAO incluir em toVisit    10
+ avaliar noh: 15, T,   NAO incluir em toVisit    15
+ avaliar noh: 16, T,   NAO incluir em toVisit    16
+ avaliar noh: 17, T, 
+em function incluirVerticeLTopoSemRepeticao, 17, 
+ avaliar noh: 22, T, 
+em function incluirVerticeLTopoSemRepeticao, 22, 
+ avaliar noh: 23, T, 
+em function incluirVerticeLTopoSemRepeticao, 23, 
+ avaliar noh: 24, F, 
+em function incluirVerticeLTopoSemRepeticao, 24, 
+  incluir    16 em visitedL +++ 
+em function incluirVerticeLTopoSemRepeticao, 16, 
+nohs visited, , em mostrarConteudoL: 16, T, 15, T, 10, T, 3, T, 9, T, 8, T, 2, T, 1, F,  ...
+,    8 elementos
+ toVisit +++ , em mostrarConteudoL: 24, T, 23, T, 22, T, 18, T, 11, T, 4, T, 17, F,  ...
+,    7 elementos
+
+     excluirMaisAnt from toVisit +++ ,
+em function excluirVerticeMaisAntigo, 17,  excluido from  toVisit +++ 
+ avaliar vizinhos de  17, em mostrarConteudoL: 9, T, 10, T, 11, T, 16, T, 17, T, 18, T, 23, T, 24, T, 25, F,  ...
+,    9 elementos
+ avaliar noh: 9, T,   NAO incluir em toVisit     9
+ avaliar noh: 10, T,   NAO incluir em toVisit    10
+ avaliar noh: 11, T, 
+em function incluirVerticeLTopoSemRepeticao, 11, 
+ avaliar noh: 16, T,   NAO incluir em toVisit    16
+ avaliar noh: 17, T,   NAO incluir em toVisit    17
+ avaliar noh: 18, T, 
+em function incluirVerticeLTopoSemRepeticao, 18, 
+ avaliar noh: 23, T, 
+em function incluirVerticeLTopoSemRepeticao, 23, 
+ avaliar noh: 24, T, 
+em function incluirVerticeLTopoSemRepeticao, 24, 
+ avaliar noh: 25, F, 
+em function incluirVerticeLTopoSemRepeticao, 25, 
+  incluir    17 em visitedL +++ 
+em function incluirVerticeLTopoSemRepeticao, 17, 
+nohs visited, , em mostrarConteudoL: 17, T, 16, T, 15, T, 10, T, 3, T, 9, T, 8, T, 2, T, 1, F,  ...
+,    9 elementos
+ toVisit +++ , em mostrarConteudoL: 25, T, 24, T, 23, T, 22, T, 18, T, 11, T, 4, F,  ...
+,    7 elementos
+
+     excluirMaisAnt from toVisit +++ ,
+em function excluirVerticeMaisAntigo, 4,  excluido from  toVisit +++ 
+ avaliar vizinhos de   4, em mostrarConteudoL: 3, T, 4, T, 5, T, 10, T, 11, T, 12, F,  ...
+,    6 elementos
+ avaliar noh: 3, T,   NAO incluir em toVisit     3
+ avaliar noh: 4, T,   NAO incluir em toVisit     4
+ avaliar noh: 5, T, 
+em function incluirVerticeLTopoSemRepeticao, 5, 
+ avaliar noh: 10, T,   NAO incluir em toVisit    10
+ avaliar noh: 11, T, 
+em function incluirVerticeLTopoSemRepeticao, 11, 
+ avaliar noh: 12, F, 
+em function incluirVerticeLTopoSemRepeticao, 12, 
+  incluir     4 em visitedL +++ 
+em function incluirVerticeLTopoSemRepeticao, 4, 
+nohs visited, , em mostrarConteudoL: 4, T, 17, T, 16, T, 15, T, 10, T, 3, T, 9, T, 8, T, 2, T, 1, F,  ...
+,   10 elementos
+ toVisit +++ , em mostrarConteudoL: 12, T, 5, T, 25, T, 24, T, 23, T, 22, T, 18, T, 11, F,  ...
+,    8 elementos
+
+     excluirMaisAnt from toVisit +++ ,
+em function excluirVerticeMaisAntigo, 11,  excluido from  toVisit +++ 
+ avaliar vizinhos de  11, em mostrarConteudoL: 3, T, 4, T, 5, T, 10, T, 11, T, 12, T, 17, T, 18, T, 19, F,  ...
+,    9 elementos
+ avaliar noh: 3, T,   NAO incluir em toVisit     3
+ avaliar noh: 4, T,   NAO incluir em toVisit     4
+ avaliar noh: 5, T, 
+em function incluirVerticeLTopoSemRepeticao, 5, 
+ avaliar noh: 10, T,   NAO incluir em toVisit    10
+ avaliar noh: 11, T,   NAO incluir em toVisit    11
+ avaliar noh: 12, T, 
+em function incluirVerticeLTopoSemRepeticao, 12, 
+ avaliar noh: 17, T,   NAO incluir em toVisit    17
+ avaliar noh: 18, T, 
+em function incluirVerticeLTopoSemRepeticao, 18, 
+ avaliar noh: 19, F, 
+em function incluirVerticeLTopoSemRepeticao, 19, 
+  incluir    11 em visitedL +++ 
+em function incluirVerticeLTopoSemRepeticao, 11, 
+nohs visited, , em mostrarConteudoL: 11, T, 4, T, 17, T, 16, T, 15, T, 10, T, 3, T, 9, T, 8, T, 2, T, 1, F,  ...
+,   11 elementos
+ toVisit +++ , em mostrarConteudoL: 19, T, 12, T, 5, T, 25, T, 24, T, 23, T, 22, T, 18, F,  ...
+,    8 elementos
+
+     excluirMaisAnt from toVisit +++ ,
+em function excluirVerticeMaisAntigo, 18,  excluido from  toVisit +++ 
+ avaliar vizinhos de  18, em mostrarConteudoL: 10, T, 11, T, 12, T, 17, T, 18, T, 19, T, 24, T, 25, T, 26, F,  ...
+,    9 elementos
+ avaliar noh: 10, T,   NAO incluir em toVisit    10
+ avaliar noh: 11, T,   NAO incluir em toVisit    11
+ avaliar noh: 12, T, 
+em function incluirVerticeLTopoSemRepeticao, 12, 
+ avaliar noh: 17, T,   NAO incluir em toVisit    17
+ avaliar noh: 18, T,   NAO incluir em toVisit    18
+ avaliar noh: 19, T, 
+em function incluirVerticeLTopoSemRepeticao, 19, 
+ avaliar noh: 24, T, 
+em function incluirVerticeLTopoSemRepeticao, 24, 
+ avaliar noh: 25, T, 
+em function incluirVerticeLTopoSemRepeticao, 25, 
+ avaliar noh: 26, F, 
+em function incluirVerticeLTopoSemRepeticao, 26, 
+  incluir    18 em visitedL +++ 
+em function incluirVerticeLTopoSemRepeticao, 18, 
+nohs visited, , em mostrarConteudoL: 18, T, 11, T, 4, T, 17, T, 16, T, 15, T, 10, T, 3, T, 9, T, 8, T, 2, T, 1, F,  ...
+,   12 elementos
+ toVisit +++ , em mostrarConteudoL: 26, T, 19, T, 12, T, 5, T, 25, T, 24, T, 23, T, 22, F,  ...
+,    8 elementos
+
+     excluirMaisAnt from toVisit +++ ,
+em function excluirVerticeMaisAntigo, 22,  excluido from  toVisit +++ 
+ avaliar vizinhos de  22, em mostrarConteudoL: 15, T, 16, T, 22, T, 23, T, 29, T, 30, F,  ...
+,    6 elementos
+ avaliar noh: 15, T,   NAO incluir em toVisit    15
+ avaliar noh: 16, T,   NAO incluir em toVisit    16
+ avaliar noh: 22, T,   NAO incluir em toVisit    22
+ avaliar noh: 23, T, 
+em function incluirVerticeLTopoSemRepeticao, 23, 
+ avaliar noh: 29, T, 
+em function incluirVerticeLTopoSemRepeticao, 29, 
+ avaliar noh: 30, F, 
+em function incluirVerticeLTopoSemRepeticao, 30, 
+  incluir    22 em visitedL +++ 
+em function incluirVerticeLTopoSemRepeticao, 22, 
+nohs visited, , em mostrarConteudoL: 22, T, 18, T, 11, T, 4, T, 17, T, 16, T, 15, T, 10, T, 3, T, 9, T, 8, T, 2, T, 1, F,  ...
+,   13 elementos
+ toVisit +++ , em mostrarConteudoL: 30, T, 29, T, 26, T, 19, T, 12, T, 5, T, 25, T, 24, T, 23, F,  ...
+,    9 elementos
+
+     excluirMaisAnt from toVisit +++ ,
+em function excluirVerticeMaisAntigo, 23,  excluido from  toVisit +++ 
+ avaliar vizinhos de  23, em mostrarConteudoL: 15, T, 16, T, 17, T, 22, T, 23, T, 24, T, 29, T, 30, T, 31, F,  ...
+,    9 elementos
+ avaliar noh: 15, T,   NAO incluir em toVisit    15
+ avaliar noh: 16, T,   NAO incluir em toVisit    16
+ avaliar noh: 17, T,   NAO incluir em toVisit    17
+ avaliar noh: 22, T,   NAO incluir em toVisit    22
+ avaliar noh: 23, T,   NAO incluir em toVisit    23
+ avaliar noh: 24, T, 
+em function incluirVerticeLTopoSemRepeticao, 24, 
+ avaliar noh: 29, T, 
+em function incluirVerticeLTopoSemRepeticao, 29, 
+ avaliar noh: 30, T, 
+em function incluirVerticeLTopoSemRepeticao, 30, 
+ avaliar noh: 31, F, 
+em function incluirVerticeLTopoSemRepeticao, 31, 
+  incluir    23 em visitedL +++ 
+em function incluirVerticeLTopoSemRepeticao, 23, 
+nohs visited, , em mostrarConteudoL: 23, T, 22, T, 18, T, 11, T, 4, T, 17, T, 16, T, 15, T, 10, T, 3, T, 9, T, 8, T, 2, T, 1, F,  ...
+,   14 elementos
+ toVisit +++ , em mostrarConteudoL: 31, T, 30, T, 29, T, 26, T, 19, T, 12, T, 5, T, 25, T, 24, F,  ...
+,    9 elementos
+
+     excluirMaisAnt from toVisit +++ ,
+em function excluirVerticeMaisAntigo, 24,  excluido from  toVisit +++ 
+ avaliar vizinhos de  24, em mostrarConteudoL: 16, T, 17, T, 18, T, 23, T, 24, T, 25, T, 30, T, 31, T, 32, F,  ...
+,    9 elementos
+ avaliar noh: 16, T,   NAO incluir em toVisit    16
+ avaliar noh: 17, T,   NAO incluir em toVisit    17
+ avaliar noh: 18, T,   NAO incluir em toVisit    18
+ avaliar noh: 23, T,   NAO incluir em toVisit    23
+ avaliar noh: 24, T,   NAO incluir em toVisit    24
+ avaliar noh: 25, T, 
+em function incluirVerticeLTopoSemRepeticao, 25, 
+ avaliar noh: 30, T, 
+em function incluirVerticeLTopoSemRepeticao, 30, 
+ avaliar noh: 31, T, 
+em function incluirVerticeLTopoSemRepeticao, 31, 
+ avaliar noh: 32, F, 
+em function incluirVerticeLTopoSemRepeticao, 32, 
+  incluir    24 em visitedL +++ 
+em function incluirVerticeLTopoSemRepeticao, 24, 
+nohs visited, , em mostrarConteudoL: 24, T, 23, T, 22, T, 18, T, 11, T, 4, T, 17, T, 16, T, 15, T, 10, T, 3, T, 9, T, 8, T, 2, T, 1, F,  ...
+,   15 elementos
+ toVisit +++ , em mostrarConteudoL: 32, T, 31, T, 30, T, 29, T, 26, T, 19, T, 12, T, 5, T, 25, F,  ...
+,    9 elementos
+
+     excluirMaisAnt from toVisit +++ ,
+em function excluirVerticeMaisAntigo, 25,  excluido from  toVisit +++ 
+ avaliar vizinhos de  25, em mostrarConteudoL: 17, T, 18, T, 19, T, 24, T, 25, T, 26, T, 31, T, 32, T, 33, F,  ...
+,    9 elementos
+ avaliar noh: 17, T,   NAO incluir em toVisit    17
+ avaliar noh: 18, T,   NAO incluir em toVisit    18
+ avaliar noh: 19, T, 
+em function incluirVerticeLTopoSemRepeticao, 19, 
+ avaliar noh: 24, T,   NAO incluir em toVisit    24
+ avaliar noh: 25, T,   NAO incluir em toVisit    25
+ avaliar noh: 26, T, 
+em function incluirVerticeLTopoSemRepeticao, 26, 
+ avaliar noh: 31, T, 
+em function incluirVerticeLTopoSemRepeticao, 31, 
+ avaliar noh: 32, T, 
+em function incluirVerticeLTopoSemRepeticao, 32, 
+ avaliar noh: 33, F, 
+em function incluirVerticeLTopoSemRepeticao, 33, 
+  incluir    25 em visitedL +++ 
+em function incluirVerticeLTopoSemRepeticao, 25, 
+nohs visited, , em mostrarConteudoL: 25, T, 24, T, 23, T, 22, T, 18, T, 11, T, 4, T, 17, T, 16, T, 15, T, 10, T, 3, T, 9, T, 8, T, 2, T, 1, F,  ...
+,   16 elementos
+ toVisit +++ , em mostrarConteudoL: 33, T, 32, T, 31, T, 30, T, 29, T, 26, T, 19, T, 12, T, 5, F,  ...
+,    9 elementos
+
+     excluirMaisAnt from toVisit +++ ,
+em function excluirVerticeMaisAntigo, 5,  excluido from  toVisit +++ 
+ avaliar vizinhos de   5, em mostrarConteudoL: 4, T, 5, T, 6, T, 11, T, 12, T, 13, F,  ...
+,    6 elementos
+ avaliar noh: 4, T,   NAO incluir em toVisit     4
+ avaliar noh: 5, T,   NAO incluir em toVisit     5
+ avaliar noh: 6, T, 
+em function incluirVerticeLTopoSemRepeticao, 6, 
+ avaliar noh: 11, T,   NAO incluir em toVisit    11
+ avaliar noh: 12, T, 
+em function incluirVerticeLTopoSemRepeticao, 12, 
+ avaliar noh: 13, F, 
+em function incluirVerticeLTopoSemRepeticao, 13, 
+  incluir     5 em visitedL +++ 
+em function incluirVerticeLTopoSemRepeticao, 5, 
+nohs visited, , em mostrarConteudoL: 5, T, 25, T, 24, T, 23, T, 22, T, 18, T, 11, T, 4, T, 17, T, 16, T, 15, T, 10, T, 3, T, 9, T, 8, T, 2, T, 1, F,  ...
+,   17 elementos
+ toVisit +++ , em mostrarConteudoL: 13, T, 6, T, 33, T, 32, T, 31, T, 30, T, 29, T, 26, T, 19, T, 12, F,  ...
+,   10 elementos
+
+     excluirMaisAnt from toVisit +++ ,
+em function excluirVerticeMaisAntigo, 12,  excluido from  toVisit +++ 
+ avaliar vizinhos de  12, em mostrarConteudoL: 4, T, 5, T, 6, T, 11, T, 12, T, 13, T, 18, T, 19, T, 20, F,  ...
+,    9 elementos
+ avaliar noh: 4, T,   NAO incluir em toVisit     4
+ avaliar noh: 5, T,   NAO incluir em toVisit     5
+ avaliar noh: 6, T, 
+em function incluirVerticeLTopoSemRepeticao, 6, 
+ avaliar noh: 11, T,   NAO incluir em toVisit    11
+ avaliar noh: 12, T,   NAO incluir em toVisit    12
+ avaliar noh: 13, T, 
+em function incluirVerticeLTopoSemRepeticao, 13, 
+ avaliar noh: 18, T,   NAO incluir em toVisit    18
+ avaliar noh: 19, T, 
+em function incluirVerticeLTopoSemRepeticao, 19, 
+ avaliar noh: 20, F, 
+em function incluirVerticeLTopoSemRepeticao, 20, 
+  incluir    12 em visitedL +++ 
+em function incluirVerticeLTopoSemRepeticao, 12, 
+nohs visited, , em mostrarConteudoL: 12, T, 5, T, 25, T, 24, T, 23, T, 22, T, 18, T, 11, T, 4, T, 17, T, 16, T, 15, T, 10, T, 3, T, 9, T, 8, T, 2, T, 1, F,  ...
+,   18 elementos
+ toVisit +++ , em mostrarConteudoL: 20, T, 13, T, 6, T, 33, T, 32, T, 31, T, 30, T, 29, T, 26, T, 19, F,  ...
+,   10 elementos
+
+     excluirMaisAnt from toVisit +++ ,
+em function excluirVerticeMaisAntigo, 19,  excluido from  toVisit +++ 
+ avaliar vizinhos de  19, em mostrarConteudoL: 11, T, 12, T, 13, T, 18, T, 19, T, 20, T, 25, T, 26, T, 27, F,  ...
+,    9 elementos
+ avaliar noh: 11, T,   NAO incluir em toVisit    11
+ avaliar noh: 12, T,   NAO incluir em toVisit    12
+ avaliar noh: 13, T, 
+em function incluirVerticeLTopoSemRepeticao, 13, 
+ avaliar noh: 18, T,   NAO incluir em toVisit    18
+ avaliar noh: 19, T,   NAO incluir em toVisit    19
+ avaliar noh: 20, T, 
+em function incluirVerticeLTopoSemRepeticao, 20, 
+ avaliar noh: 25, T,   NAO incluir em toVisit    25
+ avaliar noh: 26, T, 
+em function incluirVerticeLTopoSemRepeticao, 26, 
+ avaliar noh: 27, F, 
+em function incluirVerticeLTopoSemRepeticao, 27, 
+  incluir    19 em visitedL +++ 
+em function incluirVerticeLTopoSemRepeticao, 19, 
+nohs visited, , em mostrarConteudoL: 19, T, 12, T, 5, T, 25, T, 24, T, 23, T, 22, T, 18, T, 11, T, 4, T, 17, T, 16, T, 15, T, 10, T, 3, T, 9, T, 8, T, 2, T, 1, F,  ...
+,   19 elementos
+ toVisit +++ , em mostrarConteudoL: 27, T, 20, T, 13, T, 6, T, 33, T, 32, T, 31, T, 30, T, 29, T, 26, F,  ...
+,   10 elementos
+
+     excluirMaisAnt from toVisit +++ ,
+em function excluirVerticeMaisAntigo, 26,  excluido from  toVisit +++ 
+ avaliar vizinhos de  26, em mostrarConteudoL: 18, T, 19, T, 20, T, 25, T, 26, T, 27, T, 32, T, 33, T, 34, F,  ...
+,    9 elementos
+ avaliar noh: 18, T,   NAO incluir em toVisit    18
+ avaliar noh: 19, T,   NAO incluir em toVisit    19
+ avaliar noh: 20, T, 
+em function incluirVerticeLTopoSemRepeticao, 20, 
+ avaliar noh: 25, T,   NAO incluir em toVisit    25
+ avaliar noh: 26, T,   NAO incluir em toVisit    26
+ avaliar noh: 27, T, 
+em function incluirVerticeLTopoSemRepeticao, 27, 
+ avaliar noh: 32, T, 
+em function incluirVerticeLTopoSemRepeticao, 32, 
+ avaliar noh: 33, T, 
+em function incluirVerticeLTopoSemRepeticao, 33, 
+ avaliar noh: 34, F, 
+em function incluirVerticeLTopoSemRepeticao, 34, 
+  incluir    26 em visitedL +++ 
+em function incluirVerticeLTopoSemRepeticao, 26, 
+nohs visited, , em mostrarConteudoL: 26, T, 19, T, 12, T, 5, T, 25, T, 24, T, 23, T, 22, T, 18, T, 11, T, 4, T, 17, T, 16, T, 15, T, 10, T, 3, T, 9, T, 8, T, 2, T, 1, F,  ...
+,   20 elementos
+ toVisit +++ , em mostrarConteudoL: 34, T, 27, T, 20, T, 13, T, 6, T, 33, T, 32, T, 31, T, 30, T, 29, F,  ...
+,   10 elementos
+
+     excluirMaisAnt from toVisit +++ ,
+em function excluirVerticeMaisAntigo, 29,  excluido from  toVisit +++ 
+ avaliar vizinhos de  29, em mostrarConteudoL: 22, T, 23, T, 29, T, 30, T, 36, T, 37, F,  ...
+,    6 elementos
+ avaliar noh: 22, T,   NAO incluir em toVisit    22
+ avaliar noh: 23, T,   NAO incluir em toVisit    23
+ avaliar noh: 29, T,   NAO incluir em toVisit    29
+ avaliar noh: 30, T, 
+em function incluirVerticeLTopoSemRepeticao, 30, 
+ avaliar noh: 36, T, 
+em function incluirVerticeLTopoSemRepeticao, 36, 
+ avaliar noh: 37, F, 
+em function incluirVerticeLTopoSemRepeticao, 37, 
+  incluir    29 em visitedL +++ 
+em function incluirVerticeLTopoSemRepeticao, 29, 
+nohs visited, , em mostrarConteudoL: 29, T, 26, T, 19, T, 12, T, 5, T, 25, T, 24, T, 23, T, 22, T, 18, T, 11, T, 4, T, 17, T, 16, T, 15, T, 10, T, 3, T, 9, T, 8, T, 2, T, 1, F,  ...
+,   21 elementos
+ toVisit +++ , em mostrarConteudoL: 37, T, 36, T, 34, T, 27, T, 20, T, 13, T, 6, T, 33, T, 32, T, 31, T, 30, F,  ...
+,   11 elementos
+
+     excluirMaisAnt from toVisit +++ ,
+em function excluirVerticeMaisAntigo, 30,  excluido from  toVisit +++ 
+ avaliar vizinhos de  30, em mostrarConteudoL: 22, T, 23, T, 24, T, 29, T, 30, T, 31, T, 36, T, 37, T, 38, F,  ...
+,    9 elementos
+ avaliar noh: 22, T,   NAO incluir em toVisit    22
+ avaliar noh: 23, T,   NAO incluir em toVisit    23
+ avaliar noh: 24, T,   NAO incluir em toVisit    24
+ avaliar noh: 29, T,   NAO incluir em toVisit    29
+ avaliar noh: 30, T,   NAO incluir em toVisit    30
+ avaliar noh: 31, T, 
+em function incluirVerticeLTopoSemRepeticao, 31, 
+ avaliar noh: 36, T, 
+em function incluirVerticeLTopoSemRepeticao, 36, 
+ avaliar noh: 37, T, 
+em function incluirVerticeLTopoSemRepeticao, 37, 
+ avaliar noh: 38, F, 
+em function incluirVerticeLTopoSemRepeticao, 38, 
+  incluir    30 em visitedL +++ 
+em function incluirVerticeLTopoSemRepeticao, 30, 
+nohs visited, , em mostrarConteudoL: 30, T, 29, T, 26, T, 19, T, 12, T, 5, T, 25, T, 24, T, 23, T, 22, T, 18, T, 11, T, 4, T, 17, T, 16, T, 15, T, 10, T, 3, T, 9, T, 8, T, 2, T, 1, F,  ...
+,   22 elementos
+ toVisit +++ , em mostrarConteudoL: 38, T, 37, T, 36, T, 34, T, 27, T, 20, T, 13, T, 6, T, 33, T, 32, T, 31, F,  ...
+,   11 elementos
+
+     excluirMaisAnt from toVisit +++ ,
+em function excluirVerticeMaisAntigo, 31,  excluido from  toVisit +++ 
+ avaliar vizinhos de  31, em mostrarConteudoL: 23, T, 24, T, 25, T, 30, T, 31, T, 32, T, 37, T, 38, T, 39, F,  ...
+,    9 elementos
+ avaliar noh: 23, T,   NAO incluir em toVisit    23
+ avaliar noh: 24, T,   NAO incluir em toVisit    24
+ avaliar noh: 25, T,   NAO incluir em toVisit    25
+ avaliar noh: 30, T,   NAO incluir em toVisit    30
+ avaliar noh: 31, T,   NAO incluir em toVisit    31
+ avaliar noh: 32, T, 
+em function incluirVerticeLTopoSemRepeticao, 32, 
+ avaliar noh: 37, T, 
+em function incluirVerticeLTopoSemRepeticao, 37, 
+ avaliar noh: 38, T, 
+em function incluirVerticeLTopoSemRepeticao, 38, 
+ avaliar noh: 39, F, 
+em function incluirVerticeLTopoSemRepeticao, 39, 
+  incluir    31 em visitedL +++ 
+em function incluirVerticeLTopoSemRepeticao, 31, 
+nohs visited, , em mostrarConteudoL: 31, T, 30, T, 29, T, 26, T, 19, T, 12, T, 5, T, 25, T, 24, T, 23, T, 22, T, 18, T, 11, T, 4, T, 17, T, 16, T, 15, T, 10, T, 3, T, 9, T, 8, T, 2, T, 1, F,  ...
+,   23 elementos
+ toVisit +++ , em mostrarConteudoL: 39, T, 38, T, 37, T, 36, T, 34, T, 27, T, 20, T, 13, T, 6, T, 33, T, 32, F,  ...
+,   11 elementos
+
+     excluirMaisAnt from toVisit +++ ,
+em function excluirVerticeMaisAntigo, 32,  excluido from  toVisit +++ 
+ avaliar vizinhos de  32, em mostrarConteudoL: 24, T, 25, T, 26, T, 31, T, 32, T, 33, T, 38, T, 39, T, 40, F,  ...
+,    9 elementos
+ avaliar noh: 24, T,   NAO incluir em toVisit    24
+ avaliar noh: 25, T,   NAO incluir em toVisit    25
+ avaliar noh: 26, T,   NAO incluir em toVisit    26
+ avaliar noh: 31, T,   NAO incluir em toVisit    31
+ avaliar noh: 32, T,   NAO incluir em toVisit    32
+ avaliar noh: 33, T, 
+em function incluirVerticeLTopoSemRepeticao, 33, 
+ avaliar noh: 38, T, 
+em function incluirVerticeLTopoSemRepeticao, 38, 
+ avaliar noh: 39, T, 
+em function incluirVerticeLTopoSemRepeticao, 39, 
+ avaliar noh: 40, F, 
+em function incluirVerticeLTopoSemRepeticao, 40, 
+  incluir    32 em visitedL +++ 
+em function incluirVerticeLTopoSemRepeticao, 32, 
+nohs visited, , em mostrarConteudoL: 32, T, 31, T, 30, T, 29, T, 26, T, 19, T, 12, T, 5, T, 25, T, 24, T, 23, T, 22, T, 18, T, 11, T, 4, T, 17, T, 16, T, 15, T, 10, T, 3, T, 9, T, 8, T, 2, T, 1, F,  ...
+,   24 elementos
+ toVisit +++ , em mostrarConteudoL: 40, T, 39, T, 38, T, 37, T, 36, T, 34, T, 27, T, 20, T, 13, T, 6, T, 33, F,  ...
+,   11 elementos
+
+     excluirMaisAnt from toVisit +++ ,
+em function excluirVerticeMaisAntigo, 33,  excluido from  toVisit +++ 
+ avaliar vizinhos de  33, em mostrarConteudoL: 25, T, 26, T, 27, T, 32, T, 33, T, 34, T, 39, T, 40, T, 41, F,  ...
+,    9 elementos
+ avaliar noh: 25, T,   NAO incluir em toVisit    25
+ avaliar noh: 26, T,   NAO incluir em toVisit    26
+ avaliar noh: 27, T, 
+em function incluirVerticeLTopoSemRepeticao, 27, 
+ avaliar noh: 32, T,   NAO incluir em toVisit    32
+ avaliar noh: 33, T,   NAO incluir em toVisit    33
+ avaliar noh: 34, T, 
+em function incluirVerticeLTopoSemRepeticao, 34, 
+ avaliar noh: 39, T, 
+em function incluirVerticeLTopoSemRepeticao, 39, 
+ avaliar noh: 40, T, 
+em function incluirVerticeLTopoSemRepeticao, 40, 
+ avaliar noh: 41, F, 
+em function incluirVerticeLTopoSemRepeticao, 41, 
+  incluir    33 em visitedL +++ 
+em function incluirVerticeLTopoSemRepeticao, 33, 
+nohs visited, , em mostrarConteudoL: 33, T, 32, T, 31, T, 30, T, 29, T, 26, T, 19, T, 12, T, 5, T, 25, T, 24, T, 23, T, 22, T, 18, T, 11, T, 4, T, 17, T, 16, T, 15, T, 10, T, 3, T, 9, T, 8, T, 2, T, 1, F,  ...
+,   25 elementos
+ toVisit +++ , em mostrarConteudoL: 41, T, 40, T, 39, T, 38, T, 37, T, 36, T, 34, T, 27, T, 20, T, 13, T, 6, F,  ...
+,   11 elementos
+
+     excluirMaisAnt from toVisit +++ ,
+em function excluirVerticeMaisAntigo, 6,  excluido from  toVisit +++ 
+ avaliar vizinhos de   6, em mostrarConteudoL: 5, T, 6, T, 7, T, 12, T, 13, T, 14, F,  ...
+,    6 elementos
+ avaliar noh: 5, T,   NAO incluir em toVisit     5
+ avaliar noh: 6, T,   NAO incluir em toVisit     6
+ avaliar noh: 7, T, 
+em function incluirVerticeLTopoSemRepeticao, 7, 
+ avaliar noh: 12, T,   NAO incluir em toVisit    12
+ avaliar noh: 13, T, 
+em function incluirVerticeLTopoSemRepeticao, 13, 
+ avaliar noh: 14, F, 
+em function incluirVerticeLTopoSemRepeticao, 14, 
+  incluir     6 em visitedL +++ 
+em function incluirVerticeLTopoSemRepeticao, 6, 
+nohs visited, , em mostrarConteudoL: 6, T, 33, T, 32, T, 31, T, 30, T, 29, T, 26, T, 19, T, 12, T, 5, T, 25, T, 24, T, 23, T, 22, T, 18, T, 11, T, 4, T, 17, T, 16, T, 15, T, 10, T, 3, T, 9, T, 8, T, 2, T, 1, F,  ...
+,   26 elementos
+ toVisit +++ , em mostrarConteudoL: 14, T, 7, T, 41, T, 40, T, 39, T, 38, T, 37, T, 36, T, 34, T, 27, T, 20, T, 13, F,  ...
+,   12 elementos
+
+     excluirMaisAnt from toVisit +++ ,
+em function excluirVerticeMaisAntigo, 13,  excluido from  toVisit +++ 
+ avaliar vizinhos de  13, em mostrarConteudoL: 5, T, 6, T, 7, T, 12, T, 13, T, 14, T, 19, T, 20, T, 21, F,  ...
+,    9 elementos
+ avaliar noh: 5, T,   NAO incluir em toVisit     5
+ avaliar noh: 6, T,   NAO incluir em toVisit     6
+ avaliar noh: 7, T, 
+em function incluirVerticeLTopoSemRepeticao, 7, 
+ avaliar noh: 12, T,   NAO incluir em toVisit    12
+ avaliar noh: 13, T,   NAO incluir em toVisit    13
+ avaliar noh: 14, T, 
+em function incluirVerticeLTopoSemRepeticao, 14, 
+ avaliar noh: 19, T,   NAO incluir em toVisit    19
+ avaliar noh: 20, T, 
+em function incluirVerticeLTopoSemRepeticao, 20, 
+ avaliar noh: 21, F, 
+em function incluirVerticeLTopoSemRepeticao, 21, 
+  incluir    13 em visitedL +++ 
+em function incluirVerticeLTopoSemRepeticao, 13, 
+nohs visited, , em mostrarConteudoL: 13, T, 6, T, 33, T, 32, T, 31, T, 30, T, 29, T, 26, T, 19, T, 12, T, 5, T, 25, T, 24, T, 23, T, 22, T, 18, T, 11, T, 4, T, 17, T, 16, T, 15, T, 10, T, 3, T, 9, T, 8, T, 2, T, 1, F,  ...
+,   27 elementos
+ toVisit +++ , em mostrarConteudoL: 21, T, 14, T, 7, T, 41, T, 40, T, 39, T, 38, T, 37, T, 36, T, 34, T, 27, T, 20, F,  ...
+,   12 elementos
+
+     excluirMaisAnt from toVisit +++ ,
+em function excluirVerticeMaisAntigo, 20,  excluido from  toVisit +++ 
+ avaliar vizinhos de  20, em mostrarConteudoL: 12, T, 13, T, 14, T, 19, T, 20, T, 21, T, 26, T, 27, T, 28, F,  ...
+,    9 elementos
+ avaliar noh: 12, T,   NAO incluir em toVisit    12
+ avaliar noh: 13, T,   NAO incluir em toVisit    13
+ avaliar noh: 14, T, 
+em function incluirVerticeLTopoSemRepeticao, 14, 
+ avaliar noh: 19, T,   NAO incluir em toVisit    19
+ avaliar noh: 20, T,   NAO incluir em toVisit    20
+ avaliar noh: 21, T, 
+em function incluirVerticeLTopoSemRepeticao, 21, 
+ avaliar noh: 26, T,   NAO incluir em toVisit    26
+ avaliar noh: 27, T, 
+em function incluirVerticeLTopoSemRepeticao, 27, 
+ avaliar noh: 28, F, 
+em function incluirVerticeLTopoSemRepeticao, 28, 
+  incluir    20 em visitedL +++ 
+em function incluirVerticeLTopoSemRepeticao, 20, 
+nohs visited, , em mostrarConteudoL: 20, T, 13, T, 6, T, 33, T, 32, T, 31, T, 30, T, 29, T, 26, T, 19, T, 12, T, 5, T, 25, T, 24, T, 23, T, 22, T, 18, T, 11, T, 4, T, 17, T, 16, T, 15, T, 10, T, 3, T, 9, T, 8, T, 2, T, 1, F,  ...
+,   28 elementos
+ toVisit +++ , em mostrarConteudoL: 28, T, 21, T, 14, T, 7, T, 41, T, 40, T, 39, T, 38, T, 37, T, 36, T, 34, T, 27, F,  ...
+,   12 elementos
+
+     excluirMaisAnt from toVisit +++ ,
+em function excluirVerticeMaisAntigo, 27,  excluido from  toVisit +++ 
+ avaliar vizinhos de  27, em mostrarConteudoL: 19, T, 20, T, 21, T, 26, T, 27, T, 28, T, 33, T, 34, T, 35, F,  ...
+,    9 elementos
+ avaliar noh: 19, T,   NAO incluir em toVisit    19
+ avaliar noh: 20, T,   NAO incluir em toVisit    20
+ avaliar noh: 21, T, 
+em function incluirVerticeLTopoSemRepeticao, 21, 
+ avaliar noh: 26, T,   NAO incluir em toVisit    26
+ avaliar noh: 27, T,   NAO incluir em toVisit    27
+ avaliar noh: 28, T, 
+em function incluirVerticeLTopoSemRepeticao, 28, 
+ avaliar noh: 33, T,   NAO incluir em toVisit    33
+ avaliar noh: 34, T, 
+em function incluirVerticeLTopoSemRepeticao, 34, 
+ avaliar noh: 35, F, 
+em function incluirVerticeLTopoSemRepeticao, 35, 
+  incluir    27 em visitedL +++ 
+em function incluirVerticeLTopoSemRepeticao, 27, 
+nohs visited, , em mostrarConteudoL: 27, T, 20, T, 13, T, 6, T, 33, T, 32, T, 31, T, 30, T, 29, T, 26, T, 19, T, 12, T, 5, T, 25, T, 24, T, 23, T, 22, T, 18, T, 11, T, 4, T, 17, T, 16, T, 15, T, 10, T, 3, T, 9, T, 8, T, 2, T, 1, F,  ...
+,   29 elementos
+ toVisit +++ , em mostrarConteudoL: 35, T, 28, T, 21, T, 14, T, 7, T, 41, T, 40, T, 39, T, 38, T, 37, T, 36, T, 34, F,  ...
+,   12 elementos
+
+     excluirMaisAnt from toVisit +++ ,
+em function excluirVerticeMaisAntigo, 34,  excluido from  toVisit +++ 
+ avaliar vizinhos de  34, em mostrarConteudoL: 26, T, 27, T, 28, T, 33, T, 34, T, 35, T, 40, T, 41, T, 42, F,  ...
+,    9 elementos
+ avaliar noh: 26, T,   NAO incluir em toVisit    26
+ avaliar noh: 27, T,   NAO incluir em toVisit    27
+ avaliar noh: 28, T, 
+em function incluirVerticeLTopoSemRepeticao, 28, 
+ avaliar noh: 33, T,   NAO incluir em toVisit    33
+ avaliar noh: 34, T,   NAO incluir em toVisit    34
+ avaliar noh: 35, T, 
+em function incluirVerticeLTopoSemRepeticao, 35, 
+ avaliar noh: 40, T, 
+em function incluirVerticeLTopoSemRepeticao, 40, 
+ avaliar noh: 41, T, 
+em function incluirVerticeLTopoSemRepeticao, 41, 
+ avaliar noh: 42, F, 
+em function incluirVerticeLTopoSemRepeticao, 42, 
+  incluir    34 em visitedL +++ 
+em function incluirVerticeLTopoSemRepeticao, 34, 
+nohs visited, , em mostrarConteudoL: 34, T, 27, T, 20, T, 13, T, 6, T, 33, T, 32, T, 31, T, 30, T, 29, T, 26, T, 19, T, 12, T, 5, T, 25, T, 24, T, 23, T, 22, T, 18, T, 11, T, 4, T, 17, T, 16, T, 15, T, 10, T, 3, T, 9, T, 8, T, 2, T, 1, F,  ...
+,   30 elementos
+ toVisit +++ , em mostrarConteudoL: 42, T, 35, T, 28, T, 21, T, 14, T, 7, T, 41, T, 40, T, 39, T, 38, T, 37, T, 36, F,  ...
+,   12 elementos
+
+     excluirMaisAnt from toVisit +++ ,
+em function excluirVerticeMaisAntigo, 36,  excluido from  toVisit +++ 
+ avaliar vizinhos de  36, em mostrarConteudoL: 29, T, 30, T, 36, T, 37, T, 43, T, 44, F,  ...
+,    6 elementos
+ avaliar noh: 29, T,   NAO incluir em toVisit    29
+ avaliar noh: 30, T,   NAO incluir em toVisit    30
+ avaliar noh: 36, T,   NAO incluir em toVisit    36
+ avaliar noh: 37, T, 
+em function incluirVerticeLTopoSemRepeticao, 37, 
+ avaliar noh: 43, T, 
+em function incluirVerticeLTopoSemRepeticao, 43, 
+ avaliar noh: 44, F, 
+em function incluirVerticeLTopoSemRepeticao, 44, 
+  incluir    36 em visitedL +++ 
+em function incluirVerticeLTopoSemRepeticao, 36, 
+nohs visited, , em mostrarConteudoL: 36, T, 34, T, 27, T, 20, T, 13, T, 6, T, 33, T, 32, T, 31, T, 30, T, 29, T, 26, T, 19, T, 12, T, 5, T, 25, T, 24, T, 23, T, 22, T, 18, T, 11, T, 4, T, 17, T, 16, T, 15, T, 10, T, 3, T, 9, T, 8, T, 2, T, 1, F,  ...
+,   31 elementos
+ toVisit +++ , em mostrarConteudoL: 44, T, 43, T, 42, T, 35, T, 28, T, 21, T, 14, T, 7, T, 41, T, 40, T, 39, T, 38, T, 37, F,  ...
+,   13 elementos
+
+     excluirMaisAnt from toVisit +++ ,
+em function excluirVerticeMaisAntigo, 37,  excluido from  toVisit +++ 
+ avaliar vizinhos de  37, em mostrarConteudoL: 29, T, 30, T, 31, T, 36, T, 37, T, 38, T, 43, T, 44, T, 45, F,  ...
+,    9 elementos
+ avaliar noh: 29, T,   NAO incluir em toVisit    29
+ avaliar noh: 30, T,   NAO incluir em toVisit    30
+ avaliar noh: 31, T,   NAO incluir em toVisit    31
+ avaliar noh: 36, T,   NAO incluir em toVisit    36
+ avaliar noh: 37, T,   NAO incluir em toVisit    37
+ avaliar noh: 38, T, 
+em function incluirVerticeLTopoSemRepeticao, 38, 
+ avaliar noh: 43, T, 
+em function incluirVerticeLTopoSemRepeticao, 43, 
+ avaliar noh: 44, T, 
+em function incluirVerticeLTopoSemRepeticao, 44, 
+ avaliar noh: 45, F, 
+em function incluirVerticeLTopoSemRepeticao, 45, 
+  incluir    37 em visitedL +++ 
+em function incluirVerticeLTopoSemRepeticao, 37, 
+nohs visited, , em mostrarConteudoL: 37, T, 36, T, 34, T, 27, T, 20, T, 13, T, 6, T, 33, T, 32, T, 31, T, 30, T, 29, T, 26, T, 19, T, 12, T, 5, T, 25, T, 24, T, 23, T, 22, T, 18, T, 11, T, 4, T, 17, T, 16, T, 15, T, 10, T, 3, T, 9, T, 8, T, 2, T, 1, F,  ...
+,   32 elementos
+ toVisit +++ , em mostrarConteudoL: 45, T, 44, T, 43, T, 42, T, 35, T, 28, T, 21, T, 14, T, 7, T, 41, T, 40, T, 39, T, 38, F,  ...
+,   13 elementos
+
+     excluirMaisAnt from toVisit +++ ,
+em function excluirVerticeMaisAntigo, 38,  excluido from  toVisit +++ 
+ avaliar vizinhos de  38, em mostrarConteudoL: 30, T, 31, T, 32, T, 37, T, 38, T, 39, T, 44, T, 45, T, 46, F,  ...
+,    9 elementos
+ avaliar noh: 30, T,   NAO incluir em toVisit    30
+ avaliar noh: 31, T,   NAO incluir em toVisit    31
+ avaliar noh: 32, T,   NAO incluir em toVisit    32
+ avaliar noh: 37, T,   NAO incluir em toVisit    37
+ avaliar noh: 38, T,   NAO incluir em toVisit    38
+ avaliar noh: 39, T, 
+em function incluirVerticeLTopoSemRepeticao, 39, 
+ avaliar noh: 44, T, 
+em function incluirVerticeLTopoSemRepeticao, 44, 
+ avaliar noh: 45, T, 
+em function incluirVerticeLTopoSemRepeticao, 45, 
+ avaliar noh: 46, F, 
+em function incluirVerticeLTopoSemRepeticao, 46, 
+  incluir    38 em visitedL +++ 
+em function incluirVerticeLTopoSemRepeticao, 38, 
+nohs visited, , em mostrarConteudoL: 38, T, 37, T, 36, T, 34, T, 27, T, 20, T, 13, T, 6, T, 33, T, 32, T, 31, T, 30, T, 29, T, 26, T, 19, T, 12, T, 5, T, 25, T, 24, T, 23, T, 22, T, 18, T, 11, T, 4, T, 17, T, 16, T, 15, T, 10, T, 3, T, 9, T, 8, T, 2, T, 1, F,  ...
+,   33 elementos
+ toVisit +++ , em mostrarConteudoL: 46, T, 45, T, 44, T, 43, T, 42, T, 35, T, 28, T, 21, T, 14, T, 7, T, 41, T, 40, T, 39, F,  ...
+,   13 elementos
+
+     excluirMaisAnt from toVisit +++ ,
+em function excluirVerticeMaisAntigo, 39,  excluido from  toVisit +++ 
+ avaliar vizinhos de  39, em mostrarConteudoL: 31, T, 32, T, 33, T, 38, T, 39, T, 40, T, 45, T, 46, T, 47, F,  ...
+,    9 elementos
+ avaliar noh: 31, T,   NAO incluir em toVisit    31
+ avaliar noh: 32, T,   NAO incluir em toVisit    32
+ avaliar noh: 33, T,   NAO incluir em toVisit    33
+ avaliar noh: 38, T,   NAO incluir em toVisit    38
+ avaliar noh: 39, T,   NAO incluir em toVisit    39
+ avaliar noh: 40, T, 
+em function incluirVerticeLTopoSemRepeticao, 40, 
+ avaliar noh: 45, T, 
+em function incluirVerticeLTopoSemRepeticao, 45, 
+ avaliar noh: 46, T, 
+em function incluirVerticeLTopoSemRepeticao, 46, 
+ avaliar noh: 47, F, 
+em function incluirVerticeLTopoSemRepeticao, 47, 
+  incluir    39 em visitedL +++ 
+em function incluirVerticeLTopoSemRepeticao, 39, 
+nohs visited, , em mostrarConteudoL: 39, T, 38, T, 37, T, 36, T, 34, T, 27, T, 20, T, 13, T, 6, T, 33, T, 32, T, 31, T, 30, T, 29, T, 26, T, 19, T, 12, T, 5, T, 25, T, 24, T, 23, T, 22, T, 18, T, 11, T, 4, T, 17, T, 16, T, 15, T, 10, T, 3, T, 9, T, 8, T, 2, T, 1, F,  ...
+,   34 elementos
+ toVisit +++ , em mostrarConteudoL: 47, T, 46, T, 45, T, 44, T, 43, T, 42, T, 35, T, 28, T, 21, T, 14, T, 7, T, 41, T, 40, F,  ...
+,   13 elementos
+
+     excluirMaisAnt from toVisit +++ ,
+em function excluirVerticeMaisAntigo, 40,  excluido from  toVisit +++ 
+ avaliar vizinhos de  40, em mostrarConteudoL: 32, T, 33, T, 34, T, 39, T, 40, T, 41, T, 46, T, 47, T, 48, F,  ...
+,    9 elementos
+ avaliar noh: 32, T,   NAO incluir em toVisit    32
+ avaliar noh: 33, T,   NAO incluir em toVisit    33
+ avaliar noh: 34, T,   NAO incluir em toVisit    34
+ avaliar noh: 39, T,   NAO incluir em toVisit    39
+ avaliar noh: 40, T,   NAO incluir em toVisit    40
+ avaliar noh: 41, T, 
+em function incluirVerticeLTopoSemRepeticao, 41, 
+ avaliar noh: 46, T, 
+em function incluirVerticeLTopoSemRepeticao, 46, 
+ avaliar noh: 47, T, 
+em function incluirVerticeLTopoSemRepeticao, 47, 
+ avaliar noh: 48, F, 
+em function incluirVerticeLTopoSemRepeticao, 48, 
+  incluir    40 em visitedL +++ 
+em function incluirVerticeLTopoSemRepeticao, 40, 
+nohs visited, , em mostrarConteudoL: 40, T, 39, T, 38, T, 37, T, 36, T, 34, T, 27, T, 20, T, 13, T, 6, T, 33, T, 32, T, 31, T, 30, T, 29, T, 26, T, 19, T, 12, T, 5, T, 25, T, 24, T, 23, T, 22, T, 18, T, 11, T, 4, T, 17, T, 16, T, 15, T, 10, T, 3, T, 9, T, 8, T, 2, T, 1, F,  ...
+,   35 elementos
+ toVisit +++ , em mostrarConteudoL: 48, T, 47, T, 46, T, 45, T, 44, T, 43, T, 42, T, 35, T, 28, T, 21, T, 14, T, 7, T, 41, F,  ...
+,   13 elementos
+
+     excluirMaisAnt from toVisit +++ ,
+em function excluirVerticeMaisAntigo, 41,  excluido from  toVisit +++ 
+ avaliar vizinhos de  41, em mostrarConteudoL: 33, T, 34, T, 35, T, 40, T, 41, T, 42, T, 47, T, 48, T, 49, F,  ...
+,    9 elementos
+ avaliar noh: 33, T,   NAO incluir em toVisit    33
+ avaliar noh: 34, T,   NAO incluir em toVisit    34
+ avaliar noh: 35, T, 
+em function incluirVerticeLTopoSemRepeticao, 35, 
+ avaliar noh: 40, T,   NAO incluir em toVisit    40
+ avaliar noh: 41, T,   NAO incluir em toVisit    41
+ avaliar noh: 42, T, 
+em function incluirVerticeLTopoSemRepeticao, 42, 
+ avaliar noh: 47, T, 
+em function incluirVerticeLTopoSemRepeticao, 47, 
+ avaliar noh: 48, T, 
+em function incluirVerticeLTopoSemRepeticao, 48, 
+ avaliar noh: 49, F, 
+em function incluirVerticeLTopoSemRepeticao, 49, 
+  incluir    41 em visitedL +++ 
+em function incluirVerticeLTopoSemRepeticao, 41, 
+nohs visited, , em mostrarConteudoL: 41, T, 40, T, 39, T, 38, T, 37, T, 36, T, 34, T, 27, T, 20, T, 13, T, 6, T, 33, T, 32, T, 31, T, 30, T, 29, T, 26, T, 19, T, 12, T, 5, T, 25, T, 24, T, 23, T, 22, T, 18, T, 11, T, 4, T, 17, T, 16, T, 15, T, 10, T, 3, T, 9, T, 8, T, 2, T, 1, F,  ...
+,   36 elementos
+ toVisit +++ , em mostrarConteudoL: 49, T, 48, T, 47, T, 46, T, 45, T, 44, T, 43, T, 42, T, 35, T, 28, T, 21, T, 14, T, 7, F,  ...
+,   13 elementos
+
+     excluirMaisAnt from toVisit +++ ,
+em function excluirVerticeMaisAntigo, 7,  excluido from  toVisit +++ 
+ avaliar vizinhos de   7, em mostrarConteudoL: 6, T, 7, T, 13, T, 14, F,  ...
+,    4 elementos
+ avaliar noh: 6, T,   NAO incluir em toVisit     6
+ avaliar noh: 7, T,   NAO incluir em toVisit     7
+ avaliar noh: 13, T,   NAO incluir em toVisit    13
+ avaliar noh: 14, F, 
+em function incluirVerticeLTopoSemRepeticao, 14, 
+  incluir     7 em visitedL +++ 
+em function incluirVerticeLTopoSemRepeticao, 7, 
+nohs visited, , em mostrarConteudoL: 7, T, 41, T, 40, T, 39, T, 38, T, 37, T, 36, T, 34, T, 27, T, 20, T, 13, T, 6, T, 33, T, 32, T, 31, T, 30, T, 29, T, 26, T, 19, T, 12, T, 5, T, 25, T, 24, T, 23, T, 22, T, 18, T, 11, T, 4, T, 17, T, 16, T, 15, T, 10, T, 3, T, 9, T, 8, T, 2, T, 1, F,  ...
+,   37 elementos
+ toVisit +++ , em mostrarConteudoL: 49, T, 48, T, 47, T, 46, T, 45, T, 44, T, 43, T, 42, T, 35, T, 28, T, 21, T, 14, F,  ...
+,   12 elementos
+
+     excluirMaisAnt from toVisit +++ ,
+em function excluirVerticeMaisAntigo, 14,  excluido from  toVisit +++ 
+ avaliar vizinhos de  14, em mostrarConteudoL: 6, T, 7, T, 13, T, 14, T, 20, T, 21, F,  ...
+,    6 elementos
+ avaliar noh: 6, T,   NAO incluir em toVisit     6
+ avaliar noh: 7, T,   NAO incluir em toVisit     7
+ avaliar noh: 13, T,   NAO incluir em toVisit    13
+ avaliar noh: 14, T,   NAO incluir em toVisit    14
+ avaliar noh: 20, T,   NAO incluir em toVisit    20
+ avaliar noh: 21, F, 
+em function incluirVerticeLTopoSemRepeticao, 21, 
+  incluir    14 em visitedL +++ 
+em function incluirVerticeLTopoSemRepeticao, 14, 
+nohs visited, , em mostrarConteudoL: 14, T, 7, T, 41, T, 40, T, 39, T, 38, T, 37, T, 36, T, 34, T, 27, T, 20, T, 13, T, 6, T, 33, T, 32, T, 31, T, 30, T, 29, T, 26, T, 19, T, 12, T, 5, T, 25, T, 24, T, 23, T, 22, T, 18, T, 11, T, 4, T, 17, T, 16, T, 15, T, 10, T, 3, T, 9, T, 8, T, 2, T, 1, F,  ...
+,   38 elementos
+ toVisit +++ , em mostrarConteudoL: 49, T, 48, T, 47, T, 46, T, 45, T, 44, T, 43, T, 42, T, 35, T, 28, T, 21, F,  ...
+,   11 elementos
+
+     excluirMaisAnt from toVisit +++ ,
+em function excluirVerticeMaisAntigo, 21,  excluido from  toVisit +++ 
+ avaliar vizinhos de  21, em mostrarConteudoL: 13, T, 14, T, 20, T, 21, T, 27, T, 28, F,  ...
+,    6 elementos
+ avaliar noh: 13, T,   NAO incluir em toVisit    13
+ avaliar noh: 14, T,   NAO incluir em toVisit    14
+ avaliar noh: 20, T,   NAO incluir em toVisit    20
+ avaliar noh: 21, T,   NAO incluir em toVisit    21
+ avaliar noh: 27, T,   NAO incluir em toVisit    27
+ avaliar noh: 28, F, 
+em function incluirVerticeLTopoSemRepeticao, 28, 
+  incluir    21 em visitedL +++ 
+em function incluirVerticeLTopoSemRepeticao, 21, 
+nohs visited, , em mostrarConteudoL: 21, T, 14, T, 7, T, 41, T, 40, T, 39, T, 38, T, 37, T, 36, T, 34, T, 27, T, 20, T, 13, T, 6, T, 33, T, 32, T, 31, T, 30, T, 29, T, 26, T, 19, T, 12, T, 5, T, 25, T, 24, T, 23, T, 22, T, 18, T, 11, T, 4, T, 17, T, 16, T, 15, T, 10, T, 3, T, 9, T, 8, T, 2, T, 1, F,  ...
+,   39 elementos
+ toVisit +++ , em mostrarConteudoL: 49, T, 48, T, 47, T, 46, T, 45, T, 44, T, 43, T, 42, T, 35, T, 28, F,  ...
+,   10 elementos
+
+     excluirMaisAnt from toVisit +++ ,
+em function excluirVerticeMaisAntigo, 28,  excluido from  toVisit +++ 
+ avaliar vizinhos de  28, em mostrarConteudoL: 20, T, 21, T, 27, T, 28, T, 34, T, 35, F,  ...
+,    6 elementos
+ avaliar noh: 20, T,   NAO incluir em toVisit    20
+ avaliar noh: 21, T,   NAO incluir em toVisit    21
+ avaliar noh: 27, T,   NAO incluir em toVisit    27
+ avaliar noh: 28, T,   NAO incluir em toVisit    28
+ avaliar noh: 34, T,   NAO incluir em toVisit    34
+ avaliar noh: 35, F, 
+em function incluirVerticeLTopoSemRepeticao, 35, 
+  incluir    28 em visitedL +++ 
+em function incluirVerticeLTopoSemRepeticao, 28, 
+nohs visited, , em mostrarConteudoL: 28, T, 21, T, 14, T, 7, T, 41, T, 40, T, 39, T, 38, T, 37, T, 36, T, 34, T, 27, T, 20, T, 13, T, 6, T, 33, T, 32, T, 31, T, 30, T, 29, T, 26, T, 19, T, 12, T, 5, T, 25, T, 24, T, 23, T, 22, T, 18, T, 11, T, 4, T, 17, T, 16, T, 15, T, 10, T, 3, T, 9, T, 8, T, 2, T, 1, F,  ...
+,   40 elementos
+ toVisit +++ , em mostrarConteudoL: 49, T, 48, T, 47, T, 46, T, 45, T, 44, T, 43, T, 42, T, 35, F,  ...
+,    9 elementos
+
+     excluirMaisAnt from toVisit +++ ,
+em function excluirVerticeMaisAntigo, 35,  excluido from  toVisit +++ 
+ avaliar vizinhos de  35, em mostrarConteudoL: 27, T, 28, T, 34, T, 35, T, 41, T, 42, F,  ...
+,    6 elementos
+ avaliar noh: 27, T,   NAO incluir em toVisit    27
+ avaliar noh: 28, T,   NAO incluir em toVisit    28
+ avaliar noh: 34, T,   NAO incluir em toVisit    34
+ avaliar noh: 35, T,   NAO incluir em toVisit    35
+ avaliar noh: 41, T,   NAO incluir em toVisit    41
+ avaliar noh: 42, F, 
+em function incluirVerticeLTopoSemRepeticao, 42, 
+  incluir    35 em visitedL +++ 
+em function incluirVerticeLTopoSemRepeticao, 35, 
+nohs visited, , em mostrarConteudoL: 35, T, 28, T, 21, T, 14, T, 7, T, 41, T, 40, T, 39, T, 38, T, 37, T, 36, T, 34, T, 27, T, 20, T, 13, T, 6, T, 33, T, 32, T, 31, T, 30, T, 29, T, 26, T, 19, T, 12, T, 5, T, 25, T, 24, T, 23, T, 22, T, 18, T, 11, T, 4, T, 17, T, 16, T, 15, T, 10, T, 3, T, 9, T, 8, T, 2, T, 1, F,  ...
+,   41 elementos
+ toVisit +++ , em mostrarConteudoL: 49, T, 48, T, 47, T, 46, T, 45, T, 44, T, 43, T, 42, F,  ...
+,    8 elementos
+
+     excluirMaisAnt from toVisit +++ ,
+em function excluirVerticeMaisAntigo, 42,  excluido from  toVisit +++ 
+ avaliar vizinhos de  42, em mostrarConteudoL: 34, T, 35, T, 41, T, 42, T, 48, T, 49, F,  ...
+,    6 elementos
+ avaliar noh: 34, T,   NAO incluir em toVisit    34
+ avaliar noh: 35, T,   NAO incluir em toVisit    35
+ avaliar noh: 41, T,   NAO incluir em toVisit    41
+ avaliar noh: 42, T,   NAO incluir em toVisit    42
+ avaliar noh: 48, T, 
+em function incluirVerticeLTopoSemRepeticao, 48, 
+ avaliar noh: 49, F, 
+em function incluirVerticeLTopoSemRepeticao, 49, 
+  incluir    42 em visitedL +++ 
+em function incluirVerticeLTopoSemRepeticao, 42, 
+nohs visited, , em mostrarConteudoL: 42, T, 35, T, 28, T, 21, T, 14, T, 7, T, 41, T, 40, T, 39, T, 38, T, 37, T, 36, T, 34, T, 27, T, 20, T, 13, T, 6, T, 33, T, 32, T, 31, T, 30, T, 29, T, 26, T, 19, T, 12, T, 5, T, 25, T, 24, T, 23, T, 22, T, 18, T, 11, T, 4, T, 17, T, 16, T, 15, T, 10, T, 3, T, 9, T, 8, T, 2, T, 1, F,  ...
+,   42 elementos
+ toVisit +++ , em mostrarConteudoL: 49, T, 48, T, 47, T, 46, T, 45, T, 44, T, 43, F,  ...
+,    7 elementos
+
+     excluirMaisAnt from toVisit +++ ,
+em function excluirVerticeMaisAntigo, 43,  excluido from  toVisit +++ 
+ avaliar vizinhos de  43, em mostrarConteudoL: 36, T, 37, T, 43, T, 44, F,  ...
+,    4 elementos
+ avaliar noh: 36, T,   NAO incluir em toVisit    36
+ avaliar noh: 37, T,   NAO incluir em toVisit    37
+ avaliar noh: 43, T,   NAO incluir em toVisit    43
+ avaliar noh: 44, F, 
+em function incluirVerticeLTopoSemRepeticao, 44, 
+  incluir    43 em visitedL +++ 
+em function incluirVerticeLTopoSemRepeticao, 43, 
+nohs visited, , em mostrarConteudoL: 43, T, 42, T, 35, T, 28, T, 21, T, 14, T, 7, T, 41, T, 40, T, 39, T, 38, T, 37, T, 36, T, 34, T, 27, T, 20, T, 13, T, 6, T, 33, T, 32, T, 31, T, 30, T, 29, T, 26, T, 19, T, 12, T, 5, T, 25, T, 24, T, 23, T, 22, T, 18, T, 11, T, 4, T, 17, T, 16, T, 15, T, 10, T, 3, T, 9, T, 8, T, 2, T, 1, F,  ...
+,   43 elementos
+ toVisit +++ , em mostrarConteudoL: 49, T, 48, T, 47, T, 46, T, 45, T, 44, F,  ...
+,    6 elementos
+
+     excluirMaisAnt from toVisit +++ ,
+em function excluirVerticeMaisAntigo, 44,  excluido from  toVisit +++ 
+ avaliar vizinhos de  44, em mostrarConteudoL: 36, T, 37, T, 38, T, 43, T, 44, T, 45, F,  ...
+,    6 elementos
+ avaliar noh: 36, T,   NAO incluir em toVisit    36
+ avaliar noh: 37, T,   NAO incluir em toVisit    37
+ avaliar noh: 38, T,   NAO incluir em toVisit    38
+ avaliar noh: 43, T,   NAO incluir em toVisit    43
+ avaliar noh: 44, T,   NAO incluir em toVisit    44
+ avaliar noh: 45, F, 
+em function incluirVerticeLTopoSemRepeticao, 45, 
+  incluir    44 em visitedL +++ 
+em function incluirVerticeLTopoSemRepeticao, 44, 
+nohs visited, , em mostrarConteudoL: 44, T, 43, T, 42, T, 35, T, 28, T, 21, T, 14, T, 7, T, 41, T, 40, T, 39, T, 38, T, 37, T, 36, T, 34, T, 27, T, 20, T, 13, T, 6, T, 33, T, 32, T, 31, T, 30, T, 29, T, 26, T, 19, T, 12, T, 5, T, 25, T, 24, T, 23, T, 22, T, 18, T, 11, T, 4, T, 17, T, 16, T, 15, T, 10, T, 3, T, 9, T, 8, T, 2, T, 1, F,  ...
+,   44 elementos
+ toVisit +++ , em mostrarConteudoL: 49, T, 48, T, 47, T, 46, T, 45, F,  ...
+,    5 elementos
+
+     excluirMaisAnt from toVisit +++ ,
+em function excluirVerticeMaisAntigo, 45,  excluido from  toVisit +++ 
+ avaliar vizinhos de  45, em mostrarConteudoL: 37, T, 38, T, 39, T, 44, T, 45, T, 46, F,  ...
+,    6 elementos
+ avaliar noh: 37, T,   NAO incluir em toVisit    37
+ avaliar noh: 38, T,   NAO incluir em toVisit    38
+ avaliar noh: 39, T,   NAO incluir em toVisit    39
+ avaliar noh: 44, T,   NAO incluir em toVisit    44
+ avaliar noh: 45, T,   NAO incluir em toVisit    45
+ avaliar noh: 46, F, 
+em function incluirVerticeLTopoSemRepeticao, 46, 
+  incluir    45 em visitedL +++ 
+em function incluirVerticeLTopoSemRepeticao, 45, 
+nohs visited, , em mostrarConteudoL: 45, T, 44, T, 43, T, 42, T, 35, T, 28, T, 21, T, 14, T, 7, T, 41, T, 40, T, 39, T, 38, T, 37, T, 36, T, 34, T, 27, T, 20, T, 13, T, 6, T, 33, T, 32, T, 31, T, 30, T, 29, T, 26, T, 19, T, 12, T, 5, T, 25, T, 24, T, 23, T, 22, T, 18, T, 11, T, 4, T, 17, T, 16, T, 15, T, 10, T, 3, T, 9, T, 8, T, 2, T, 1, F,  ...
+,   45 elementos
+ toVisit +++ , em mostrarConteudoL: 49, T, 48, T, 47, T, 46, F,  ...
+,    4 elementos
+
+     excluirMaisAnt from toVisit +++ ,
+em function excluirVerticeMaisAntigo, 46,  excluido from  toVisit +++ 
+ avaliar vizinhos de  46, em mostrarConteudoL: 38, T, 39, T, 40, T, 45, T, 46, T, 47, F,  ...
+,    6 elementos
+ avaliar noh: 38, T,   NAO incluir em toVisit    38
+ avaliar noh: 39, T,   NAO incluir em toVisit    39
+ avaliar noh: 40, T,   NAO incluir em toVisit    40
+ avaliar noh: 45, T,   NAO incluir em toVisit    45
+ avaliar noh: 46, T,   NAO incluir em toVisit    46
+ avaliar noh: 47, F, 
+em function incluirVerticeLTopoSemRepeticao, 47, 
+  incluir    46 em visitedL +++ 
+em function incluirVerticeLTopoSemRepeticao, 46, 
+nohs visited, , em mostrarConteudoL: 46, T, 45, T, 44, T, 43, T, 42, T, 35, T, 28, T, 21, T, 14, T, 7, T, 41, T, 40, T, 39, T, 38, T, 37, T, 36, T, 34, T, 27, T, 20, T, 13, T, 6, T, 33, T, 32, T, 31, T, 30, T, 29, T, 26, T, 19, T, 12, T, 5, T, 25, T, 24, T, 23, T, 22, T, 18, T, 11, T, 4, T, 17, T, 16, T, 15, T, 10, T, 3, T, 9, T, 8, T, 2, T, 1, F,  ...
+,   46 elementos
+ toVisit +++ , em mostrarConteudoL: 49, T, 48, T, 47, F,  ...
+,    3 elementos
+
+     excluirMaisAnt from toVisit +++ ,
+em function excluirVerticeMaisAntigo, 47,  excluido from  toVisit +++ 
+ avaliar vizinhos de  47, em mostrarConteudoL: 39, T, 40, T, 41, T, 46, T, 47, T, 48, F,  ...
+,    6 elementos
+ avaliar noh: 39, T,   NAO incluir em toVisit    39
+ avaliar noh: 40, T,   NAO incluir em toVisit    40
+ avaliar noh: 41, T,   NAO incluir em toVisit    41
+ avaliar noh: 46, T,   NAO incluir em toVisit    46
+ avaliar noh: 47, T,   NAO incluir em toVisit    47
+ avaliar noh: 48, F, 
+em function incluirVerticeLTopoSemRepeticao, 48, 
+  incluir    47 em visitedL +++ 
+em function incluirVerticeLTopoSemRepeticao, 47, 
+nohs visited, , em mostrarConteudoL: 47, T, 46, T, 45, T, 44, T, 43, T, 42, T, 35, T, 28, T, 21, T, 14, T, 7, T, 41, T, 40, T, 39, T, 38, T, 37, T, 36, T, 34, T, 27, T, 20, T, 13, T, 6, T, 33, T, 32, T, 31, T, 30, T, 29, T, 26, T, 19, T, 12, T, 5, T, 25, T, 24, T, 23, T, 22, T, 18, T, 11, T, 4, T, 17, T, 16, T, 15, T, 10, T, 3, T, 9, T, 8, T, 2, T, 1, F,  ...
+,   47 elementos
+ toVisit +++ , em mostrarConteudoL: 49, T, 48, F,  ...
+,    2 elementos
+
+     excluirMaisAnt from toVisit +++ ,
+em function excluirVerticeMaisAntigo, 48,  excluido from  toVisit +++ 
+ avaliar vizinhos de  48, em mostrarConteudoL: 40, T, 41, T, 42, T, 47, T, 48, T, 49, F,  ...
+,    6 elementos
+ avaliar noh: 40, T,   NAO incluir em toVisit    40
+ avaliar noh: 41, T,   NAO incluir em toVisit    41
+ avaliar noh: 42, T,   NAO incluir em toVisit    42
+ avaliar noh: 47, T,   NAO incluir em toVisit    47
+ avaliar noh: 48, T,   NAO incluir em toVisit    48
+ avaliar noh: 49, F, 
+em function incluirVerticeLTopoSemRepeticao, 49, 
+  incluir    48 em visitedL +++ 
+em function incluirVerticeLTopoSemRepeticao, 48, 
+nohs visited, , em mostrarConteudoL: 48, T, 47, T, 46, T, 45, T, 44, T, 43, T, 42, T, 35, T, 28, T, 21, T, 14, T, 7, T, 41, T, 40, T, 39, T, 38, T, 37, T, 36, T, 34, T, 27, T, 20, T, 13, T, 6, T, 33, T, 32, T, 31, T, 30, T, 29, T, 26, T, 19, T, 12, T, 5, T, 25, T, 24, T, 23, T, 22, T, 18, T, 11, T, 4, T, 17, T, 16, T, 15, T, 10, T, 3, T, 9, T, 8, T, 2, T, 1, F,  ...
+,   48 elementos
+ toVisit +++ , em mostrarConteudoL: 49, F,  ...
+,    1 elementos
+
+     excluirMaisAnt from toVisit +++ ,
+em function excluirVerticeMaisAntigo, 49,  excluido from  toVisit +++ 
+ avaliar vizinhos de  49, em mostrarConteudoL: 41, T, 42, T, 48, T, 49, F,  ...
+,    4 elementos
+ avaliar noh: 41, T,   NAO incluir em toVisit    41
+ avaliar noh: 42, T,   NAO incluir em toVisit    42
+ avaliar noh: 48, T,   NAO incluir em toVisit    48
+ avaliar noh: 49, F,   NAO incluir em toVisit    49
+  incluir    49 em visitedL +++ 
+em function incluirVerticeLTopoSemRepeticao, 49, 
+nohs visited, , em mostrarConteudoL: 49, T, 48, T, 47, T, 46, T, 45, T, 44, T, 43, T, 42, T, 35, T, 28, T, 21, T, 14, T, 7, T, 41, T, 40, T, 39, T, 38, T, 37, T, 36, T, 34, T, 27, T, 20, T, 13, T, 6, T, 33, T, 32, T, 31, T, 30, T, 29, T, 26, T, 19, T, 12, T, 5, T, 25, T, 24, T, 23, T, 22, T, 18, T, 11, T, 4, T, 17, T, 16, T, 15, T, 10, T, 3, T, 9, T, 8, T, 2, T, 1, F,  ...
+,   49 elementos
+ toVisit +++ , em mostrarConteudoL , lista vazia ...
+,    0 elementos
+
+     excluirMaisAnt from toVisit +++ ,
+  ... lista vazia  !!! ! 
+em function excluirVerticeMaisAntigo,   final da lista 
+ excluido from  toVisit +++   fim do bfs 
+nohs visited, , em mostrarConteudoL: 49, T, 48, T, 47, T, 46, T, 45, T, 44, T, 43, T, 42, T, 35, T, 28, T, 21, T, 14, T, 7, T, 41, T, 40, T, 39, T, 38, T, 37, T, 36, T, 34, T, 27, T, 20, T, 13, T, 6, T, 33, T, 32, T, 31, T, 30, T, 29, T, 26, T, 19, T, 12, T, 5, T, 25, T, 24, T, 23, T, 22, T, 18, T, 11, T, 4, T, 17, T, 16, T, 15, T, 10, T, 3, T, 9, T, 8, T, 2, T, 1, F,  ...
+,   49 elementos
+nohs visited, reverso:  , lista vazia ...
+1, F, 2, T, 8, T, 9, T, 3, T, 10, T, 15, T, 16, T, 17, T, 4, T, 11, T, 18, T, 22, T, 23, T, 24, T, 25, T, 5, T, 12, T, 19, T, 26, T, 29, T, 30, T, 31, T, 32, T, 33, T, 6, T, 13, T, 20, T, 27, T, 34, T, 36, T, 37, T, 38, T, 39, T, 40, T, 41, T, 7, T, 14, T, 21, T, 28, T, 35, T, 42, T, 43, T, 44, T, 45, T, 46, T, 47, T, 48, T, 49, T, 
+ banda_ original =           17
+          caminho minimo
+, em mostrarConteudoL: 49, T, 48, T, 47, T, 46, T, 45, T, 44, T, 43, T, 42, T, 35, T, 28, T, 21, T, 14, T, 7, T, 41, T, 40, T, 39, T, 38, T, 37, T, 36, T, 34, T, 27, T, 20, T, 13, T, 6, T, 33, T, 32, T, 31, T, 30, T, 29, T, 26, T, 19, T, 12, T, 5, T, 25, T, 24, T, 23, T, 22, T, 18, T, 11, T, 4, T, 17, T, 16, T, 15, T, 10, T, 3, T, 9, T, 8, T, 2, T, 1, F,  ...
+,   49 elementos
+em function incluirVerticeLTopoSemRepeticao, 49, 
+em function incluirVerticeLTopoSemRepeticao, 48, 
+em function incluirVerticeLTopoSemRepeticao, 47, 
+em function incluirVerticeLTopoSemRepeticao, 46, 
+em function incluirVerticeLTopoSemRepeticao, 45, 
+em function incluirVerticeLTopoSemRepeticao, 44, 
+em function incluirVerticeLTopoSemRepeticao, 43, 
+em function incluirVerticeLTopoSemRepeticao, 42, 
+em function incluirVerticeLTopoSemRepeticao, 35, 
+em function incluirVerticeLTopoSemRepeticao, 28, 
+em function incluirVerticeLTopoSemRepeticao, 21, 
+em function incluirVerticeLTopoSemRepeticao, 14, 
+em function incluirVerticeLTopoSemRepeticao, 7, 
+em function incluirVerticeLTopoSemRepeticao, 41, 
+em function incluirVerticeLTopoSemRepeticao, 40, 
+em function incluirVerticeLTopoSemRepeticao, 39, 
+em function incluirVerticeLTopoSemRepeticao, 38, 
+em function incluirVerticeLTopoSemRepeticao, 37, 
+em function incluirVerticeLTopoSemRepeticao, 36, 
+em function incluirVerticeLTopoSemRepeticao, 34, 
+em function incluirVerticeLTopoSemRepeticao, 27, 
+em function incluirVerticeLTopoSemRepeticao, 20, 
+em function incluirVerticeLTopoSemRepeticao, 13, 
+em function incluirVerticeLTopoSemRepeticao, 6, 
+em function incluirVerticeLTopoSemRepeticao, 33, 
+em function incluirVerticeLTopoSemRepeticao, 32, 
+em function incluirVerticeLTopoSemRepeticao, 31, 
+em function incluirVerticeLTopoSemRepeticao, 30, 
+em function incluirVerticeLTopoSemRepeticao, 29, 
+em function incluirVerticeLTopoSemRepeticao, 26, 
+em function incluirVerticeLTopoSemRepeticao, 19, 
+em function incluirVerticeLTopoSemRepeticao, 12, 
+em function incluirVerticeLTopoSemRepeticao, 5, 
+em function incluirVerticeLTopoSemRepeticao, 25, 
+em function incluirVerticeLTopoSemRepeticao, 24, 
+em function incluirVerticeLTopoSemRepeticao, 23, 
+em function incluirVerticeLTopoSemRepeticao, 22, 
+em function incluirVerticeLTopoSemRepeticao, 18, 
+em function incluirVerticeLTopoSemRepeticao, 11, 
+em function incluirVerticeLTopoSemRepeticao, 4, 
+em function incluirVerticeLTopoSemRepeticao, 17, 
+em function incluirVerticeLTopoSemRepeticao, 16, 
+em function incluirVerticeLTopoSemRepeticao, 15, 
+em function incluirVerticeLTopoSemRepeticao, 10, 
+em function incluirVerticeLTopoSemRepeticao, 3, 
+em function incluirVerticeLTopoSemRepeticao, 9, 
+em function incluirVerticeLTopoSemRepeticao, 8, 
+em function incluirVerticeLTopoSemRepeticao, 2, 
+em function incluirVerticeLTopoSemRepeticao, 1, 
+ copia do caminho minimo
+, em mostrarConteudoL: 1, T, 2, T, 8, T, 9, T, 3, T, 10, T, 15, T, 16, T, 17, T, 4, T, 11, T, 18, T, 22, T, 23, T, 24, T, 25, T, 5, T, 12, T, 19, T, 26, T, 29, T, 30, T, 31, T, 32, T, 33, T, 6, T, 13, T, 20, T, 27, T, 34, T, 36, T, 37, T, 38, T, 39, T, 40, T, 41, T, 7, T, 14, T, 21, T, 28, T, 35, T, 42, T, 43, T, 44, T, 45, T, 46, T, 47, T, 48, T, 49, F,  ...
+,   49 elementos
+ nova numeracao
+  1  2  5 10 17 26 37  3  4  6 11 18 27 38  7  8  9 12 19 28 39 13 14 15 16 20 29 40 21 22 23 24 25 30 41 31 32 33 34 35 36 42 43 44 45 46 47 48 49
+           1 ->           1
+           2 ->           2
+           3 ->           5
+           4 ->          10
+           5 ->          17
+           6 ->          26
+           7 ->          37
+           8 ->           3
+           9 ->           4
+          10 ->           6
+          11 ->          11
+          12 ->          18
+          13 ->          27
+          14 ->          38
+          15 ->           7
+          16 ->           8
+          17 ->           9
+          18 ->          12
+          19 ->          19
+          20 ->          28
+          21 ->          39
+          22 ->          13
+          23 ->          14
+          24 ->          15
+          25 ->          16
+          26 ->          20
+          27 ->          29
+          28 ->          40
+          29 ->          21
+          30 ->          22
+          31 ->          23
+          32 ->          24
+          33 ->          25
+          34 ->          30
+          35 ->          41
+          36 ->          31
+          37 ->          32
+          38 ->          33
+          39 ->          34
+          40 ->          35
+          41 ->          36
+          42 ->          42
+          43 ->          43
+          44 ->          44
+          45 ->          45
+          46 ->          46
+          47 ->          47
+          48 ->          48
+          49 ->          49
+ novo LM 
+ em  mostrarLM, total de elementos:           36
+ conectividades nodais, entre os elementos =            1  a           36
+elemento 1, LM=1  2  4  3
+elemento 2, LM=2  5  6  4
+elemento 3, LM=5  10  11  6
+elemento 4, LM=10  17  18  11
+elemento 5, LM=17  26  27  18
+elemento 6, LM=26  37  38  27
+elemento 7, LM=3  4  8  7
+elemento 8, LM=4  6  9  8
+elemento 9, LM=6  11  12  9
+elemento 10, LM=11  18  19  12
+elemento 11, LM=18  27  28  19
+elemento 12, LM=27  38  39  28
+elemento 13, LM=7  8  14  13
+elemento 14, LM=8  9  15  14
+elemento 15, LM=9  12  16  15
+elemento 16, LM=12  19  20  16
+elemento 17, LM=19  28  29  20
+elemento 18, LM=28  39  40  29
+elemento 19, LM=13  14  22  21
+elemento 20, LM=14  15  23  22
+elemento 21, LM=15  16  24  23
+elemento 22, LM=16  20  25  24
+elemento 23, LM=20  29  30  25
+elemento 24, LM=29  40  41  30
+elemento 25, LM=21  22  32  31
+elemento 26, LM=22  23  33  32
+elemento 27, LM=23  24  34  33
+elemento 28, LM=24  25  35  34
+elemento 29, LM=25  30  36  35
+elemento 30, LM=30  41  42  36
+elemento 31, LM=31  32  44  43
+elemento 32, LM=32  33  45  44
+elemento 33, LM=33  34  46  45
+elemento 34, LM=34  35  47  46
+elemento 35, LM=35  36  48  47
+elemento 36, LM=36  42  49  48
+ em montarAdjArrayLM( subroutine  
+em function incluirVerticeLOrdenado, 1, 
+ lista estava vazia ....
+em function incluirVerticeLOrdenado, 2, 
+em function incluirVerticeLOrdenado, 1, 
+ lista estava vazia ....
+em function incluirVerticeLOrdenado, 4, 
+em function incluirVerticeLOrdenado, 1, 
+ lista estava vazia ....
+em function incluirVerticeLOrdenado, 3, 
+em function incluirVerticeLOrdenado, 1, 
+ lista estava vazia ....
+em function incluirVerticeLOrdenado, 2, 
+em function incluirVerticeLOrdenado, 4, 
+em function incluirVerticeLOrdenado, 2, 
+em function incluirVerticeLOrdenado, 3, 
+em function incluirVerticeLOrdenado, 2, 
+em function incluirVerticeLOrdenado, 4, 
+em function incluirVerticeLOrdenado, 3, 
+em function incluirVerticeLOrdenado, 4, 
+em function incluirVerticeLOrdenado, 3, 
+em function incluirVerticeLOrdenado, 5, 
+em function incluirVerticeLOrdenado, 2, 
+ lista estava vazia ....
+em function incluirVerticeLOrdenado, 6, 
+em function incluirVerticeLOrdenado, 2, 
+ lista estava vazia ....
+em function incluirVerticeLOrdenado, 5, 
+em function incluirVerticeLOrdenado, 6, 
+em function incluirVerticeLOrdenado, 5, 
+em function incluirVerticeLOrdenado, 4, 
+em function incluirVerticeLOrdenado, 5, 
+em function incluirVerticeLOrdenado, 6, 
+em function incluirVerticeLOrdenado, 4, 
+em function incluirVerticeLOrdenado, 6, 
+em function incluirVerticeLOrdenado, 10, 
+em function incluirVerticeLOrdenado, 5, 
+ lista estava vazia ....
+em function incluirVerticeLOrdenado, 11, 
+em function incluirVerticeLOrdenado, 5, 
+ lista estava vazia ....
+em function incluirVerticeLOrdenado, 10, 
+em function incluirVerticeLOrdenado, 11, 
+em function incluirVerticeLOrdenado, 10, 
+em function incluirVerticeLOrdenado, 6, 
+em function incluirVerticeLOrdenado, 10, 
+em function incluirVerticeLOrdenado, 11, 
+em function incluirVerticeLOrdenado, 6, 
+em function incluirVerticeLOrdenado, 11, 
+em function incluirVerticeLOrdenado, 17, 
+em function incluirVerticeLOrdenado, 10, 
+ lista estava vazia ....
+em function incluirVerticeLOrdenado, 18, 
+em function incluirVerticeLOrdenado, 10, 
+ lista estava vazia ....
+em function incluirVerticeLOrdenado, 17, 
+em function incluirVerticeLOrdenado, 18, 
+em function incluirVerticeLOrdenado, 17, 
+em function incluirVerticeLOrdenado, 11, 
+em function incluirVerticeLOrdenado, 17, 
+em function incluirVerticeLOrdenado, 18, 
+em function incluirVerticeLOrdenado, 11, 
+em function incluirVerticeLOrdenado, 18, 
+em function incluirVerticeLOrdenado, 26, 
+em function incluirVerticeLOrdenado, 17, 
+ lista estava vazia ....
+em function incluirVerticeLOrdenado, 27, 
+em function incluirVerticeLOrdenado, 17, 
+ lista estava vazia ....
+em function incluirVerticeLOrdenado, 26, 
+em function incluirVerticeLOrdenado, 27, 
+em function incluirVerticeLOrdenado, 26, 
+em function incluirVerticeLOrdenado, 18, 
+em function incluirVerticeLOrdenado, 26, 
+em function incluirVerticeLOrdenado, 27, 
+em function incluirVerticeLOrdenado, 18, 
+em function incluirVerticeLOrdenado, 27, 
+em function incluirVerticeLOrdenado, 37, 
+em function incluirVerticeLOrdenado, 26, 
+ lista estava vazia ....
+em function incluirVerticeLOrdenado, 38, 
+em function incluirVerticeLOrdenado, 26, 
+ lista estava vazia ....
+em function incluirVerticeLOrdenado, 37, 
+em function incluirVerticeLOrdenado, 38, 
+em function incluirVerticeLOrdenado, 37, 
+em function incluirVerticeLOrdenado, 27, 
+em function incluirVerticeLOrdenado, 37, 
+em function incluirVerticeLOrdenado, 38, 
+em function incluirVerticeLOrdenado, 27, 
+em function incluirVerticeLOrdenado, 38, 
+em function incluirVerticeLOrdenado, 8, 
+em function incluirVerticeLOrdenado, 3, 
+ lista estava vazia ....
+em function incluirVerticeLOrdenado, 7, 
+em function incluirVerticeLOrdenado, 3, 
+ lista estava vazia ....
+em function incluirVerticeLOrdenado, 8, 
+em function incluirVerticeLOrdenado, 4, 
+em function incluirVerticeLOrdenado, 7, 
+em function incluirVerticeLOrdenado, 4, 
+em function incluirVerticeLOrdenado, 8, 
+em function incluirVerticeLOrdenado, 7, 
+em function incluirVerticeLOrdenado, 8, 
+em function incluirVerticeLOrdenado, 7, 
+em function incluirVerticeLOrdenado, 9, 
+em function incluirVerticeLOrdenado, 4, 
+ lista estava vazia ....
+em function incluirVerticeLOrdenado, 9, 
+em function incluirVerticeLOrdenado, 6, 
+em function incluirVerticeLOrdenado, 8, 
+em function incluirVerticeLOrdenado, 6, 
+em function incluirVerticeLOrdenado, 9, 
+em function incluirVerticeLOrdenado, 8, 
+em function incluirVerticeLOrdenado, 9, 
+em function incluirVerticeLOrdenado, 12, 
+em function incluirVerticeLOrdenado, 6, 
+ lista estava vazia ....
+em function incluirVerticeLOrdenado, 12, 
+em function incluirVerticeLOrdenado, 11, 
+em function incluirVerticeLOrdenado, 9, 
+em function incluirVerticeLOrdenado, 11, 
+em function incluirVerticeLOrdenado, 12, 
+em function incluirVerticeLOrdenado, 9, 
+em function incluirVerticeLOrdenado, 12, 
+em function incluirVerticeLOrdenado, 19, 
+em function incluirVerticeLOrdenado, 11, 
+ lista estava vazia ....
+em function incluirVerticeLOrdenado, 19, 
+em function incluirVerticeLOrdenado, 18, 
+em function incluirVerticeLOrdenado, 12, 
+em function incluirVerticeLOrdenado, 18, 
+em function incluirVerticeLOrdenado, 19, 
+em function incluirVerticeLOrdenado, 12, 
+em function incluirVerticeLOrdenado, 19, 
+em function incluirVerticeLOrdenado, 28, 
+em function incluirVerticeLOrdenado, 18, 
+ lista estava vazia ....
+em function incluirVerticeLOrdenado, 28, 
+em function incluirVerticeLOrdenado, 27, 
+em function incluirVerticeLOrdenado, 19, 
+em function incluirVerticeLOrdenado, 27, 
+em function incluirVerticeLOrdenado, 28, 
+em function incluirVerticeLOrdenado, 19, 
+em function incluirVerticeLOrdenado, 28, 
+em function incluirVerticeLOrdenado, 39, 
+em function incluirVerticeLOrdenado, 27, 
+ lista estava vazia ....
+em function incluirVerticeLOrdenado, 39, 
+em function incluirVerticeLOrdenado, 38, 
+em function incluirVerticeLOrdenado, 28, 
+em function incluirVerticeLOrdenado, 38, 
+em function incluirVerticeLOrdenado, 39, 
+em function incluirVerticeLOrdenado, 28, 
+em function incluirVerticeLOrdenado, 39, 
+em function incluirVerticeLOrdenado, 14, 
+em function incluirVerticeLOrdenado, 7, 
+ lista estava vazia ....
+em function incluirVerticeLOrdenado, 13, 
+em function incluirVerticeLOrdenado, 7, 
+ lista estava vazia ....
+em function incluirVerticeLOrdenado, 14, 
+em function incluirVerticeLOrdenado, 8, 
+em function incluirVerticeLOrdenado, 13, 
+em function incluirVerticeLOrdenado, 8, 
+em function incluirVerticeLOrdenado, 14, 
+em function incluirVerticeLOrdenado, 13, 
+em function incluirVerticeLOrdenado, 14, 
+em function incluirVerticeLOrdenado, 13, 
+em function incluirVerticeLOrdenado, 15, 
+em function incluirVerticeLOrdenado, 8, 
+ lista estava vazia ....
+em function incluirVerticeLOrdenado, 15, 
+em function incluirVerticeLOrdenado, 9, 
+em function incluirVerticeLOrdenado, 14, 
+em function incluirVerticeLOrdenado, 9, 
+em function incluirVerticeLOrdenado, 15, 
+em function incluirVerticeLOrdenado, 14, 
+em function incluirVerticeLOrdenado, 15, 
+em function incluirVerticeLOrdenado, 16, 
+em function incluirVerticeLOrdenado, 9, 
+ lista estava vazia ....
+em function incluirVerticeLOrdenado, 16, 
+em function incluirVerticeLOrdenado, 12, 
+em function incluirVerticeLOrdenado, 15, 
+em function incluirVerticeLOrdenado, 12, 
+em function incluirVerticeLOrdenado, 16, 
+em function incluirVerticeLOrdenado, 15, 
+em function incluirVerticeLOrdenado, 16, 
+em function incluirVerticeLOrdenado, 20, 
+em function incluirVerticeLOrdenado, 12, 
+ lista estava vazia ....
+em function incluirVerticeLOrdenado, 20, 
+em function incluirVerticeLOrdenado, 19, 
+em function incluirVerticeLOrdenado, 16, 
+em function incluirVerticeLOrdenado, 19, 
+em function incluirVerticeLOrdenado, 20, 
+em function incluirVerticeLOrdenado, 16, 
+em function incluirVerticeLOrdenado, 20, 
+em function incluirVerticeLOrdenado, 29, 
+em function incluirVerticeLOrdenado, 19, 
+ lista estava vazia ....
+em function incluirVerticeLOrdenado, 29, 
+em function incluirVerticeLOrdenado, 28, 
+em function incluirVerticeLOrdenado, 20, 
+em function incluirVerticeLOrdenado, 28, 
+em function incluirVerticeLOrdenado, 29, 
+em function incluirVerticeLOrdenado, 20, 
+em function incluirVerticeLOrdenado, 29, 
+em function incluirVerticeLOrdenado, 40, 
+em function incluirVerticeLOrdenado, 28, 
+ lista estava vazia ....
+em function incluirVerticeLOrdenado, 40, 
+em function incluirVerticeLOrdenado, 39, 
+em function incluirVerticeLOrdenado, 29, 
+em function incluirVerticeLOrdenado, 39, 
+em function incluirVerticeLOrdenado, 40, 
+em function incluirVerticeLOrdenado, 29, 
+em function incluirVerticeLOrdenado, 40, 
+em function incluirVerticeLOrdenado, 22, 
+em function incluirVerticeLOrdenado, 13, 
+ lista estava vazia ....
+em function incluirVerticeLOrdenado, 21, 
+em function incluirVerticeLOrdenado, 13, 
+ lista estava vazia ....
+em function incluirVerticeLOrdenado, 22, 
+em function incluirVerticeLOrdenado, 14, 
+em function incluirVerticeLOrdenado, 21, 
+em function incluirVerticeLOrdenado, 14, 
+em function incluirVerticeLOrdenado, 22, 
+em function incluirVerticeLOrdenado, 21, 
+em function incluirVerticeLOrdenado, 22, 
+em function incluirVerticeLOrdenado, 21, 
+em function incluirVerticeLOrdenado, 23, 
+em function incluirVerticeLOrdenado, 14, 
+ lista estava vazia ....
+em function incluirVerticeLOrdenado, 23, 
+em function incluirVerticeLOrdenado, 15, 
+em function incluirVerticeLOrdenado, 22, 
+em function incluirVerticeLOrdenado, 15, 
+em function incluirVerticeLOrdenado, 23, 
+em function incluirVerticeLOrdenado, 22, 
+em function incluirVerticeLOrdenado, 23, 
+em function incluirVerticeLOrdenado, 24, 
+em function incluirVerticeLOrdenado, 15, 
+ lista estava vazia ....
+em function incluirVerticeLOrdenado, 24, 
+em function incluirVerticeLOrdenado, 16, 
+em function incluirVerticeLOrdenado, 23, 
+em function incluirVerticeLOrdenado, 16, 
+em function incluirVerticeLOrdenado, 24, 
+em function incluirVerticeLOrdenado, 23, 
+em function incluirVerticeLOrdenado, 24, 
+em function incluirVerticeLOrdenado, 25, 
+em function incluirVerticeLOrdenado, 16, 
+ lista estava vazia ....
+em function incluirVerticeLOrdenado, 25, 
+em function incluirVerticeLOrdenado, 20, 
+em function incluirVerticeLOrdenado, 24, 
+em function incluirVerticeLOrdenado, 20, 
+em function incluirVerticeLOrdenado, 25, 
+em function incluirVerticeLOrdenado, 24, 
+em function incluirVerticeLOrdenado, 25, 
+em function incluirVerticeLOrdenado, 30, 
+em function incluirVerticeLOrdenado, 20, 
+ lista estava vazia ....
+em function incluirVerticeLOrdenado, 30, 
+em function incluirVerticeLOrdenado, 29, 
+em function incluirVerticeLOrdenado, 25, 
+em function incluirVerticeLOrdenado, 29, 
+em function incluirVerticeLOrdenado, 30, 
+em function incluirVerticeLOrdenado, 25, 
+em function incluirVerticeLOrdenado, 30, 
+em function incluirVerticeLOrdenado, 41, 
+em function incluirVerticeLOrdenado, 29, 
+ lista estava vazia ....
+em function incluirVerticeLOrdenado, 41, 
+em function incluirVerticeLOrdenado, 40, 
+em function incluirVerticeLOrdenado, 30, 
+em function incluirVerticeLOrdenado, 40, 
+em function incluirVerticeLOrdenado, 41, 
+em function incluirVerticeLOrdenado, 30, 
+em function incluirVerticeLOrdenado, 41, 
+em function incluirVerticeLOrdenado, 32, 
+em function incluirVerticeLOrdenado, 21, 
+ lista estava vazia ....
+em function incluirVerticeLOrdenado, 31, 
+em function incluirVerticeLOrdenado, 21, 
+ lista estava vazia ....
+em function incluirVerticeLOrdenado, 32, 
+em function incluirVerticeLOrdenado, 22, 
+em function incluirVerticeLOrdenado, 31, 
+em function incluirVerticeLOrdenado, 22, 
+em function incluirVerticeLOrdenado, 32, 
+em function incluirVerticeLOrdenado, 31, 
+em function incluirVerticeLOrdenado, 32, 
+em function incluirVerticeLOrdenado, 31, 
+em function incluirVerticeLOrdenado, 33, 
+em function incluirVerticeLOrdenado, 22, 
+ lista estava vazia ....
+em function incluirVerticeLOrdenado, 33, 
+em function incluirVerticeLOrdenado, 23, 
+em function incluirVerticeLOrdenado, 32, 
+em function incluirVerticeLOrdenado, 23, 
+em function incluirVerticeLOrdenado, 33, 
+em function incluirVerticeLOrdenado, 32, 
+em function incluirVerticeLOrdenado, 33, 
+em function incluirVerticeLOrdenado, 34, 
+em function incluirVerticeLOrdenado, 23, 
+ lista estava vazia ....
+em function incluirVerticeLOrdenado, 34, 
+em function incluirVerticeLOrdenado, 24, 
+em function incluirVerticeLOrdenado, 33, 
+em function incluirVerticeLOrdenado, 24, 
+em function incluirVerticeLOrdenado, 34, 
+em function incluirVerticeLOrdenado, 33, 
+em function incluirVerticeLOrdenado, 34, 
+em function incluirVerticeLOrdenado, 35, 
+em function incluirVerticeLOrdenado, 24, 
+ lista estava vazia ....
+em function incluirVerticeLOrdenado, 35, 
+em function incluirVerticeLOrdenado, 25, 
+em function incluirVerticeLOrdenado, 34, 
+em function incluirVerticeLOrdenado, 25, 
+em function incluirVerticeLOrdenado, 35, 
+em function incluirVerticeLOrdenado, 34, 
+em function incluirVerticeLOrdenado, 35, 
+em function incluirVerticeLOrdenado, 36, 
+em function incluirVerticeLOrdenado, 25, 
+ lista estava vazia ....
+em function incluirVerticeLOrdenado, 36, 
+em function incluirVerticeLOrdenado, 30, 
+em function incluirVerticeLOrdenado, 35, 
+em function incluirVerticeLOrdenado, 30, 
+em function incluirVerticeLOrdenado, 36, 
+em function incluirVerticeLOrdenado, 35, 
+em function incluirVerticeLOrdenado, 36, 
+em function incluirVerticeLOrdenado, 42, 
+em function incluirVerticeLOrdenado, 30, 
+ lista estava vazia ....
+em function incluirVerticeLOrdenado, 42, 
+em function incluirVerticeLOrdenado, 41, 
+em function incluirVerticeLOrdenado, 36, 
+em function incluirVerticeLOrdenado, 41, 
+em function incluirVerticeLOrdenado, 42, 
+em function incluirVerticeLOrdenado, 36, 
+em function incluirVerticeLOrdenado, 42, 
+em function incluirVerticeLOrdenado, 44, 
+em function incluirVerticeLOrdenado, 31, 
+ lista estava vazia ....
+em function incluirVerticeLOrdenado, 43, 
+em function incluirVerticeLOrdenado, 31, 
+ lista estava vazia ....
+em function incluirVerticeLOrdenado, 44, 
+em function incluirVerticeLOrdenado, 32, 
+em function incluirVerticeLOrdenado, 43, 
+em function incluirVerticeLOrdenado, 32, 
+em function incluirVerticeLOrdenado, 44, 
+em function incluirVerticeLOrdenado, 43, 
+em function incluirVerticeLOrdenado, 44, 
+em function incluirVerticeLOrdenado, 43, 
+em function incluirVerticeLOrdenado, 45, 
+em function incluirVerticeLOrdenado, 32, 
+ lista estava vazia ....
+em function incluirVerticeLOrdenado, 45, 
+em function incluirVerticeLOrdenado, 33, 
+em function incluirVerticeLOrdenado, 44, 
+em function incluirVerticeLOrdenado, 33, 
+em function incluirVerticeLOrdenado, 45, 
+em function incluirVerticeLOrdenado, 44, 
+em function incluirVerticeLOrdenado, 45, 
+em function incluirVerticeLOrdenado, 46, 
+em function incluirVerticeLOrdenado, 33, 
+ lista estava vazia ....
+em function incluirVerticeLOrdenado, 46, 
+em function incluirVerticeLOrdenado, 34, 
+em function incluirVerticeLOrdenado, 45, 
+em function incluirVerticeLOrdenado, 34, 
+em function incluirVerticeLOrdenado, 46, 
+em function incluirVerticeLOrdenado, 45, 
+em function incluirVerticeLOrdenado, 46, 
+em function incluirVerticeLOrdenado, 47, 
+em function incluirVerticeLOrdenado, 34, 
+ lista estava vazia ....
+em function incluirVerticeLOrdenado, 47, 
+em function incluirVerticeLOrdenado, 35, 
+em function incluirVerticeLOrdenado, 46, 
+em function incluirVerticeLOrdenado, 35, 
+em function incluirVerticeLOrdenado, 47, 
+em function incluirVerticeLOrdenado, 46, 
+em function incluirVerticeLOrdenado, 47, 
+em function incluirVerticeLOrdenado, 48, 
+em function incluirVerticeLOrdenado, 35, 
+ lista estava vazia ....
+em function incluirVerticeLOrdenado, 48, 
+em function incluirVerticeLOrdenado, 36, 
+em function incluirVerticeLOrdenado, 47, 
+em function incluirVerticeLOrdenado, 36, 
+em function incluirVerticeLOrdenado, 48, 
+em function incluirVerticeLOrdenado, 47, 
+em function incluirVerticeLOrdenado, 48, 
+em function incluirVerticeLOrdenado, 49, 
+em function incluirVerticeLOrdenado, 36, 
+ lista estava vazia ....
+em function incluirVerticeLOrdenado, 49, 
+em function incluirVerticeLOrdenado, 42, 
+em function incluirVerticeLOrdenado, 48, 
+em function incluirVerticeLOrdenado, 42, 
+em function incluirVerticeLOrdenado, 49, 
+em function incluirVerticeLOrdenado, 48, 
+em function incluirVerticeLOrdenado, 49, 
+ banda_ modificada    =           25
+, em mostrarConteudoL: 49, T, 48, T, 47, T, 46, T, 45, T, 44, T, 43, T, 42, T, 35, T, 28, T, 21, T, 14, T, 7, T, 41, T, 40, T, 39, T, 38, T, 37, T, 36, T, 34, T, 27, T, 20, T, 13, T, 6, T, 33, T, 32, T, 31, T, 30, T, 29, T, 26, T, 19, T, 12, T, 5, T, 25, T, 24, T, 23, T, 22, T, 18, T, 11, T, 4, T, 17, T, 16, T, 15, T, 10, T, 3, T, 9, T, 8, T, 2, T, 1, F,  ...
+,   49 elementos
+ , lista vazia ...
+1, F, 2, T, 8, T, 9, T, 3, T, 10, T, 15, T, 16, T, 17, T, 4, T, 11, T, 18, T, 22, T, 23, T, 24, T, 25, T, 5, T, 12, T, 19, T, 26, T, 29, T, 30, T, 31, T, 32, T, 33, T, 6, T, 13, T, 20, T, 27, T, 34, T, 36, T, 37, T, 38, T, 39, T, 40, T, 41, T, 7, T, 14, T, 21, T, 28, T, 35, T, 42, T, 43, T, 44, T, 45, T, 46, T, 47, T, 48, T, 49, T, 
+ banda_ modificada =           25
+  conectividades dos elementos da numeração modificada
+ em  mostrarLM, total de elementos:           36
+ conectividades nodais, entre os elementos =            1  a            5
+elemento 1, LM=1  2  4  3
+elemento 2, LM=2  5  6  4
+elemento 3, LM=5  10  11  6
+elemento 4, LM=10  17  18  11
+elemento 5, LM=17  26  27  18
+ em  mostrarLM, total de elementos:           36
+ conectividades nodais, entre os elementos =           31  a           36
+elemento 31, LM=31  32  44  43
+elemento 32, LM=32  33  45  44
+elemento 33, LM=33  34  46  45
+elemento 34, LM=34  35  47  46
+elemento 35, LM=35  36  48  47
+elemento 36, LM=36  42  49  48
+  adjacencias nodais modificada  
+
+
+ em  mostrarConteudoGp, total de vertices:           49
+ adjacencias nodais, entre os vertices  =            1  a            5
+adjs a 1, , em mostrarConteudoL: 1, T, 2, T, 3, T, 4, F,  ...
+,    4 elementos
+maior-menor+1= 4
+adjs a 2, , em mostrarConteudoL: 1, T, 2, T, 3, T, 4, T, 5, T, 6, F,  ...
+,    6 elementos
+maior-menor+1= 6
+adjs a 3, , em mostrarConteudoL: 1, T, 2, T, 3, T, 4, T, 7, T, 8, F,  ...
+,    6 elementos
+maior-menor+1= 8
+adjs a 4, , em mostrarConteudoL: 1, T, 2, T, 3, T, 4, T, 5, T, 6, T, 7, T, 8, T, 9, F,  ...
+,    9 elementos
+maior-menor+1= 9
+adjs a 5, , em mostrarConteudoL: 2, T, 4, T, 5, T, 6, T, 10, T, 11, F,  ...
+,    6 elementos
+maior-menor+1= 10
+
+
+ em  mostrarConteudoGp, total de vertices:           49
+ adjacencias nodais, entre os vertices  =           44  a           49
+adjs a 44, , em mostrarConteudoL: 31, T, 32, T, 33, T, 43, T, 44, T, 45, F,  ...
+,    6 elementos
+maior-menor+1= 15
+adjs a 45, , em mostrarConteudoL: 32, T, 33, T, 34, T, 44, T, 45, T, 46, F,  ...
+,    6 elementos
+maior-menor+1= 15
+adjs a 46, , em mostrarConteudoL: 33, T, 34, T, 35, T, 45, T, 46, T, 47, F,  ...
+,    6 elementos
+maior-menor+1= 15
+adjs a 47, , em mostrarConteudoL: 34, T, 35, T, 36, T, 46, T, 47, T, 48, F,  ...
+,    6 elementos
+maior-menor+1= 15
+adjs a 48, , em mostrarConteudoL: 35, T, 36, T, 42, T, 47, T, 48, T, 49, F,  ...
+,    6 elementos
+maior-menor+1= 15
+adjs a 49, , em mostrarConteudoL: 36, T, 42, T, 48, T, 49, F,  ...
+,    4 elementos
+maior-menor+1= 14
+ banda_ modificada =           25
+, em mostrarConteudoL: 49, T, 48, T, 47, T, 46, T, 45, T, 44, T, 43, T, 42, T, 35, T, 28, T, 21, T, 14, T, 7, T, 41, T, 40, T, 39, T, 38, T, 37, T, 36, T, 34, T, 27, T, 20, T, 13, T, 6, T, 33, T, 32, T, 31, T, 30, T, 29, T, 26, T, 19, T, 12, T, 5, T, 25, T, 24, T, 23, T, 22, T, 18, T, 11, T, 4, T, 17, T, 16, T, 15, T, 10, T, 3, T, 9, T, 8, T, 2, T, 1, F,  ...
+,   49 elementos
+ , lista vazia ...
+1, F, 2, T, 8, T, 9, T, 3, T, 10, T, 15, T, 16, T, 17, T, 4, T, 11, T, 18, T, 22, T, 23, T, 24, T, 25, T, 5, T, 12, T, 19, T, 26, T, 29, T, 30, T, 31, T, 32, T, 33, T, 6, T, 13, T, 20, T, 27, T, 34, T, 36, T, 37, T, 38, T, 39, T, 40, T, 41, T, 7, T, 14, T, 21, T, 28, T, 35, T, 42, T, 43, T, 44, T, 45, T, 46, T, 47, T, 48, T, 49, T, 
