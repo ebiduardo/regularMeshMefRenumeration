@@ -1,50 +1,44 @@
-cp bfs.F90 bfsTEMPLATE.F90
-read -p "arguardando um ok para malha 0006x0006A"
-cp conectiv0006x0006A.txt conectividades.txt
-./criarFontesDados.sh  > /dev/null 
-head conectividades.F90
+cp 67bfs.F90 bfsTEMPLATE.F90
 
-sed  -e 's/=NUMNPX/=49/' -e 's/=NUMELX/=36/' bfsTEMPLATE.F90 > bfsM.F90
-rm a.out; time gfortran bfsM.F90
-time ./a.out |tee tela0006x0006A.txt
-grep banda_ tela0006x0006A.txt
-exit
+function process(){
 
-cp conectiv0060x0020.txt conectividades.txt
-./criarFontesDados.sh  > /dev/null 
-head conectividades.F90
+  numel=$(echo "($nelx+0) * ($nely+0)" |bc);
+  numnp=$(echo "($nelx+1) * ($nely+1)" |bc);
+  echo numnp=$numnp, numel=$nelx X $nely; 
 
-read -p "arguardando um ok para malha 0060x0020"
-sed  -e 's/=NUMNPX/=61*21/' -e 's/=NUMELX/=60*20/' bfsTEMPLATE.F90 > bfsM.F90
-rm a.out; time gfortran bfsM.F90
-time ./a.out |tee tela0060x0020.txt
-grep banda_ tela0060x0020.txt
+  cp conectiv$malha.txt conectividades.txt
+  ./criarFontesDados.sh  > /dev/null 
+  echo inicio de conectividades; head -5 conectividades.F90
+  echo final  de conectividades; tail -5 conectividades.F90
+  read -p "arguardando um ok para malha: $malha ."
 
-read -p "arguardando um ok para malha 0600x0020"
-cp conectiv0600x0020.txt conectividades.txt
-./criarFontesDados.sh  > /dev/null 
-head conectividades.F90
+  comando="sed  -e \"s/=NUMNPX/=$numnp/\" -e \"s/=NUMELX/=$numel/\" bfsTEMPLATE.F90 > bfsM.F90"
+  echo $comando
+  eval $comando
+  read
+  ls -ltr |tail -3
+  rm a.out; time gfortran -O3 bfsM.F90
+  time ./a.out |grep -v incluir > tela$malha.txt
+  grep banda_ tela$malha.txt
+  echo -e '.. \n\n  ..'
+} # end function process(){
 
-sed  -e 's/=NUMNPX/=601*21/' -e 's/=NUMELX/=600*20/' bfsTEMPLATE.F90 > bfsM.F90
-rm a.out; time gfortran bfsM.F90
-time ./a.out |tee tela0600x0020.txt
-grep banda_ tela0600x0020.txt
+nelx=0006; nely=0002;
+malha="${nelx}X${nely}A";
+     process
+grep "vizinhos\|^ toVisit\|nohs visited" tela$malha.txt
+  echo -e '\n\n'
+nelx=0006; nely=0002;
+malha="${nelx}X${nely}C";
+     process
+nelx=0006; nely=0006;
+malha="${nelx}X${nely}A";
+     process
+nelx=0060; nely=0020;
+malha="${nelx}X${nely}";
+     process
+nelx=0600; nely=0020;
+malha="${nelx}X${nely}";
+     process
 
-read -p "arguardando um ok para malha 0006x0002A"
-cp conectiv0006x0002A.txt conectividades.txt
-./criarFontesDados.sh  > /dev/null 
-head conectividades.F90
 
-sed  -e 's/=NUMNPX/=21/' -e 's/=NUMELX/=12/' bfsTEMPLATE.F90 > bfsM.F90
-rm a.out; time gfortran bfsM.F90
-time ./a.out |tee tela0006x0002A.txt
-grep banda_ tela0006x0002A.txt
-
-read -p "arguardando um ok para malha 0006x0002C"
-cp conectiv0006x0002C.txt conectividades.txt
-./criarFontesDados.sh  > /dev/null 
-head conectividades.F90
-
-sed  -e 's/=NUMNPX/=21/' -e 's/=NUMELX/=12/' bfsTEMPLATE.F90 > bfsM.F90
-rm a.out; time gfortran bfsM.F90
-time ./a.out |tee tela0006x0002C.txt
