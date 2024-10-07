@@ -208,10 +208,11 @@ function bfs (adjArray_, neq_, origem_, destino_)
                  print*, "numViz= ",  acessarNum(listaVertices(acessarNum(adj%pV))) 
             call atribuirPeso(adj%pV,listaVertices(acessarNum(adj%pV))%numViz)
          if(.not.included(acessarNum(adj%pV)) .and. acessarNum(adj%pV)/=acessarNum(current%pV)) then
-            !write(*,'(a,i5)',advance='yes')'     incluir em toVisit +++ ,'; call mostrarConteudoV(adj%pV); 
+            write(*,'(a,i5)',advance='yes')'     incluir em toVisit +++ ,'; call mostrarConteudoV(adj%pV); 
             print*, "..."
             call mostrarConteudoV(adj%pV)
             call incluirVerticeLTopo(toVisit, adj%pV)
+            !included(acessarNum(adj%pV)) = .true.
          else 
             write(*,'(a,i5)',advance='yes') '  NAO incluir em toVisit ' , acessarNum(adj%pV)
          endif
@@ -229,12 +230,12 @@ function bfs (adjArray_, neq_, origem_, destino_)
 
       ! não incluir repetidos em toVisit  
       write(*,'(a)', advance='no') " toVisit +++ "; call mostrarConteudoL(toVisit); print*
-   !stop
-      !current=>excluirVerticeMaisAntigo(toVisit)
+       
+      current=>excluirVerticeMaisAntigo(toVisit)
       do while (associated(current))  
          write(*,'(a,i5)',advance='yes')'     excluirMaisAnt from toVisit +++ ,'
-         current=>excluirVerticeMaisAntigo(toVisit)
          if(.not.included(acessarNum(current%pV))) exit
+         current=>excluirVerticeMaisAntigo(toVisit)
       enddo
       if(associated(current))  call mostrarConteudoV(current%pV); 
       write(*,'(a)', advance='no') " excluido from  toVisit +++ ";
