@@ -273,24 +273,20 @@ end function bfs
         do while(j<=ndof_*nen_)
           eqB=LM_(j,nel)
           if(eqB>0) then
-            ! o grafo é nao direcional 1->2 e 2->1 são diferentes
+            ! o grafo é direcional 1->2 e 2->1 são diferentes
             pU => listaVertices_(eqB)
-            R1=procurarVertice(adjArray_(eq)%p, listaVertices_(eqB)) 
+            R1=procurarVertice(adjArray_(eq)%p, pU) !listaVertices_(eqB)) 
             if(.not.R1) then
                !BD24 !print*, "A, incluindo= ", listaVertices_(eqB)%num, " em vizinhos de ", eq
-               call incluirVerticeLOrdenado(adjArray_(eq)%p, listaVertices_(eqB))
+               call incluirVerticeLOrdenado(adjArray_(eq)%p, pU) ! listaVertices_(eqB))
             endif 
             pV => listaVertices_(eq)
-            R2=procurarVertice(adjArray_(eqB)%p, listaVertices_(eq)) 
+            R2=procurarVertice(adjArray_(eqB)%p, pV) !listaVertices_(eq)) 
             if(.not.R2) then
                !BD24 print*, "B, incluindo= ", listaVertices_(eq)%num, " em vizinhos de ", eqB
-               call incluirVerticeLOrdenado(adjArray_(eqB)%p, listaVertices_(eq))
+               call incluirVerticeLOrdenado(adjArray_(eqB)%p, pV) ! listaVertices_(eq))
             endif 
           endif
-          if(.not.R1) then
-        !DB_24  write(*,'(3(a,i5,a))', advance='no') "apos inclusão, vizinhos de :", eq !, ", i=", i, ", j=",j
-        !DB_24  call mostrarConteudoL(adjArray_(eq)%p)
-          endif 
           j=j+1
         end do
       endif
@@ -301,8 +297,7 @@ end function bfs
    call atribuirPeso(listaVertices_(eq), numVizinhos(adjArray_(eq)%p))
    !call mostrarConteudoV(listaVertices_(eq)); print*
  end do
- call mostrarConteudoGp(adjArray_, 1, 10)
- stop
+ !call mostrarConteudoGp(adjArray_, 1, neq_)
   !end do
   !DB_24  write(*,'(a,i5,a, 4i5)', advance='yes') "nel=",nel, "-- LM =",LM_(:,nel)
  end subroutine montarAdjArrayLM
