@@ -1,4 +1,4 @@
-cp 67bfs.F90 bfsTEMPLATE.F90
+cp bfs.F90 bfsTEMPLATE.F90
 
 function process(){
 
@@ -12,11 +12,7 @@ function process(){
   echo final  de conectividades; tail -5 conectividades.F90
   read -p "arguardando um ok para malha: $malha ."
 
-  comando="sed  -e \"s/=NUMNPX/=$numnp/\" -e \"s/=NUMELX/=$numel/\" bfsTEMPLATE.F90 > bfsM.F90"
-  echo $comando
-  eval $comando
-  read
-  ls -ltr |tail -3
+  sed  -e "s/=NUMNPX/=$numnp/" -e "s/=NUMELX/=$numel/" bfsTEMPLATE.F90 > bfsM.F90
   rm a.out; time gfortran -O3 bfsM.F90
   time ./a.out |grep -v incluir > tela$malha.txt
   grep banda_ tela$malha.txt
