@@ -3,346 +3,444 @@ module grafo
 implicit none
 
 type, public :: vertice
-    integer num, peso 
+    integer, private ::  num =-5 
+    integer ::  peso=-1 
   contains
-    procedure :: acessarNum 
-    procedure :: atribuirNum
-    procedure :: mostrarConteudoV
+    procedure :: acessarNum,  atribuirNum
+    procedure :: acessarPeso, atribuirPeso
+    !procedure :: mostrarConteudoV
 end type vertice
 
 type, public :: verticeL
-    type(vertice) , pointer :: V    => null()
+    type(vertice)           :: V
+    type(vertice),  pointer :: pV   => null()
     type(verticeL), pointer :: next => null()
     type(verticeL), pointer :: pai  => null()
   contains
-    procedure :: mostrarConteudoLV
-    !procedure :: incluirVerticeL
+   !procedure :: incluirVerticeL
+   !procedure :: excluirVerticeTopo
 end type verticeL
 
-   type(verticeL), allocatable :: adjArray(:)
-   type(verticeL), allocatable :: adjArrayC(:)
-   type(verticeL), pointer :: toVisit=> null() , visitedL=>null()
-   logical, allocatable :: visited(:)
-   type(vertice), allocatable, target :: listaVertices(:) 
+type, public :: pVerticeL
+    type(verticeL), pointer :: p
+end type pVerticeL
+
+   type(pVerticeL), allocatable, target :: adjArrayP(:)
+   type(vertice),   allocatable, target :: listaVertices(:) 
 
 contains
 
-integer pure function acessarNum(this)
-    class (vertice), intent(in) :: this
-    acessarNum = this%num
+integer pure function acessarNum(this_)
+    class (vertice), intent(in) :: this_
+    acessarNum = this_%num
 end function acessarNum
 
-subroutine atribuirNum(this,num_)
-    class(vertice), intent(out) :: this
+integer pure function acessarPeso(this_)
+    class (vertice), intent(in) :: this_
+    acessarPeso = this_%peso
+end function acessarPeso
+
+subroutine atribuirNum(this_, num_)
+    class(vertice), intent(inout) :: this_
     integer, intent(in) :: num_
-    this%num=num_
+    this_%num=num_
 end subroutine atribuirNum
 
-subroutine mostrarConteudoV(this)
-    class(vertice), intent(in) :: this
-    write(*,'(i0,", ")',advance='No') acessarNum(this)
-end subroutine mostrarConteudoV
+subroutine atribuirPeso(this_, peso_)
+    class(vertice), intent(inout) :: this_
+    integer, intent(in) :: peso_
+    this_%peso=peso_
+end subroutine atribuirPeso
 
-subroutine mostrarConteudoLV(this)
-    class(verticeL), intent(in) :: this
-    call  mostrarConteudoV(this%V)
-end subroutine mostrarConteudoLV
+integer function numVizinhos(lV_)
+ type(verticeL), pointer :: lV_
+
+ type(verticeL), pointer :: aux
+ integer :: c 
+ c = 0
+ if (.not.associated(lV_)) then
+    write (*,*) ", lista vazia ..."
+ else
+   aux=>lV_
+   do while(associated(aux))!%next))
+     aux=>aux%next
+     c=c+1
+   end do
+ endif
+ numVizinhos=c
+end function numVizinhos
+
+subroutine mostrarConteudoV(this_)
+    type(vertice), intent(in) :: this_
+    write(*,'(" ", i0,":", i0,", ")',advance='No') acessarNum(this_)!,  acessarPeso(this_)
+    !write(*,'(a, i0,", ")',advance='No')"num=", acessarNum(this_)
+    !write(*,'(a, i0, ",  ")',advance='No')"numViz=", acessarPeso(this_)
+end subroutine mostrarConteudoV
 
 subroutine mostrarConteudoL(lV_)
  type(verticeL), pointer :: lV_
-
  type(verticeL), pointer :: aux
- write(*,'(a)',advance='no') ': ';
- aux=>lV_
-   do while(associated(aux))
-     call mostrarConteudoLV(aux)
-     aux=>aux%next
-   end do
- print*, '...';
+ integer :: c 
+
+ if (.not.associated(lV_)) then
+   write (*,*) ", lista vaziaAAAAAAA ..."
+   return
+ end if
+ c = mostrarConteudoLD(lV_)
+ write(*,'(a,i0.4,a)',advance='yes') ',', c, ' elementos'
+ return
 end subroutine mostrarConteudoL
 
-subroutine mostrarConteudoG(adjArray_, inicio_, fim_)
- type(verticeL), intent(in) :: adjArray_(:)
- type(vertice), pointer :: pointerV
- type(verticeL), pointer :: auxpV
- integer ::  inicio_, fim_
- integer :: eq, eqBandaMax, col
+integer recursive function mostrarConteudoLR(this_) result(c)
+ type(verticeL), pointer :: this_
+ if (.not.associated(this_)) then
+     c = 0
+    ! write (*,*) ", lista vazia ..."
+ else
+   c=mostrarConteudoLR(this_%next)+1
+   call mostrarConteudoV(this_%pV)
+ endif
+    return
+end function mostrarConteudoLR
+
+integer recursive function mostrarConteudoLD(this_) result(c)
+ !integer :: mostrarConteudoLR
+ type(verticeL), pointer :: this_
+ if (.not.associated(this_)) then
+   c=0
+   print*
+   !write (*,*) ", lista vazia ..."
+ else
+   call mostrarConteudoV(this_%pV)
+   c=mostrarConteudoLD(this_%next)+1
+ endif
+ return
+end function mostrarConteudoLD
+
+subroutine mostrarConteudoGp(adjArray_, inicio_, fim_)
+type(pVerticeL), intent(in) :: adjArray_(:)
+ integer, intent(in) ::  inicio_, fim_
+
+ integer :: eq, eqBandaMax
  print*; print*
- print*, "em  mostrarConteudoG, total de vertices: " , size(adjArray_)
+ print*, "em  mostrarConteudoGp, total de vertices: " , size(adjArray_)
  print*, "adjacencias nodais, entre os vertices  = ", inicio_ , " a ", fim_
- do eq =  inicio_, fim_ 
-  write(*,'(a, i0, ", ")', advance='no') 'adjs a ', eq; call mostrarConteudoL(adjArray_(eq)%next )
-  ! write(*,'(a, i0, ", ")', advance='yes') 'bandaLocal= ', maiorValor(adjArray_(eq)%next)-menorValor(adjArray_(eq)%next)+1
+ do eq =  inicio_, fim_
+ write(*,'(a, i0, ", ")', advance='no')  'adjs a ', listaVertices(eq); call mostrarConteudoL(adjArray_(eq)%p )
+  write(*,'(a, i0)', advance='yes') 'maior-menor+1= ', maiorValor(adjArray_(eq)%p)-menorValor(adjArray_(eq)%p)+1
  end do
   return
-  eqBandaMax=bandaMax(adjArray_)
- print'(/a,i5,a,i5)', ':::..., banda maxima=', &
-       maiorValor(adjArray_(eqBandaMax)%next)-menorValor(adjArray_(eqBandaMax)%next)+1, " em eq ", eqBandaMax
- !if ( eqBandaMax < inicio_ .or. eqBandaMax > fim_)  return
- print*, "vizinhanca da banda maxima"
- do eq = eqBandaMax-0 ,  eqBandaMax+0
-  if (eq == eqBandaMax) print*, "equacao da banda maxima"
-  write(*,'(a, i0, ", ")', advance='no') 'adjs a ', eq; call mostrarConteudoL(adjArray_(eq)%next )
-  write(*,'(a, i0, ", ")', advance='yes') 'bandaLocal= ', maiorValor(adjArray_(eq)%next)-menorValor(adjArray_(eq)%next)+1
-  if (eq == eqBandaMax) print*
- end do
- return
- col=0
- do eq =  inicio_, fim_ 
-   auxpV=>adjArray_(eq)%next
-   do while(associated(auxpV))
-     col= acessarNum(auxpV%V) 
-     print'(a,i0,a,i0,a)', "B(",eq,",",col,")=1;"
-     auxpV=>auxpV%next
-   end do
- end do
-end subroutine mostrarConteudoG
+end subroutine mostrarConteudoGp
 
 integer function maiorValor(lV_)
- type(verticeL), pointer :: lV_
+ type(verticeL), intent(in),  pointer :: lV_
  type(verticeL), pointer :: aux
- integer::maiorN
  aux=>lV_
-   maiorValor=acessarNum(aux%V) 
+   maiorValor=acessarNum(aux%pV) 
    do while(associated(aux))
-     if(acessarNum(aux%V)>maiorValor) maiorValor=acessarNum(aux%V)
+     if(acessarNum(aux%pV)>maiorValor) maiorValor=acessarNum(aux%pV)
      aux=>aux%next
    end do
 end function maiorValor
 
 integer function menorValor(lV_)
- type(verticeL), pointer :: lV_
+ type(verticeL), intent(in),  pointer :: lV_
  type(verticeL), pointer :: aux
- integer::maiorN
  aux=>lV_
-   menorValor=acessarNum(aux%V) 
+   menorValor=acessarNum(aux%pV) 
    do while(associated(aux))
-     if(acessarNum(aux%V)<menorValor) menorValor=acessarNum(aux%V)
+     if(acessarNum(aux%pV)<menorValor) menorValor=acessarNum(aux%pV)
      aux=>aux%next
    end do
 end function menorValor
 
 integer function bandaMax(adjArray_)
- type(verticeL), intent(in) :: adjArray_(:)
+ type(pVerticeL), intent(in) :: adjArray_(:)
  integer :: eq, banda,  eqBandaMax
  eq=1; eqBandaMax=eq 
- bandaMax=maiorValor(adjArray_(eq)%next)-menorValor(adjArray_(eq)%next)+1
-
-! banda=maiorValor(adjArray_(eq)%next)-menorValor(adjArray_(eq)%next)+1
+ bandaMax=maiorValor(adjArray_(eq)%p)-menorValor(adjArray_(eq)%p)+1
  do eq = 2, size(adjArray_)
-  banda=maiorValor(adjArray_(eq)%next)-menorValor(adjArray_(eq)%next)+1
-  if(banda>bandaMax) then
-     eqBandaMax=eq; !2024 bandaMax=banda
-     bandaMax=banda;! maiorValor(adjArray_(eqBandaMax)%next)-menorValor(adjArray_(eqBandaMax)%next)+1
-  endif
+   banda=maiorValor(adjArray_(eq)%p)-menorValor(adjArray_(eq)%p)+1
+   if(banda>bandaMax) then
+     eqBandaMax=eq; 
+     bandaMax=banda;
+   endif
  end do
-     bandaMax=eqBandaMax
+ bandaMax=eqBandaMax
 end function bandaMax
 
-subroutine incluirVerticeL(this, v_)
-   type(verticeL), pointer, intent(inout) :: this
-   type(vertice),  target,  intent(in)    :: v_
-
-   type(verticeL), pointer  :: novo
-   allocate(novo)
-   novo%V   =>v_ 
-   novo%next=>this;
-   this     =>novo;
-   return
-end subroutine incluirVerticeL
-
-function excluirVerticeMaisAntigo(c_)
-       type(verticeL), pointer :: excluirVerticeMaisAntigo
-       type(verticeL), intent(inout), pointer:: c_
-
-       type(verticeL), pointer :: p
-       type(verticeL), pointer :: ant
-
-       ! 2024 print*, " em excluirVerticeMaisAntigo(VertList** c_) "
-
-       if(.not.associated(c_)) then
-            print*, " ... lista vazia! "
-            excluirVerticeMaisAntigo=>null()
-            return
-       end if
-       ant=>c_;
-       if(.not.associated(c_%next)) then
-           print*, " QUASE vazia, "
-           write(*,'(a)',advance='no') "A, excluindo:"; call mostrarConteudoV(c_%V); print*;
-           c_=>null()
-           excluirVerticeMaisAntigo=>ant
-           return
-       end if
-
-       p=>c_
-       do 
-          if(.not.associated(p%next)) exit
-          ant=>p
-          p=>p%next;
-       end do 
-       ant%next=>NULL(); 
-       excluirVerticeMaisAntigo=>p;
-       return
-end function  excluirVerticeMaisAntigo
-
 function bfs (adjArray_, neq_, origem_, destino_)
-   type(verticeL), pointer :: bfs 
-   type(verticeL), intent(in) :: adjArray_(:)
-   type(verticeL), pointer :: current, adj, inicio
-   integer, intent(in) :: neq_, origem_, destino_ 
-   logical, allocatable :: included(:)
+   type(verticeL),  pointer    :: bfs 
+   type(pVerticeL), intent(in) :: adjArray_(:)
+   integer,         intent(in) :: neq_, origem_, destino_ 
 
-   integer ::  i 
+   type(verticeL), pointer :: current, adj, inicio
+   type(verticeL), pointer :: toVisit=> null() , visitedL=>null()
+   logical,    allocatable :: VisiteD(:)
+   integer ::  i, n 
+
    print*," em bfs, origem_,", origem_, ", destino_ ", destino_
 
-   allocate(visited(neq_));  visited =.false.
-   allocate(included(neq_)); included=.false.
+   allocate(VisiteD(neq_)); VisiteD=.false.
 
-   toVisit=>null()
-   inicio=>adjArray_(origem_)%next
-   do i = 1, 3
-     inicio=>inicio%next
-   end do
-   write(*,'(a)'   , advance='no' ) "incluindo :" 
-   write(*,'(a,i5)', advance='yes') ',', acessarNum(inicio%V);
-   call incluirVerticeL(toVisit, inicio%V) 
-   included(acessarNum(inicio%V) )=.true.
-
-   write(*,'(a)',advance='no') '0, toVisit, '; call mostrarConteudoL(toVisit ); print*
-   allocate(adj)  
-   do while(associated(toVisit))
-      current=>excluirVerticeMaisAntigo(toVisit)
-      adj => adjArray_(acessarNum(current%V))%next 
-      !2024 write(*,'(a)',   advance='no') "adjacents from ="; call mostrarConteudoV(current%V);
-      !2024 call mostrarConteudoL(adjArray_(acessarNum(current%V))%next);
-      !2024 write(*,'(a)',   advance='no') "incluindo :" 
+   allocate(inicio); 
+   inicio%pV=>listaVertices(origem_);
+   inicio%next=>null()
+   
+   !DB_24 write(*,'(a,i0.4)',advance='yes')' incluir em toVisit +++ ,'; call mostrarConteudoV(inicio%pV); print*
+   !BD24 write(*,'(a,i0.4)',advance='yes')'     incluir em toVisit +++ ,'
+   call incluirVerticeL(toVisit, inicio%pV); 
+   write(*,'(a)', advance='no') "nohs toVisit, "; call mostrarConteudoL(toVisit); print*
+   current=>excluirVerticeMaisAntigo(toVisit)
+   write(*,'(a)', advance='no') "noh excluido, "; call mostrarConteudoV(current%pV); 
+   do while(associated(current))
+      adj => adjArray_(acessarNum(current%pV))%p 
       do while(associated(adj))
-         if(.not.included(acessarNum(adj%V)) .and. acessarNum(adj%V)/=acessarNum(current%V)) then
-            !2024 write(*,'(a,i5)',advance='no')',', acessarNum(adj%V); 
-            call incluirVerticeL(toVisit, adj%V)
-            included(acessarNum(adj%V)) = .true.
+      write(*,'(/a,i0.4,a)',advance='no')' avaliar vizinhos de ', acessarNum(current%pV), " - ";
+      call mostrarConteudoL(adj)
+         write(*,'(a,i0.4)',advance='yes')' avaliar noh: ', acessarNum(adj%pV);
+         if(.not.VisiteD(acessarNum(adj%pV)) .and. acessarNum(adj%pV)/=acessarNum(current%pV) .and. &
+                                              .not.procurarVertice(toVisit, adj%pV) ) then
+            write(*,'(/,a,i0.4)',advance='no') '      incluir em toVisit, ', acessarNum(adj%pV); print*
+            ! não incluir repetidos em toVisit  
+            call incluirVerticeLTopo(toVisit, adj%pV) 
+         else
+            write(*,'(/,a,i0.4)',advance='no') '  NAO incluir em toVisit, ', acessarNum(adj%pV); print*
          endif
          adj=>adj%next
       end do 
-      !2024 print*
-      call incluirVerticeL(visitedL, current%V)
-      visited(acessarNum(current%V))=.true.
-      !2024 print*, "included = ", included
-      !2024 print*, "visited  = ", visited
-      !2024 write(*,'(a)',advance='no') '2, toVisit : '; call mostrarConteudoL(toVisit );
-      !2024 write(*,'(a)',advance='no') '   visitedL: '; call mostrarConteudoL(visitedL );
-      deallocate(current)
+      !BD24 print*, "VisiteD(",acessarNum(current%pV),")=", VisiteD(acessarNum(current%pV))
+      if(.not.VisiteD(acessarNum(current%pV))) then
+              print*
+             write(*,'(a,i0.4,a)',advance='yes')"  incluir ", acessarNum(current%pV), " EM visitedL +++ "
+             call incluirVerticeLTopo(visitedL, current%pV)
+             VisiteD(acessarNum(current%pV)) = .true.
+      endif
+      write(*,'(a)', advance='no') " visitedL ... "; call mostrarConteudoL(visitedL); print*
+      write(*,'(a)', advance='no') " toVisit  ... "; call mostrarConteudoL(toVisit ); print*
+       
+      current=>excluirVerticeMaisAntigo(toVisit); 
+      if(associated(current)) call  mostrarConteudoV(current%pV)
    end do
-      bfs => visitedL
+   print*, " fim do bfs "
+   write(*,'(a)', advance='no') " reversed visited nodes, "; n=mostrarConteudoLD(visitedL);
+   print*, "num elementos = ", n
+   write(*,'(a)', advance='no') " direct visited nodes  , "; n=mostrarConteudoLR(visitedL); print*
+   print*, "num elementos = ", n
+   bfs => visitedL
 end function bfs 
 
- subroutine montarAdjArray(  adjArray_ ,LMstencilEq_, listaVertices_, neq_, numMaxVizEq_ )
- type(verticeL), intent(in) :: adjArray_(:)
- integer :: LMstencilEq_(neq_,numMaxVizEq_)
- type(vertice) :: listaVertices_(0:) 
- integer, intent(in) :: neq_, numMaxVizEq_
- integer :: eq, i
-  do eq = 1, neq_
-    allocate(adjArray(eq)%next)
-    adjArray(eq)%next=>null()
-    i=1
-    do while(i<=numMaxVizEq_)
-      if(LMstencilEq_(eq,i)>0) then
-         call incluirVerticeL(adjArray(eq)%next, listaVertices_(LMstencilEq_(eq,i)))
-      endif
-      i=i+1
-    end do
-  end do 
- end subroutine montarAdjArray
-
  subroutine montarAdjArrayLM( adjArray_ ,LM_, listaVertices_, numel_, nen_, ndof_, neq_, numMaxVizEq_ )
- type(verticeL), intent(in) :: adjArray_(:)
+ type(pVerticeL), intent(inout) :: adjArray_(:)
  integer :: LM_(4,numel_)
- type(vertice) :: listaVertices_(0:) 
+ type(vertice), target :: listaVertices_(0:) 
+ type(vertice), pointer :: pU, pV 
  integer, intent(in) :: numel_, nen_, ndof_, neq_, numMaxVizEq_
- integer :: eq, i, j,  nel, eqB
- logical :: R
+ integer :: eq, i, j,  nel, eqB, n
+ logical :: R1, R2
 
  print*, "em montarAdjArrayLM( subroutine  "
-   
   do eq = 1, neq_
-    allocate(adjArray(eq)%next)
-    adjArray(eq)%next=>null()
-  end do
+     adjArray_(eq)%p=>null()
+  end do 
 
   do nel = 1, numel_
-    !2024
-    write(*,'(a,i5,a, 4i5)', advance='yes') "nel=",nel, "-- LM =",LM_(:,nel)
+  write(*,'(a,i0.4,a, 4I0.4)', advance='yes') "nel=",nel, "-- LM =",LM_(:,nel)
     i=1
     do while(i<=ndof_*nen_)
       eq=LM_(i,nel)
       if(eq>0) then
-        j=i
-         !2024 
-         write(*,'(3(a,i5,a))', advance='no')  ",        eq= ", eq, ", conteudo :" !, ", i=", i, ", j=",j
-                    call mostrarConteudoL(adjArray(eq)%next)
+        print*, "eq= ",eq
+        j=i+0
+        write(*,'(3(a,i0.4,a))',advance='no') "vizinhos de ",eq, " ..."; call mostrarConteudoL(adjArray_(eq)%p)
+        write(*,*) "elemento:", nel ,",  analise para inclusao de :", LM_(:,nel)
         do while(j<=ndof_*nen_)
           eqB=LM_(j,nel)
           if(eqB>0) then
-            !2024
-            write(*,'(a,i5)', advance='yes') ", eqB=",eqB
-            ! o grafo é nao direcional 1->2 e 2->1 são diferentes
-            R=procurarVertice(adjArray(eq)%next, listaVertices_(eqB)) 
-            if(.not.R) then
-               call incluirVerticeL(adjArray(eq)%next, listaVertices_(eqB))
-               write(*,'(3(a,i5,a,i5))', advance='no') ,"incluindo ",  acessarNum(adjArray(eq)%next%V), " em ",  eq; !acessarNum(listaVertices_(eq));
-                    call mostrarConteudoL(adjArray(eq)%next)
-            !   print*, '--'
+            ! o grafo é direcional 1->2 e 2->1 são diferentes
+            pU => listaVertices_(eqB)
+            R1=procurarVertice(adjArray_(eq)%p, pU) !listaVertices_(eqB)) 
+            if(.not.R1) then
+               !BD24 !print*, "A, incluindo= ", listaVertices_(eqB)%num, " em vizinhos de ", eq
+               call incluirVerticeLOrdenado(adjArray_(eq)%p, pU) ! listaVertices_(eqB))
             endif 
-            R=procurarVertice(adjArray(eqB)%next, listaVertices_(eq)) 
-            if(.not.R) then
-               call incluirVerticeL(adjArray(eqB)%next, listaVertices_(eq))
-               write (*,'(3(a,i5,a,i5))', advance='no'),"incluindo ",  acessarNum(adjArray(eqB)%next%V), " em ",  eqB; !acessarNum(listaVertices_(eqB));
-                    call mostrarConteudoL(adjArray(eqB)%next)
-            !   print*, '--'
+            pV => listaVertices_(eq)
+            R2=procurarVertice(adjArray_(eqB)%p, pV) !listaVertices_(eq)) 
+            if(.not.R2) then
+               !BD24 print*, "B, incluindo= ", listaVertices_(eq)%num, " em vizinhos de ", eqB
+               call incluirVerticeLOrdenado(adjArray_(eqB)%p, pV) ! listaVertices_(eq))
             endif 
           endif
           j=j+1
         end do
       endif
       i=i+1
+      write(*,'(3(a,i0.4,a))',advance='no') "vizinhos de ",eq, " ..."; call mostrarConteudoL(adjArray_(eq)%p)
     end do
-         !2024
-         eq=LM_(1,nel)
-         write(*,'(/(a,i0,a))', advance='no')  "+++ lista de eq=", eq, ";;;"
-         !2024
-         call mostrarConteudoL(adjArray(eq)%next)
-         eq=LM_(2,nel)
-         write(*,'(/(a,i0,a))', advance='no')  "+++ lista de eq=", eq, ";;;"
-         !2024
-         call mostrarConteudoL(adjArray(eq)%next)
-         eq=LM_(3,nel)
-         write(*,'(/(a,i0,a))', advance='no')  "+++ lista de eq=", eq, ";;;"
-         !2024
-         call mostrarConteudoL(adjArray(eq)%next)
-         eq=LM_(4,nel)
-         write(*,'(/(a,i0,a))', advance='no')  "+++ lista de eq=", eq, ";;;"
-         !2024
-         call mostrarConteudoL(adjArray(eq)%next)
   end do 
+  do eq = 1,  neq_ 
+   call atribuirPeso(listaVertices_(eq), numVizinhos(adjArray_(eq)%p))
+   !call mostrarConteudoV(listaVertices_(eq)); print*
+ end do
+ !call mostrarConteudoGp(adjArray_, 1, neq_)
+  !end do
+  !DB_24  write(*,'(a,i0.4,a, 4i0.4)', advance='yes') "nel=",nel, "-- LM =",LM_(:,nel)
  end subroutine montarAdjArrayLM
-! //R=procurarVertice(graph_->adjArray[acessarNum(src_)-1], *v);//==0;
-! //if(!R){// return;
-! //  printf("A, NAO  ACHEI. SIM INCLUI: %d - %d\n", acessarNum(src_), acessarNum(dest_));
-! //  addEdgeDV(graph_, src_ , dest_, peso);
+
 logical recursive function procurarVertice(h_, v_) result (resp)
     type(VerticeL), pointer :: h_
     type(Vertice)           :: v_
     if(.not.associated(h_)) then
              resp= .false.;
           else
-             if(acessarNum(h_%V)==acessarNum(v_)) then
+             !print*, acessarNum(h_%pV),"==", acessarNum(v_)
+             if(acessarNum(h_%pV)==acessarNum(v_)) then
                 resp=.true.
             else 
                 resp=procurarVertice(h_%next, v_)
             endif
         endif
 end function procurarVertice
+
+function excluirVerticeMaisAntigo(this_)
+       type(verticeL), pointer :: excluirVerticeMaisAntigo
+       type(verticeL), intent(inout), pointer:: this_
+
+       type(verticeL), pointer :: ant, aux
+
+       if(.not.associated(this_)) then
+          print*, " ... lista vazia  !!! ! "
+          aux=>null();
+       else  if(.not.associated(this_%next)) then
+          aux=>this_
+          this_=>this_%next
+       else
+          aux=>this_
+          do while(associated(aux%next))  
+            ant=>aux
+            aux=>aux%next;
+          end do 
+          aux=>ant%next
+          ant%next=>null()
+       endif
+
+       !BD write(*,'(a)', advance="no")"  this_="; call mostrarConteudoL(this_); print*
+       write(*,'(a)', advance="no") "em function excluirVerticeMaisAntigo, "
+       !call mostrarConteudoV(aux%pV); print*
+       excluirVerticeMaisAntigo=>aux;
+       return
+end function  excluirVerticeMaisAntigo
+
+function excluirVerticeLTopo(this_)
+       type(verticeL), pointer :: excluirVerticeLTopo
+       type(verticeL), intent(inout), pointer:: this_
+
+       type(verticeL), pointer :: aux
+       if(.not.associated(this_)) then
+            print*, " ... lista vazia! "
+            aux=>null();
+       else
+            aux  => this_
+            this_=>this_%next
+       end if
+       excluirVerticeLTopo=>aux;
+       write(*,'(a)', advance="no") "em function excluirVerticeLTopo, "
+       call mostrarConteudoV(aux%pV); print*
+end function excluirVerticeLTopo
+
+function excluirVerticeL(this_)
+       type(verticeL), pointer :: excluirVerticeL
+       type(verticeL), intent(inout), pointer:: this_
+       excluirVerticeL=>excluirVerticeLTopo(this_); return
+       excluirVerticeL=>excluirVerticeMaisAntigo(this_); return
+end function excluirVerticeL
+
+subroutine incluirVerticeLTopoSemRepeticao(this_, v_)
+   type(verticeL), pointer, intent(inout) :: this_
+   type(vertice),  target,  intent(in)    :: v_
+
+   type(verticeL), pointer  :: novo, aux 
+   write(*,'(a)', advance="no") "em function incluirVerticeLTopoSemRepeticao, "
+   call mostrarConteudoV(v_); print*
+   aux => this_
+   do while(associated(aux))
+     if(aux%pV%num==v_%num) return
+     aux=> aux%next
+   end do 
+
+   allocate(novo)
+   novo%pV  =>v_ 
+   novo%next=>this_;
+   this_     =>novo;
+   return
+end subroutine incluirVerticeLTopoSemRepeticao
+
+subroutine incluirVerticeLTopo(this_, v_)
+   type(verticeL), pointer, intent(inout) :: this_
+   type(vertice),  target,  intent(in)    :: v_
+
+   type(verticeL), pointer  :: novo
+
+   write(*,'(a)', advance="no") "em function incluirVerticeLTopo, "
+   call mostrarConteudoV(v_); print*
+   allocate(novo)
+   novo%pV  =>v_ 
+   novo%next=>this_;
+   this_    =>novo;
+   return
+end subroutine incluirVerticeLTopo
+
+subroutine incluirVerticeLOrdenado(this_, v_)
+   type(verticeL), pointer, intent(inout) :: this_
+   type(vertice),  target,  intent(in)    :: v_
+
+   type(verticeL), pointer  :: novo
+   type(verticeL), pointer  :: aux!, novo
+   integer :: i
+
+   write(*,'(a)', advance="no") "em function incluirVerticeLOrdenado, "
+   call mostrarConteudoV(v_); print*
+   allocate(novo)
+   novo%pV  =>v_
+   novo%next=>null()
+   if (.not.associated(this_) ) then
+      !print*, "lista estava vazia ...."
+      novo%next   =>null()
+      this_   =>novo;
+   elseif (novo%pV%num <= this_%pV%num ) then ! .and. associated(this) ) then
+      !print*, " novo menor que o topo"
+      novo%next=>this_;
+      this_=>novo;
+   elseif (.not.associated(this_%next)) then
+         ! else( novo%pV%num >= this_%pV%num) then
+      !           print*, " lista com 1 elemento e novo MAIOR que o topo"
+                  novo%next =>null()
+                  this_%next=> novo
+   else
+      !print*, " lista com 2 ou+ elementos e novo MAIOR que o topo"
+      aux=> this_
+      !do while (associated(aux%next) .and. novo%pV%num > aux%next%pV%num) 
+      ! short-circuit evaluations hasn´t working 
+      do while (associated(aux%next))
+          if (novo%pV%num <= aux%next%pV%num) exit
+          aux => aux%next
+      end do
+      novo%next=>aux%next
+      aux%next => novo
+    endif
+   return
+end subroutine incluirVerticeLOrdenado
+
+subroutine incluirVerticeL(this_, v_)
+   type(VerticeL), pointer,  intent(inout) :: this_
+   type(vertice),  target, intent(in)    :: v_
+   print*, "em subroutine incluirVerticeL(this_, v_)"
+   call  incluirVerticeLOrdenado(this_, v_); return
+   call  incluirVerticeLTopoSemRepeticao(this_, v_); return
+   call  incluirVerticeLTopo(this_, v_); return
+   return
+end subroutine incluirVerticeL
+
 end module grafo
 
 program renum
@@ -361,16 +459,25 @@ subroutine renumerarCM()
  integer :: eq, i, n, origem, destino 
  integer :: NUMNPX, NUMELX, eqBandaMaxOriginal, eqBandaMax
 
-
  !https://stackoverflow.com/questions/8900336/arrays-of-pointers
  !does not define an array of pointers, as you might think, but a pointer to an array.
  !type(verticeL), pointer :: adjArray(:)
 
- type(verticeL), pointer :: caminho, aux
+ type(verticeL), pointer :: caminho, aux, v1, v2, v3 , v4
+ type(vertice) ::vA 
+ type(verticeL), pointer :: toVisit , current, adj
+ !type(verticeL), external :: excluirVerticeTopo
+
   integer :: inicio, final
+
+  toVisit=>null()
+
+ !call testesIniciais()
+ !return
 
  NUMNPX=(600+1)*(20+1); NUMELX=600*20
  NUMNPX=(60+1)*(20+1); NUMELX=60*20
+ NUMNPX=(6+1)*(6+1); NUMELX=6*6
  NUMNPX=(6+1)*(2+1); NUMELX=6*2
  numnp=NUMNPX; numel=NUMELX; neq = numnp; 
 
@@ -378,15 +485,18 @@ subroutine renumerarCM()
  print*, "          em malha de elmentos finitos"
  print*, "numnp=", numnp,", numel=", numel, ", neq =",  neq; 
 
+
  allocate(LM(nen*ndof,numel))
  allocate(id(ndof,numnp))
- allocate(numNova(neq))
- allocate(listaVertices(0:neq))
- allocate(adjArray(1:neq)); !adjArray=>null()
+ allocate(listaVertices(0:neq)) ; 
+
+ allocate(adjArrayP(1:neq)); do i = 1, numnp; adjArrayP(i)%p=>null(); end do
 
  call setId()
  do i = 1, numnp
-   call atribuirNum(listaVertices(id(1,i)),id(1,i))
+   call atribuirNum (listaVertices(i), i)
+   call atribuirPeso(listaVertices(i), -i*10)
+   !call mostrarConteudoV(listaVertices(i)); print*
  end do
  do i = 1, 5;       call mostrarConteudoV(listaVertices(i)); end do; print*
  do i = neq-5, neq; call mostrarConteudoV(listaVertices(i)); end do; print*
@@ -399,125 +509,88 @@ subroutine renumerarCM()
  call mostrarLM(LM, nen, numel, inicio, final)
  inicio=numel-5; final=numel
  if(numel>12) call mostrarLM(LM, nen, numel, inicio, final)
- call montarAdjArrayLM(adjArray, LM, listaVertices, numel, nen, ndof,  neq, numMaxVizEq)
- stop
 
- print*, " adjacencias nodais original  "
- inicio=1; final=numnp
- if(numnp<21) final = numnp 
- call mostrarConteudoG(adjArray, inicio, final)
- inicio=numnp-5; final=numnp
- if(numnp>21) call mostrarConteudoG(adjArray, inicio, final)
+ call montarAdjArrayLM(adjArrayP, LM, listaVertices, numel, nen, ndof,  neq, numMaxVizEq)
 
 
- eqBandaMaxOriginal=bandaMax(adjArray)
- print*, "banda_ original = ", maiorValor(adjArray(eqBandaMaxOriginal)%next)-menorValor(adjArray(eqBandaMaxOriginal)%next)+1
+ ! print*, " adjacencias nodais original  "
+ ! inicio=1; final=5; if(numnp<=21) final = numnp 
+ ! call mostrarConteudoGp(adjArrayP, inicio, final)
 
+ ! inicio=numnp-5; final=numnp
+ ! if(numnp>21) call mostrarConteudoGp(adjArrayP, inicio, final)
+
+ eqBandaMaxOriginal=bandaMax(adjArrayP)
+ print*, "banda_ original = ", maiorValor(adjArrayP(eqBandaMaxOriginal)%p)-menorValor(adjArrayP(eqBandaMaxOriginal)%p)+1
+ print*, "  ------------- BFS  --------------------------------------BFS "
  origem=1; destino=4; !(??? qual o significado de destino para o algoritmo bfs)
- caminho => bfs (adjArray, neq, origem, destino)
- !call mostrarConteudoL(caminho)
- !call mostrarConteudoG(adjArray, 1, 10)
- !call mostrarConteudoG(adjArray,numnp-10, numnp)
+ caminho => bfs (adjArrayP, neq, origem, destino)
+
+ eqBandaMax=bandaMax(adjArrayP)
+ print*, "banda_ original = ", maiorValor(adjArrayP(eqBandaMax)%p)-menorValor(adjArrayP(eqBandaMax)%p)+1
+
+ do i =1,1 ! não funciona com repeticoes, não melhora a banda
  call renumerar()
 
- !call montarAdjArrayLM(adjArray, LM, listaVertices, numel, nen, ndof,  neq, numMaxVizEq)
-
- eqBandaMax=bandaMax(adjArray)
- print*, "banda_ modificada = ", maiorValor(adjArray(eqBandaMax)%next)-menorValor(adjArray(eqBandaMax)%next)+1
-
+ print*
+ eqBandaMax=bandaMax(adjArrayP)
+ print*, "banda_ modificada = ", maiorValor(adjArrayP(eqBandaMax)%p)-menorValor(adjArrayP(eqBandaMax)%p)+1
+ stop
  print*, " conectividades dos elementos da numeração modificada"
  inicio=1; final=5
  if(numel<=12) final=numel
  call mostrarLM(LM, nen, numel, inicio, final)
  inicio=numel-5; final=numel
  if(numel>12) call mostrarLM(LM, nen, numel, inicio, final)
-
  print*, " adjacencias nodais modificada  "
- inicio=1; final=numnp
+ inicio=1; final=5
  if(numnp<21) final = numnp 
- call mostrarConteudoG(adjArray, inicio, final)
+ call mostrarConteudoGp(adjArrayP, inicio, final)
  inicio=numnp-5; final=numnp
- if(numnp>21) call mostrarConteudoG(adjArray, inicio, final)
+ if(numnp>21) call mostrarConteudoGp(adjArrayP, inicio, final)
+ eqBandaMax=bandaMax(adjArrayP)
+         print*, "banda_ modificada = ", maiorValor(adjArrayP(eqBandaMax)%p)-menorValor(adjArrayP(eqBandaMax)%p)+1
+   write(*,'(a)', advance='no') " reversed visited nodes, "; n=mostrarConteudoLD(caminho);
+   print*, "num elementos = ", n
+   write(*,'(a)', advance='no') " direct visited nodes  , "; n=mostrarConteudoLR(caminho); print*
+   print*, "num elementos = ", n
+ end do
+
  return
 contains 
 
 subroutine renumerar()
  type(verticeL), pointer :: caminhoC
  integer :: i, dof, eq, nel
- !2024 write(*, '(a)', advance='no') "numeracao 1= " 
- !2024 do eq = 1, neq; write(*, '(i0,", ")', advance="no") acessarNum(listaVertices(eq)); end do; print*
- eq = neq
- caminhoC=>caminho
- do i = 1, 10
-    write(*, '(8x, i0," ----> ",i0)', advance="yes") i,  acessarNum(listaVertices(i))
- end do; print*
- do while (associated(caminhoC)) 
-!    print'(i0,a,i0)', eq,' vai para posição ', acessarNum(caminhoC%V);
-    call atribuirNum(caminhoC%V,eq) ! altera os num dos vertices da listaVertices tambem 
-    caminhoC=>caminhoC%next
-    eq = eq-1
- end do; 
- do i = 1, 10
-    write(*, '(8x, i0," -----> ",i0)', advance="yes") i,  acessarNum(listaVertices(i))
- end do; print*
-!2024 write(*, '(a)', advance='no') "renumerado =" 
-!2024 do eq = 1, neq; write(*, '(i0,", ")', advance="no") acessarNum(listaVertices(eq)); end do; print*
-!2024 write(*, '(a)', advance='no') "id = " 
-!2024 write(*, '(100(i0,", "))') id(:,1:numnp)
- do i = 1, numnp
-!2024  if(id(1,i) > 0) print*,i, id(1,i),  acessarNum(listaVertices(id(1,i)))
-   if(id(1,i) > 0)  id(1,i) = acessarNum(listaVertices(id(1,i)))
- end do; 
-!2024 write(*, '(a)', advance='no') "id = " 
-!2024 write(*, '(100(i0,", "))') id(:,1:numnp)
+ type(verticeL) :: adjV
+ type(verticeL), pointer ::  novoVL, aux, auxC
 
-!2024 do nel = 1, numel; print '(a,i0,a,4i5)',"nel=",nel, ', LM=',LM(:,nel); end do 
- do nel = 1, numel
-    do dof=1, ndof*nen
-    if(lm(dof,nel) > 0)  lm(dof,nel) = acessarNum(listaVertices(lm(dof,nel)))
-    end do
- end do
-2024 do nel = 1, numel; print '(a,i0,a,4i5)',"nellll=",nel, ', LM=',LM(:,nel); end do 
- call mostrarConteudoG(adjArray, 1, 21)
- deallocate(adjArray); !adjArray=>null()
- allocate(adjArray(1:neq)); !adjArray=>null()
- call montarAdjArrayLM(adjArray, LM, listaVertices, numel, nen, ndof,  neq, numMaxVizEq)
- call mostrarConteudoG(adjArray, 1, 21)
- stop
- call setId()
- do i = 1, numnp
-   call atribuirNum(listaVertices(id(1,i)),id(1,i))
- end do
- do i = 1, 10
-    write(*, '(8x, i0," -----> ",i0)', advance="yes") i,  acessarNum(listaVertices(i))
- end do; print*
+ print*, "         caminho minimo"
+ call mostrarConteudoL(caminho); 
+
+ aux=>caminho
+ do i=1,neq;
+     write(*,*) i,  "vai para ->", acessarNum(aux%pV) 
+     aux=>aux%next; 
+ end do;
+ aux=>caminho
+ do i=1,neq;
+     call atribuirNum(listaVertices(acessarNum(aux%pV)),i)
+     aux=>aux%next; 
+ end do;
+
+ if(neq<=210) print*, "nova numeracao"
+ if(neq<=210) then; do i=1,neq; write(*,'(i3)', advance='no')  acessarNum(listaVertices(i)); end do; endif
+         print*
+
+ print*, "novo LM "; call mostrarLM(LM, nen, numel, 1, numel);
+ !do i = 1, numnp; call atribuirNum(listaVertices(i),i); end do; 
+ !do i = 1, numnp; adjArrayP(i)%p=>null(); end do; 
+
+ eqBandaMax=bandaMax(adjArrayP)
+ print*, "banda_ modificada    = ", maiorValor(adjArrayP(eqBandaMax)%p)-menorValor(adjArrayP(eqBandaMax)%p)+1
  
- 
- call mostrarLM(LM, nen, numel, 1, 12)
- call mostrarConteudoG(adjArray, 1, 21)
- stop
-
- !return 
- allocate(adjArrayC(1:neq)); !adjArray=>null()
- caminhoC=>caminho
- i = neq
- do while (associated(caminhoC)) 
-    adjArrayC(i)=adjArray(acessarNum(caminhoC%V))
-    caminhoC=>caminhoC%next
-    i = i-1
- end do; 
-
- deallocate(adjArray); !adjArray=>null()
-
- adjArray=adjArrayC
- write(*, '(a)', advance='yes') " numeracoes " 
- write(*, '(a)', advance='yes') " original -> modificada" 
- do i = 1, 10
-    write(*, '(8x, i0," -> ",i0)', advance="yes") i,  acessarNum(listaVertices(i))
- end do; print*
- do i = neq-10, neq
-    write(*, '( i0," -> ",i0)', advance="yes") i,  acessarNum(listaVertices(i))
- end do; print*
+ return 
 
 end subroutine renumerar
 
@@ -529,7 +602,10 @@ end subroutine renumerar
  print*, "conectividades nodais, entre os elementos = ", inicio_ , " a ", fim_
 
   do nel = inicio_, fim_
-    print '(a,i0,a,4(i0,2x))', "elemento ", nel, ", LM=", LM_(1:4,nel)
+    print '(a,i0,a,4(i0,2x))', "elemento ", nel, ", LM=", acessarNum(listavERTICES(LM_(1,nel))), &
+          acessarNum(listavERTICES(LM_(2,nel))), acessarNum(listavERTICES(LM_(3,nel))), &
+          acessarNum(listavERTICES(LM_(4,nel)))
+    !print '(a,i0,a,4(i0,2x))', "elemento ", nel, ", LM=", LM_(1:4,nel)
   end do
 
   return
@@ -548,8 +624,7 @@ end subroutine renumerar
  subroutine setLM()
  integer :: eq, i, nel
 
-#include "conectividades.F90"
-
+#include "conectividades.F90" 
 return 
 nel= 1; LM(1:ndof*nen,nel) = (/ 1 , 2 , 9 , 8 /)
 nel= 2; LM(1:ndof*nen,nel) = (/ 2 , 3 , 10 , 9 /)
@@ -563,6 +638,7 @@ nel= 9; LM(1:ndof*nen,nel) = (/ 10 , 11 , 18 , 17 /)
 nel= 10; LM(1:ndof*nen,nel) = (/ 11 , 12 , 19 , 18 /)
 nel= 11; LM(1:ndof*nen,nel) = (/ 12 , 13 , 20 , 19 /)
 nel= 12; LM(1:ndof*nen,nel) = (/ 13 , 14 , 21 , 20 /)
+do nel = 1, numel; print*,"nel=",nel, ', LM=',LM(:,nel); end do ; stop
 return
 nel= 1; LM(1:ndof*nen,nel) = (/ 1 , 2 , 5 , 4 /)
 nel= 2; LM(1:ndof*nen,nel) = (/ 2 , 3 , 6 , 5 /)
@@ -576,41 +652,6 @@ nel= 9; LM(1:ndof*nen,nel) = (/ 13 , 14 , 17 , 16 /)
 nel= 10; LM(1:ndof*nen,nel) = (/ 14 , 15 , 18 , 17 /)
 nel= 11; LM(1:ndof*nen,nel) = (/ 16 , 17 , 20 , 19 /)
 nel= 12; LM(1:ndof*nen,nel) = (/ 17 , 18 , 21 , 20 /)
-do nel = 1, numel
-  print*,"nel=",nel, ', LM=',LM(:,nel)
-end do 
-return
-nel=1; LM(1:ndof*nen,nel) = (/0,1,2,0/)
-nel=2; LM(1:ndof*nen,nel) = (/1,4,5,2/)
-nel=3; LM(1:ndof*nen,nel) = (/4,7,8,5/)
-nel=4; LM(1:ndof*nen,nel) = (/7,10,11,8/)
-nel=5; LM(1:ndof*nen,nel) = (/10,13,14,11/)
-nel=6; LM(1:ndof*nen,nel) = (/13,0,0,14/)
-nel=7; LM(1:ndof*nen,nel) = (/0,2,3,0/)
-nel=8; LM(1:ndof*nen,nel) = (/2,5,6,3/)
-nel=9; LM(1:ndof*nen,nel) = (/5,8,9,6/)
-nel=10; LM(1:ndof*nen,nel) = (/8,11,12,9/)
-nel=11; LM(1:ndof*nen,nel) = (/11,14,15,12/)
-nel=12; LM(1:ndof*nen,nel) = (/14,0,0,15/)
-do nel = 1, numel
-  print*,"nel=",nel, ', LM=',LM(:,nel)
-end do 
-return
- nel=1; LM(:,nel) = (/0,1,6,0/)
- nel=2; LM(:,nel) = (/1,2,7,6/)
- nel=3; LM(:,nel) = (/2,3,8,7/)
- nel=4; LM(:,nel) = (/3,4,9,8/)
- nel=5; LM(:,nel) = (/4,5,10,9/)
- nel=6; LM(:,nel) = (/5,0,0,10/)
- nel=7; LM(:,nel) = (/0,6,11,0/)
- nel=8; LM(:,nel) = (/6,7,12,11/)
- nel=9; LM(:,nel) = (/7,8,13,12/)
-nel=10; LM(:,nel) = (/8,9,14,13/)
-nel=11; LM(:,nel) = (/9,10,15,14/)
-nel=12; LM(:,nel) = (/10,0,0,15/)
-do nel = 1, numel
-  print*,"nel=",nel, ', LM=',LM(:,nel)
-end do 
  end subroutine setLM
 
  subroutine setLMstencil()
@@ -743,6 +784,7 @@ subroutine setId()
   do n = 1, numnp
     eq = n
     id(1:ndof, n)=(/eq/)
+!    print *, id(:,n)
   end do
  return 
 n=1; id(1:ndof, n)=(/0/);
@@ -763,3 +805,65 @@ write(*, '(a)', advance='no') "id = "
 write(*, '(100(i0,", "))') id(:,1:numnp)
  end subroutine setId
 end subroutine renumerarCM
+
+subroutine testesIniciais
+        use grafo
+ type(vertice), pointer ::vA 
+ type(verticeL), pointer :: toVisit , aux
+ type(verticeL), pointer :: toVisitC
+ type(verticeL), pointer :: toVisitD 
+ type(vertice), pointer :: listaV (:)
+ integer :: i, nA=10, incA
+
+  allocate(listaV(20))
+
+  toVisit =>null()
+  toVisitC=>null()
+  toVisitD=>null()
+
+  allocate(vA)
+
+  nA=10; incA=-4;i =1
+  call inserirVarios()
+  print*, "                            ......................"
+  call mostrarConteudoL(toVisitC); 
+
+  nA=22;incA=+3;i = 5
+  call inserirVarios()
+  print*, "                            ......................"
+  call mostrarConteudoL(toVisitD); 
+
+  nA=5; incA=3; i = 10
+  call mostrarConteudoL(toVisitC); 
+  call inserirVarios()
+
+  i = 5
+  do while(associated(toVisit%next))
+  aux = excluirVerticeL(toVisit)
+  call mostrarConteudoL(toVisit); 
+  toVisit=> toVisit%next
+  i=i-1
+  end do
+
+contains 
+
+subroutine inserirVarios
+
+  integer :: k 
+  k = 1 
+
+  call atribuirNum(vA,nA); 
+  listaV(i)=vA;
+  do while(k<5) 
+!  print*, "incluindo ......... V%num=", acessarNum(listaV(i)); print*
+  call incluirVerticeL(toVisit, listaV(i)); 
+  call mostrarConteudoL(toVisit); 
+  i=i+1; k=k+1
+  nA = nA + incA
+  call atribuirNum(vA,nA); 
+  listaV(i)=vA;
+  end do
+
+end subroutine inserirVarios
+
+end subroutine testesIniciais

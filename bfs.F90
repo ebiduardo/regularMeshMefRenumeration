@@ -287,66 +287,6 @@ end function bfs
   !DB_24  write(*,'(a,i0.4,a, 4i0.4)', advance='yes') "nel=",nel, "-- LM =",LM_(:,nel)
  end subroutine montarAdjArrayLM
 
- subroutine montarAdjArrayLM01( adjArray_ ,LM_, listaVertices_, numel_, nen_, ndof_, neq_, numMaxVizEq_ )
- type(pVerticeL), intent(inout) :: adjArray_(:)
- integer :: LM_(4,numel_)
- type(vertice), target :: listaVertices_(0:) 
- type(vertice), pointer :: pU, pV 
- integer, intent(in) :: numel_, nen_, ndof_, neq_, numMaxVizEq_
- integer :: eq, i, j,  nel, eqB, n
- logical :: R1, R2
-
- print*, "em montarAdjArrayLM( subroutine  "
-  do eq = 1, neq_
-     adjArray_(eq)%p=>null()
-  end do 
-
-  do nel = 1, numel_
-  write(*,'(a,i0.4,a, 4i0.4)', advance='yes') "nel=",nel, "-- LM =",LM_(:,nel)
-    i=1
-    do while(i<=ndof_*nen_)
-      eq=LM_(i,nel)
-      if(eq>0) then
-        print*, "eq= ",eq
-        j=i+0
-        write(*,'(3(a,i0.4,a))',advance='no') "vizinhos de ",eq, " ...";call mostrarConteudoL(adjArray_(eq)%p)
-        write(*,*) "elemento:", nel ,",  analise para inclusao de :", LM_(:,nel)
-        do while(j<=ndof_*nen_)
-          eqB=LM_(j,nel)
-          if(eqB>0) then
-            ! o grafo é direcional 1->2 e 2->1 são diferentes
-            pU => listaVertices_(eqB)
-            R1=procurarVertice(adjArray_(eq)%p, pU) !listaVertices_(eqB)) 
-            if(.not.R1) then
-               !BD24 !print*, "A, incluindo= ", listaVertices_(eqB)%num, " em vizinhos de ", eq
-               call incluirVerticeLOrdenado(adjArray_(eq)%p, pU) ! listaVertices_(eqB))
-            endif 
-            pV => listaVertices_(eq)
-            R2=procurarVertice(adjArray_(eqB)%p, pV) !listaVertices_(eq)) 
-            if(.not.R2) then
-               !BD24 print*, "B, incluindo= ", listaVertices_(eq)%num, " em vizinhos de ", eqB
-               call incluirVerticeLOrdenado(adjArray_(eqB)%p, pV) ! listaVertices_(eq))
-            endif 
-          endif
-          j=j+1
-        end do
-      endif
-      i=i+1
-      write(*,'(3(a,i0.4,a))',advance='no') "vizinhos de ",eq, " ...";call mostrarConteudoL(adjArray_(eq)%p)
-    end do
-  end do 
-  do eq = 1,  neq_ 
-   call atribuirPeso(listaVertices_(eq), numVizinhos(adjArray_(eq)%p))
-   !call mostrarConteudoV(listaVertices_(eq)); print*
- end do
- !call mostrarConteudoGp(adjArray_, 1, neq_)
-  !end do
-  !DB_24  write(*,'(a,i0.4,a, 4i0.4)', advance='yes') "nel=",nel, "-- LM =",LM_(:,nel)
- end subroutine montarAdjArrayLM01
-! //R=procurarVertice(graph_->adjArray[acessarNum(src_)-1], *v);//==0;
-! //if(!R){// return;
-! //  printf("A, NAO  ACHEI. SIM INCLUI: %d - %d\n", acessarNum(src_), acessarNum(dest_));
-! //  addEdgeDV(graph_, src_ , dest_, numViz);
 logical recursive function procurarVertice(h_, v_) result (resp)
     type(VerticeL), pointer :: h_
     type(Vertice)           :: v_
@@ -646,7 +586,6 @@ subroutine renumerar()
  print*, "novo LM "; call mostrarLM(LM, nen, numel, 1, numel);
  !do i = 1, numnp; call atribuirNum(listaVertices(i),i); end do; 
  !do i = 1, numnp; adjArrayP(i)%p=>null(); end do; 
- !call montarAdjArrayLM01(adjArrayP, LM, listaVertices, numel, nen, ndof,  neq, numMaxVizEq)
 
  eqBandaMax=bandaMax(adjArrayP)
  print*, "banda_ modificada    = ", maiorValor(adjArrayP(eqBandaMax)%p)-menorValor(adjArrayP(eqBandaMax)%p)+1
@@ -685,8 +624,7 @@ end subroutine renumerar
  subroutine setLM()
  integer :: eq, i, nel
 
-#include "conectividades.F90"
-
+#include "conectividades.F90" 
 return 
 nel= 1; LM(1:ndof*nen,nel) = (/ 1 , 2 , 9 , 8 /)
 nel= 2; LM(1:ndof*nen,nel) = (/ 2 , 3 , 10 , 9 /)
@@ -700,6 +638,7 @@ nel= 9; LM(1:ndof*nen,nel) = (/ 10 , 11 , 18 , 17 /)
 nel= 10; LM(1:ndof*nen,nel) = (/ 11 , 12 , 19 , 18 /)
 nel= 11; LM(1:ndof*nen,nel) = (/ 12 , 13 , 20 , 19 /)
 nel= 12; LM(1:ndof*nen,nel) = (/ 13 , 14 , 21 , 20 /)
+do nel = 1, numel; print*,"nel=",nel, ', LM=',LM(:,nel); end do ; stop
 return
 nel= 1; LM(1:ndof*nen,nel) = (/ 1 , 2 , 5 , 4 /)
 nel= 2; LM(1:ndof*nen,nel) = (/ 2 , 3 , 6 , 5 /)
@@ -713,41 +652,6 @@ nel= 9; LM(1:ndof*nen,nel) = (/ 13 , 14 , 17 , 16 /)
 nel= 10; LM(1:ndof*nen,nel) = (/ 14 , 15 , 18 , 17 /)
 nel= 11; LM(1:ndof*nen,nel) = (/ 16 , 17 , 20 , 19 /)
 nel= 12; LM(1:ndof*nen,nel) = (/ 17 , 18 , 21 , 20 /)
-do nel = 1, numel
-  print*,"nel=",nel, ', LM=',LM(:,nel)
-end do 
-return
-nel=1; LM(1:ndof*nen,nel) = (/0,1,2,0/)
-nel=2; LM(1:ndof*nen,nel) = (/1,4,5,2/)
-nel=3; LM(1:ndof*nen,nel) = (/4,7,8,5/)
-nel=4; LM(1:ndof*nen,nel) = (/7,10,11,8/)
-nel=5; LM(1:ndof*nen,nel) = (/10,13,14,11/)
-nel=6; LM(1:ndof*nen,nel) = (/13,0,0,14/)
-nel=7; LM(1:ndof*nen,nel) = (/0,2,3,0/)
-nel=8; LM(1:ndof*nen,nel) = (/2,5,6,3/)
-nel=9; LM(1:ndof*nen,nel) = (/5,8,9,6/)
-nel=10; LM(1:ndof*nen,nel) = (/8,11,12,9/)
-nel=11; LM(1:ndof*nen,nel) = (/11,14,15,12/)
-nel=12; LM(1:ndof*nen,nel) = (/14,0,0,15/)
-do nel = 1, numel
-  print*,"nel=",nel, ', LM=',LM(:,nel)
-end do 
-return
- nel=1; LM(:,nel) = (/0,1,6,0/)
- nel=2; LM(:,nel) = (/1,2,7,6/)
- nel=3; LM(:,nel) = (/2,3,8,7/)
- nel=4; LM(:,nel) = (/3,4,9,8/)
- nel=5; LM(:,nel) = (/4,5,10,9/)
- nel=6; LM(:,nel) = (/5,0,0,10/)
- nel=7; LM(:,nel) = (/0,6,11,0/)
- nel=8; LM(:,nel) = (/6,7,12,11/)
- nel=9; LM(:,nel) = (/7,8,13,12/)
-nel=10; LM(:,nel) = (/8,9,14,13/)
-nel=11; LM(:,nel) = (/9,10,15,14/)
-nel=12; LM(:,nel) = (/10,0,0,15/)
-do nel = 1, numel
-  print*,"nel=",nel, ', LM=',LM(:,nel)
-end do 
  end subroutine setLM
 
  subroutine setLMstencil()
